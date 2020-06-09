@@ -1,0 +1,20 @@
+name: 'Open Y Media Document'
+description: Provides a Document media entity and features.
+type: module
+core: 8.x
+version: 8.x-1.0
+package: Open Y
+dependencies:
+  - drupal:field
+  - drupal:file
+  - drupal:image
+  - drupal:media (>= 8.6)
+  - drupal:path
+  - drupal:taxonomy
+  - drupal:user
+  - drupal:views
+  - dropzonejs_eb_widget
+  - embed
+  - entity_browser
+  - entity_embed
+  - openy_media

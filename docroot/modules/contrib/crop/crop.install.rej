@@ -1,0 +1,29 @@
+***************
+*** 22,29 ****
+    }
+    elseif (\Drupal::moduleHandler()->moduleExists('media_entity')) {
+      $info = system_get_info('module', 'media_entity');
+-     if (version_compare($info['version'], '8.x-2') < 0) {
+-       $incompatible = TRUE;
+      }
+    }
+  
+--- 22,39 ----
+    }
+    elseif (\Drupal::moduleHandler()->moduleExists('media_entity')) {
+      $info = system_get_info('module', 'media_entity');
++     $path = drupal_get_path('module','media_entity');
++ 
++     // The module version can be empty if module is installed via composer.
++     if (!empty($info['version'])) {
++       if (version_compare($info['version'], '8.x-2') < 0) {
++         $incompatible = TRUE;
++       }
++     }
++     else {
++       if (!file_exists(DRUPAL_ROOT . '/' . $path . '/src/CliService.php')) {
++         $incompatible = TRUE;
++       }
+      }
+    }
+  

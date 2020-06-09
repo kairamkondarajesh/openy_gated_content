@@ -1,0 +1,85 @@
+name: Open Y
+type: profile
+description: 'Open Y Drupal distribution.'
+core_version_requirement: ^8.8
+version: '8.x-2.4.3'
+distribution:
+  name: Open Y
+  install:
+    theme: openy_admin
+php: 7.2
+# Required modules
+dependencies:
+  # Core modules.
+  - action
+  - block_content
+  - breakpoint
+  - ckeditor
+  - color
+  - config
+  - contact
+  - contextual
+  - datetime
+  - datetime_range
+  - editor
+  - entity_reference
+  - file
+  - help
+  - history
+  - image
+  - link
+  - menu_link_content
+  - menu_ui
+  - migrate
+  - node
+  - options
+  - page_cache
+  - path
+  - quickedit
+  - rdf
+  - shortcut
+  - system
+  - taxonomy
+  - telephone
+  - text
+  - toolbar
+  - views
+  - tour
+  # Contrib modules.
+  - admin_toolbar
+  - captcha
+  - ckeditor_bootstrap_buttons
+  - config_import
+  - features
+  - fontyourface
+  - image_captcha
+  - local_fonts
+  - metatag
+  - metatag_open_graph
+  - plugin
+  - recaptcha
+  - simple_menu_icons
+  - twig_tweak
+  # Open Y
+  - advanced_help_block
+  - openy_autocomplete_path
+  - openy_block_custom_simple
+  - openy_datalayer
+  - openy_editor
+  - openy_menu_main
+  - openy_menu_footer
+  - openy_media_image
+  - openy_media_document
+  - openy_media_video
+  - openy_media_local_video
+  - openy_migrate
+  - openy_node_landing
+  - openy_redirect
+  - openy_system
+  - openy_taxonomy
+  - openy_tour
+  - openy_update
+themes:
+  - bartik
+  - openy_admin
+  - seven
