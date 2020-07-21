@@ -1,3 +1,5 @@
+docroot/sites/*/files
+
 # Exclude hidden OS files.
 .DS_Store
 ._*

@@ -7,7 +7,9 @@
         "ymcatwincities/openy": "8.2.*",
         "composer/installers": "^1.2",
         "drupal-composer/drupal-scaffold": "2.4.0",
-        "cweagans/composer-patches": "~1.0"
+        "cweagans/composer-patches": "~1.0",
+        "drupal/field_group": "~3.0@dev",
+        "zaporylie/composer-drupal-optimizations": "^1.0"
     },
     "require-dev": {
         "ymcatwincities/openy-cibox-build": "dev-master",
@@ -198,7 +200,12 @@
             "docroot/themes/contrib/{$name}": ["type:drupal-theme"],
             "drush/contrib/{$name}": ["type:drupal-drush"]
         },
-        "enable-patching": true
+        "enable-patching": true,
+        "patches": {
+            "drupal/field_group": {
+                "3059615 - Undefined property: stdClass::$region in field_group_form_process()": "https://www.drupal.org/files/issues/2020-06-15/3059614-37.patch"
+            }
+        }
     },
     "config": {
         "bin-dir": "vendor/bin/",
