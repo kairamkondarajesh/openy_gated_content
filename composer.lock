@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4676c2758637c52e00329ccf6adfff94",
+    "content-hash": "2f2a82c9758f845e7cd967715d89db9a",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -3125,6 +3125,61 @@
             }
         },
         {
+            "name": "drupal/field_inheritance",
+            "version": "1.0.0-beta4",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/field_inheritance.git",
+                "reference": "8.x-1.0-beta4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/field_inheritance-8.x-1.0-beta4.zip",
+                "reference": "8.x-1.0-beta4",
+                "shasum": "a75155c50abefb9bbb2af54777235ad7a8e7fb2a"
+            },
+            "require": {
+                "cweagans/composer-patches": "~1.0",
+                "drupal/core": "^8.8 || ^9",
+                "wikimedia/composer-merge-plugin": "^1.5@dev"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0-beta4",
+                    "datestamp": "1594415019",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                },
+                "patches": {
+                    "drupal/core": {
+                        "Views does not support computed bundle fields": "https://www.drupal.org/files/issues/2019-10-20/2981047-fix-only-44.patch"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "owenbush",
+                    "homepage": "https://www.drupal.org/user/2765259"
+                }
+            ],
+            "description": "Provides the ability to inherit data from one entity to another",
+            "homepage": "https://www.drupal.org/project/field_inheritance",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/field_inheritance",
+                "issues": "https://www.drupal.org/project/issues/field_inheritance"
+            }
+        },
+        {
             "name": "drupal/focal_point",
             "version": "1.4.0",
             "source": {
@@ -3729,6 +3784,50 @@
             "homepage": "https://www.drupal.org/project/jquery_colorpicker",
             "support": {
                 "source": "https://git.drupalcode.org/project/jquery_colorpicker"
+            }
+        },
+        {
+            "name": "drupal/jsonapi_image_styles",
+            "version": "1.0.0-beta1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/jsonapi_image_styles.git",
+                "reference": "8.x-1.0-beta1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/jsonapi_image_styles-8.x-1.0-beta1.zip",
+                "reference": "8.x-1.0-beta1",
+                "shasum": "4be2b938296dc8a55146e413fb046279c51791a4"
+            },
+            "require": {
+                "drupal/core": "^8"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0-beta1",
+                    "datestamp": "1568319488",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "kirkkala",
+                    "homepage": "https://www.drupal.org/user/390806"
+                }
+            ],
+            "description": "Expose image styles to JSON:API",
+            "homepage": "https://www.drupal.org/project/jsonapi_image_styles",
+            "support": {
+                "source": "https://git.drupalcode.org/project/jsonapi_image_styles"
             }
         },
         {
@@ -4805,6 +4904,67 @@
             "support": {
                 "source": "https://git.drupal.org/project/recaptcha.git",
                 "issues": "https://www.drupal.org/project/issues/recaptcha"
+            }
+        },
+        {
+            "name": "drupal/recurring_events",
+            "version": "2.0.0-alpha2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/recurring_events.git",
+                "reference": "2.0.0-alpha2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/recurring_events-2.0.0-alpha2.zip",
+                "reference": "2.0.0-alpha2",
+                "shasum": "b9e92e4724b455a34aa24540e72d4cb141864b75"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9",
+                "drupal/field_inheritance": "^1"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.0-alpha2",
+                    "datestamp": "1591305950",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "achoura",
+                    "homepage": "https://www.drupal.org/user/563984"
+                },
+                {
+                    "name": "if-jds",
+                    "homepage": "https://www.drupal.org/user/3422223"
+                },
+                {
+                    "name": "lhridley",
+                    "homepage": "https://www.drupal.org/user/1223730"
+                },
+                {
+                    "name": "owenbush",
+                    "homepage": "https://www.drupal.org/user/2765259"
+                }
+            ],
+            "description": "Recurring Events and Registration Management Module",
+            "homepage": "https://www.drupal.org/project/recurring_events",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/recurring_events",
+                "issues": "https://www.drupal.org/project/issues/recurring_events"
             }
         },
         {
@@ -9526,6 +9686,77 @@
             "time": "2019-12-10T11:53:27+00:00"
         },
         {
+            "name": "wikimedia/composer-merge-plugin",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wikimedia/composer-merge-plugin.git",
+                "reference": "b6f3410a7c693dcafe4ad438a7a992ef92159bae"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wikimedia/composer-merge-plugin/zipball/b6f3410a7c693dcafe4ad438a7a992ef92159bae",
+                "reference": "b6f3410a7c693dcafe4ad438a7a992ef92159bae",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.1",
+                "php": ">=7.2.0"
+            },
+            "require-dev": {
+                "composer/composer": "^1.1",
+                "php-parallel-lint/php-parallel-lint": "~1.1.0",
+                "phpunit/phpunit": "^8.5||^9.0",
+                "squizlabs/php_codesniffer": "~3.5.4"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.5.x-dev"
+                },
+                "class": "Wikimedia\\Composer\\MergePlugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Wikimedia\\Composer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bryan Davis",
+                    "email": "bd808@wikimedia.org"
+                }
+            ],
+            "description": "Composer plugin to merge multiple composer.json files",
+            "time": "2020-05-20T02:30:48+00:00"
+        },
+        {
+            "name": "ymcatwincities/daxko_sso",
+            "version": "0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ymcatwincities/daxko_sso.git",
+                "reference": "e0bb9d45ab3a283f10d4cd923b5e9c8bdd6cbd0f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ymcatwincities/daxko_sso/zipball/e0bb9d45ab3a283f10d4cd923b5e9c8bdd6cbd0f",
+                "reference": "e0bb9d45ab3a283f10d4cd923b5e9c8bdd6cbd0f",
+                "shasum": ""
+            },
+            "type": "drupal-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "Open Y Daxko SSO integration",
+            "time": "2020-06-19T12:32:09+00:00"
+        },
+        {
             "name": "ymcatwincities/openy",
             "version": "8.2.5.0",
             "source": {
@@ -9740,6 +9971,33 @@
                 "issues": "https://github.com/ymcatwincities/openy/issues"
             },
             "time": "2020-05-26T15:36:11+00:00"
+        },
+        {
+            "name": "ymcatwincities/openy_gated_content",
+            "version": "0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ymcatwincities/openy_gated_content.git",
+                "reference": "31feebace09abd27f5affa42cc4f42109ba564fb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ymcatwincities/openy_gated_content/zipball/31feebace09abd27f5affa42cc4f42109ba564fb",
+                "reference": "31feebace09abd27f5affa42cc4f42109ba564fb",
+                "shasum": ""
+            },
+            "require": {
+                "drupal/jsonapi_image_styles": "^1.0@beta",
+                "drupal/recurring_events": "*",
+                "ymcatwincities/daxko_sso": "*"
+            },
+            "type": "drupal-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "Open Y Virtual Y Content",
+            "time": "2020-07-13T13:39:16+00:00"
         },
         {
             "name": "zaporylie/composer-drupal-optimizations",

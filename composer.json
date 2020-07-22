@@ -10,7 +10,8 @@
         "drupal/core-composer-scaffold": "^8.8",
         "drupal/core-recommended": "^8.8",
         "drupal/field_group": "~3.0@dev",
-        "zaporylie/composer-drupal-optimizations": "^1.0"
+        "zaporylie/composer-drupal-optimizations": "^1.0",
+        "ymcatwincities/openy_gated_content": "^0.6.0"
     },
     "require-dev": {
         "ymcatwincities/openy-cibox-build": "dev-master",
