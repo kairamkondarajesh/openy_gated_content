@@ -1,5 +1,0 @@
-cache_max_age: '3600'
-cache_warmup_interval: '1800'
-status: true
-_core:
-  default_config_hash: sPXVhy-Z5mvG9xlNrbm_OFr2ZDnxfwojHDgsFnKcIRI

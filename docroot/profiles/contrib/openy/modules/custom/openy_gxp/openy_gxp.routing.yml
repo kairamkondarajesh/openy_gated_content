@@ -1,7 +1,0 @@
-openy_gxp.settings:
-  path: /admin/openy/integrations/groupex-pro/gxp
-  defaults:
-    _form: '\Drupal\openy_gxp\Form\SettingsForm'
-    _title: 'GroupEx Pro settings'
-  requirements:
-    _permission: 'administer gxp'

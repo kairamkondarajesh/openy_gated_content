@@ -1,4 +1,0 @@
-services:
-  media_directories_ui.ui_builder:
-    class: Drupal\media_directories_ui\MediaDirectoriesUiBuilder
-    arguments: ['@entity_type.manager', '@request_stack', '@views.executable', '@form_builder']
