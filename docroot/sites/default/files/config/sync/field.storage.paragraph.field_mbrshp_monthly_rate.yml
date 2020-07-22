@@ -1,0 +1,22 @@
+uuid: 2020803c-4d08-422d-a745-cbdf2a45ebd8
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+_core:
+  default_config_hash: s39mW0KEWVCZcMKtJlcFFiytusio_pGJWUCfhYLYGnI
+id: paragraph.field_mbrshp_monthly_rate
+field_name: field_mbrshp_monthly_rate
+entity_type: paragraph
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

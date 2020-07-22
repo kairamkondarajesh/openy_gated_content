@@ -1,0 +1,26 @@
+uuid: a4f1dbe3-bf17-41d2-9441-b8328a943fce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sidebar_content
+    - node.type.program_subcategory
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: My1j0Z3lOsP86C4W5O5Dwnk1_44UDqi7GgByp49G1Mg
+id: node.program_subcategory.field_sidebar_content
+field_name: field_sidebar_content
+entity_type: node
+bundle: program_subcategory
+label: Content
+description: 'A paragraph embed field that will allow us to add various flexible content modules, from the predefined list of paragraph types.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles: null
+field_type: entity_reference_revisions

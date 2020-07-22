@@ -1,0 +1,11 @@
+uuid: e3a5c92e-d25c-42f2-8a0d-d461964a27e6
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Ny2PTmNhe8h-KxnmhK3WLoTdZewAqn7er9obpmuFuwE
+id: featured_blogs
+label: 'Featured Blog Posts'
+icon_uuid: null
+description: null
+behavior_plugins: {  }

@@ -1,0 +1,12 @@
+uuid: 3ff37bfb-c9e7-4121-a684-27d462479b4e
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+_core:
+  default_config_hash: xRPeuSlrL0Ui3rQ0833YnlfAY3c47s6yvZjt2XFnW6U
+id: media.node_news
+label: 'Node news'
+targetEntityType: media
+cache: true

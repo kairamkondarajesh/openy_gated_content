@@ -1,0 +1,11 @@
+uuid: d58aaa39-dd64-4615-89d8-e31fe8269a8e
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 8DqjLN-TXh4QJyYb2tJ78dx38w5APxuUTF-kh1oDz1w
+id: 4c
+label: '4 columns'
+icon_uuid: null
+description: 'Paragraph with 4 columns.'
+behavior_plugins: {  }

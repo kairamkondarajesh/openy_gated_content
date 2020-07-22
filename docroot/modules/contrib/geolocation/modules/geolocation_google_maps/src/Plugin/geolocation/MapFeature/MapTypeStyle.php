@@ -23,31 +23,8 @@ class MapTypeStyle extends MapFeatureBase {
    */
   public static function getDefaultSettings() {
     return [
-      'style' => '',
+      'style' => '[]',
     ];
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getSettings(array $settings) {
-    $settings = parent::getSettings($settings);
-
-    // Convert JSON string to actual array before handing to Renderer.
-    if (!empty($settings['style'])) {
-      if (!is_array($settings['style'])) {
-        $json = json_decode($settings['style']);
-      }
-      else {
-        $json = $settings['style'];
-      }
-
-      if (is_array($json)) {
-        $settings['style'] = $json;
-      }
-    }
-
-    return $settings;
   }
 
   /**
@@ -60,7 +37,7 @@ class MapTypeStyle extends MapFeatureBase {
     $form['style'] = [
       '#title' => $this->t('JSON styles'),
       '#type' => 'textarea',
-      '#default_value' => json_encode($settings['style']),
+      '#default_value' => $settings['style'],
       '#description' => $this->t('A JSON encoded styles array to customize the presentation of the Google Map. See the <a href=":styling">Styled Map</a> section of the Google Maps website for further information.', [
         ':styling' => 'https://developers.google.com/maps/documentation/javascript/styling',
       ]),
@@ -108,16 +85,14 @@ class MapTypeStyle extends MapFeatureBase {
     $render_array['#attached'] = BubbleableMetadata::mergeAttachments(
       empty($render_array['#attached']) ? [] : $render_array['#attached'],
       [
-        'library' => [
-          'geolocation_google_maps/geolocation.maptypestyle',
-        ],
         'drupalSettings' => [
           'geolocation' => [
             'maps' => [
               $render_array['#id'] => [
-                'map_type_style' => [
-                  'enable' => TRUE,
-                  'style' => $feature_settings['style'],
+                'settings' => [
+                  'google_map_settings' => [
+                    'style' => $feature_settings['style'],
+                  ],
                 ],
               ],
             ],

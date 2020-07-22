@@ -114,6 +114,13 @@ class GeolocationGoogleMapsSettings extends ConfigFormBase {
       '#description' => $this->t('Attention: setting this option has major usage implications. See <a href=":google_client_id_link">Google Maps Authentication documentation</a>.', [':google_client_id_link' => 'https://developers.google.com/maps/documentation/javascript/get-api-key#client-id']),
     ];
 
+    $form['parameters']['channel'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t("Google Maps API Channel ID - 'channel'"),
+      '#default_value' => empty($custom_parameters['channel']) ?: $custom_parameters['channel'],
+      '#description' => $this->t('Channel parameter for tracking map usage.'),
+    ];
+
     $form['use_current_language'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Use current interface language in Google Maps'),
@@ -126,6 +133,13 @@ class GeolocationGoogleMapsSettings extends ConfigFormBase {
       '#title' => $this->t('Enable China mode'),
       '#default_value' => $config->get('china_mode') ? TRUE : FALSE,
       '#description' => $this->t('Use the specific URLs required in the PR China. See explanation at <a href=":google_faq">Google FAQ</a>.', [':google_faq' => 'https://developers.google.com/maps/faq?hl=de#china_ws_access']),
+    ];
+
+    $form['google_maps_base_url'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Google Maps Base URL Override'),
+      '#default_value' => $config->get('google_maps_base_url'),
+      '#description' => $this->t('Override Google Maps URL base entirely.'),
     ];
 
     return parent::buildForm($form, $form_state);
@@ -186,6 +200,7 @@ class GeolocationGoogleMapsSettings extends ConfigFormBase {
 
     $config->set('use_current_language', $form_state->getValue('use_current_language'));
     $config->set('china_mode', $form_state->getValue('china_mode'));
+    $config->set('google_maps_base_url', $form_state->getValue('google_maps_base_url'));
 
     $parameters = $form_state->getValue('parameters');
     unset($parameters['libraries']['add']);
@@ -201,7 +216,9 @@ class GeolocationGoogleMapsSettings extends ConfigFormBase {
     $config->save();
 
     // Confirmation on form submission.
-    drupal_set_message($this->t('The configuration options have been saved.'));
+    \Drupal::messenger()->addMessage($this->t('The configuration options have been saved.'));
+
+    drupal_flush_all_caches();
   }
 
 }

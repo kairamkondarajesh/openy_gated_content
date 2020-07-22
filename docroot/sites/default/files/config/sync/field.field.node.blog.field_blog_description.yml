@@ -1,0 +1,28 @@
+uuid: 6f427344-ee80-46c0-b3f4-49fb130a8881
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_blog_description
+    - node.type.blog
+  module:
+    - datalayer
+    - text
+third_party_settings:
+  datalayer:
+    expose: 1
+    label: field_blog_description
+_core:
+  default_config_hash: ricMqp_D8h-IneEdYHLtUBejBTJKRbEBZXSvsGyeJCU
+id: node.blog.field_blog_description
+field_name: field_blog_description
+entity_type: node
+bundle: blog
+label: Description
+description: 'Textarea for the description/body with WYSIWYG, without summary.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,19 @@
+uuid: 18b523bf-dcb0-4173-b01c-34b2023e7d29
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.prgf_location_finder.field_prgf_location_finder
+    - paragraphs.paragraphs_type.prgf_location_finder
+_core:
+  default_config_hash: R41XT6muxdWy5oBzhcY1N4cshqoFDXZezhrYFtIA-Vc
+id: paragraph.prgf_location_finder.default
+targetEntityType: paragraph
+bundle: prgf_location_finder
+mode: default
+content: {  }
+hidden:
+  created: true
+  field_prgf_location_finder: true
+  status: true
+  uid: true

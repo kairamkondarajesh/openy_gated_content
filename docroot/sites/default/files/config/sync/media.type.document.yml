@@ -1,0 +1,17 @@
+uuid: 9c35dc2c-b9d8-4225-bcfd-0f3bde0f3b07
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: WoKkj0IT646xUzQ8dQQzDCaaVBxVsarwXF04o8pEE90
+id: document
+label: Document
+description: 'Use Document for uploading document files such as PDF.'
+source: file
+queue_thumbnail_downloads: false
+new_revision: true
+source_configuration:
+  source_field: field_media_document
+field_map:
+  mime: field_media_mime
+  size: field_media_size

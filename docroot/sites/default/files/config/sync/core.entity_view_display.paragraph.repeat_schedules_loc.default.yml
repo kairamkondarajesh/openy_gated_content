@@ -1,0 +1,33 @@
+uuid: d6e604d0-b17c-492f-9222-d2c0d12292da
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.repeat_schedules_loc.field_prgf_block
+    - field.field.paragraph.repeat_schedules_loc.field_prgf_repeat_lschedules_prf
+    - paragraphs.paragraphs_type.repeat_schedules_loc
+  module:
+    - plugin
+_core:
+  default_config_hash: r4UmVwqfR_PVPWhXHpqUCE5L4K4HJ5WVYQuzj1T9g9g
+id: paragraph.repeat_schedules_loc.default
+targetEntityType: paragraph
+bundle: repeat_schedules_loc
+mode: default
+content:
+  field_prgf_block:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: plugin_block_built
+    region: content
+  field_prgf_repeat_lschedules_prf:
+    weight: 1
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden: {  }

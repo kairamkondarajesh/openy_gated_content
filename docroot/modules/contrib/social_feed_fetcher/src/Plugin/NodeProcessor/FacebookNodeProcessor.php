@@ -2,11 +2,11 @@
 
 namespace Drupal\social_feed_fetcher\Plugin\NodeProcessor;
 
-use Drupal\node\Entity\Node;
+use Drupal\Core\File\FileSystemInterface;
 use Drupal\social_feed_fetcher\PluginNodeProcessorPluginBase;
 
 /**
- * Class FacebookNodeProcessor
+ * Class FacebookNodeProcessor.
  *
  * @package Drupal\social_feed_fetcher\Plugin\NodeProcessor
  *
@@ -43,10 +43,10 @@ class FacebookNodeProcessor extends PluginNodeProcessorPluginBase {
           'title' => '',
           'options' => [],
         ];
-      }      
+      }
       if (isset($data_item['image'])) {
         $fbpost['field_sp_image'] = [
-          'target_id' => $this->processImageFile($data_item['image'], 'public://facebook')
+          'target_id' => $this->processImageFile($data_item['image'], 'public://facebook'),
         ];
       }
       $node = $this->entityStorage->create($fbpost);
@@ -58,17 +58,20 @@ class FacebookNodeProcessor extends PluginNodeProcessorPluginBase {
   /**
    * Save external file.
    *
-   * @param $filename
-   * @param $path
+   * @param string $filename
+   *   File name.
+   * @param string $path
+   *   Current path.
    *
    * @return int
+   *   Id of the file entity.
    */
   public function processImageFile($filename, $path) {
     $response = $this->httpClient->get($filename);
     $data = $response->getBody();
     $uri = $path . '/' . mt_rand() . '.jpg';
-    file_prepare_directory($path, FILE_CREATE_DIRECTORY);
-    return file_save_data($data, $uri, FILE_EXISTS_REPLACE)->id();
+    $this->fileSystem->prepareDirectory($path, FileSystemInterface::CREATE_DIRECTORY);
+    return file_save_data($data, $uri, FileSystemInterface::EXISTS_REPLACE)->id();
   }
 
 }

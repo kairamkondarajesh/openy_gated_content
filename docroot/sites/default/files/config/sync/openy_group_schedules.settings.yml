@@ -1,0 +1,7 @@
+account_id: 36
+cache_max_age: 3600
+location_max: 4
+days_range: 14
+default_locations: {  }
+_core:
+  default_config_hash: 5kU2ABVGS-lhtLHq3w-5vV8pB4ryS7VlJgWb8qIoY2Q

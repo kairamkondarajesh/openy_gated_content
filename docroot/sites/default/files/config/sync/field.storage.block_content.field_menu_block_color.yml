@@ -1,0 +1,22 @@
+uuid: 36b796dc-1cb3-4044-b36f-b290e43be0d7
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - taxonomy
+_core:
+  default_config_hash: OW6FgnIbJPy2bQD8M1DmAxM_SeTYWS4bfrelz-6qqag
+id: block_content.field_menu_block_color
+field_name: field_menu_block_color
+entity_type: block_content
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 2
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,21 @@
+uuid: f361c733-019a-4160-9218-810be7c3990f
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - paragraphs
+_core:
+  default_config_hash: 110ICU6T9vmXcJfMoFLh659TvQNvEZiN_d8VSkXZp_0
+id: paragraph.field_prgf_4c_button
+field_name: field_prgf_4c_button
+entity_type: paragraph
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

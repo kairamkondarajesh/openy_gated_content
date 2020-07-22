@@ -1,0 +1,22 @@
+uuid: 6543296f-2175-4f86-bfae-aaa89c6971bc
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+_core:
+  default_config_hash: tTAhzhhY7nkr-AUBbK06mRqFPlNw9ZbNPmm_v5u52PE
+id: node.field_news_category
+field_name: field_news_category
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

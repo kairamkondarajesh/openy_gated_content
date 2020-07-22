@@ -15,7 +15,7 @@ class GeysirModalParagraphAddSelectTypeForm extends FormBase {
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'geysir.modal.add_select_type_form';
+    return 'geysir_modal_add_select_type_form';
   }
 
   /**
@@ -82,12 +82,10 @@ class GeysirModalParagraphAddSelectTypeForm extends FormBase {
     $bundles = \Drupal::service('entity_type.bundle.info')->getBundleInfo('paragraph');
 
     if (is_array($allowed_bundles) && count($allowed_bundles)) {
-      // Preserve order of allowed bundles setting.
-      $allowed_bundles_order = array_flip($allowed_bundles);
       // Only keep allowed bundles.
       $bundles = array_intersect_key(
-        array_replace($allowed_bundles_order, $bundles),
-        $allowed_bundles_order
+        array_replace($allowed_bundles, $bundles),
+        $allowed_bundles
       );
     }
 

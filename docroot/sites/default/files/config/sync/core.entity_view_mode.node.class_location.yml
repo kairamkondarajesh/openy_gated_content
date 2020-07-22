@@ -1,0 +1,12 @@
+uuid: 64624bc6-8ffa-42ec-bac7-f3c9313b0796
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: iZLz6GeVvdY5Opj4BqHVDuwbkmOYXbty7FD9AMqHtjI
+id: node.class_location
+label: 'Class location'
+targetEntityType: node
+cache: true

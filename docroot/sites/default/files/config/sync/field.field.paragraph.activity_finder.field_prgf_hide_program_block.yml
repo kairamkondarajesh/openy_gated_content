@@ -1,0 +1,31 @@
+uuid: c9f460d6-44b5-4efe-9d0f-8b134232d113
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_prgf_hide_program_block
+    - paragraphs.paragraphs_type.activity_finder
+  module:
+    - datalayer
+third_party_settings:
+  datalayer:
+    expose: 0
+    label: field_prgf_hide_program_block
+_core:
+  default_config_hash: Eme1JC9PGtgtGwB0vzZDVyuDSsSSnASXJBFzsDcjgd0
+id: paragraph.activity_finder.field_prgf_hide_program_block
+field_name: field_prgf_hide_program_block
+entity_type: paragraph
+bundle: activity_finder
+label: 'Hide program and home branch block'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Hide
+  off_label: Show
+field_type: boolean

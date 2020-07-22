@@ -1,0 +1,10 @@
+uuid: fb29578f-bb05-4c50-8d7e-59cf3ceb3b67
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: jipr2uqFy_cGC2aEFt7NQBDlEokt4rtBIoFEcss4Owk
+name: 'Facility Type'
+vid: facility_type
+description: 'This vocabulary is used for adding facility type on the site for the Facility CT.'
+weight: 0

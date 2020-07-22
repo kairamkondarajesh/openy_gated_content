@@ -32,9 +32,8 @@ class GeysirModalParagraphAddForm extends GeysirModalParagraphForm {
     $this->entity->setNewRevision(TRUE);
     $this->entity->save();
 
-    $parent_entity_revision = $this->entityTypeManager
-      ->getStorage($parent_entity_type)
-      ->loadRevision($parent_entity_revision);
+    // Get the parent revision if available, otherwise the parent.
+    $parent_entity_revision = $this->getParentRevisionOrParent($parent_entity_type, $parent_entity_revision);
 
     // If we add the first paragraph, no need for reordering.
     if (!empty($route_match->getParameter('paragraph'))) {
@@ -46,7 +45,9 @@ class GeysirModalParagraphAddForm extends GeysirModalParagraphForm {
 
     $save_status = $parent_entity_revision->save();
 
-    $form_state->setTemporary(['parent_entity_revision' => $parent_entity_revision->getRevisionId()]);
+    // Use the parent revision id if available, otherwise the parent id.
+    $parent_revision_id = ($parent_entity_revision->getRevisionId()) ? $parent_entity_revision->getRevisionId() : $parent_entity_revision->id();
+    $form_state->setTemporary(['parent_entity_revision' => $parent_revision_id]);
 
     return $save_status;
   }

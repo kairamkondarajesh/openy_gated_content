@@ -1,0 +1,25 @@
+uuid: fd7f0baa-3e75-4151-9e13-e8888d4ff112
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_session_reg_link
+    - node.type.session
+  module:
+    - link
+_core:
+  default_config_hash: wRubZDpK7pl3zByBVCBl2hM5ipGtjkgnc2kOYZRbAXo
+id: node.session.field_session_reg_link
+field_name: field_session_reg_link
+entity_type: node
+bundle: session
+label: 'Registration link'
+description: 'A link field with the Registration link Value.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

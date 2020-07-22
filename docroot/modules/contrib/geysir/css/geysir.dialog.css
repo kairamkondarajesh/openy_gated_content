@@ -100,7 +100,7 @@
     opacity: 0.7;
 }
 
-.geysirmodaladd-select-type-form .geysir-add-type {
+.geysir-modal-add-select-type-form .geysir-add-type {
     border: 2px solid #ffffff;
     display: inline-block;
     margin-right: 30px;
@@ -109,16 +109,16 @@
     width: 100px;
 }
 
-.geysirmodaladd-select-type-form .geysir-add-type:hover {
+.geysir-modal-add-select-type-form .geysir-add-type:hover {
     border: 2px solid rgb(85, 142, 213);
 }
 
-.geysirmodaladd-select-type-form .geysir-add-type input {
+.geysir-modal-add-select-type-form .geysir-add-type input {
     border: none;
     padding: 0;
 }
 
-.geysirmodaladd-select-type-form .geysir-add-type span {
+.geysir-modal-add-select-type-form .geysir-add-type span {
     display: block;
     text-align: center;
     width: 100%;

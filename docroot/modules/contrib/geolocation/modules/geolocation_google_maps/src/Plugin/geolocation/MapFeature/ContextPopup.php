@@ -60,16 +60,11 @@ class ContextPopup extends MapFeatureBase {
 
     $feature_settings = $this->getSettings($feature_settings);
 
-    $token_context = [];
-    if (!empty($context['view'])) {
-      $token_context['view'] = $context['view'];
-    }
-
     if (
       !empty($settings['content']['value'])
       && !empty($settings['content']['format'])
     ) {
-      $content = check_markup(\Drupal::token()->replace($feature_settings['content']['value'], $token_context), $feature_settings['content']['format']);
+      $content = check_markup(\Drupal::token()->replace($feature_settings['content']['value'], $context), $feature_settings['content']['format']);
     }
     else {
       return $render_array;
@@ -79,13 +74,13 @@ class ContextPopup extends MapFeatureBase {
       empty($render_array['#attached']) ? [] : $render_array['#attached'],
       [
         'library' => [
-          'geolocation_google_maps/geolocation.contextpopup',
+          'geolocation_google_maps/mapfeature.' . $this->getPluginId(),
         ],
         'drupalSettings' => [
           'geolocation' => [
             'maps' => [
               $render_array['#id'] => [
-                'context_popup' => [
+                $this->getPluginId() => [
                   'enable' => TRUE,
                   'content' => $content,
                 ],

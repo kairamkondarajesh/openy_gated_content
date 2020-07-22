@@ -18,8 +18,6 @@
  * @name CommonMapSettings
  * @property {Object} settings
  * @property {CommonMapUpdateSettings} dynamic_map
- * @property {String} client_location.enable
- * @property {String} client_location.update_map
  * @property {Boolean} markerScrollToResult
  */
 
@@ -27,7 +25,7 @@
  * @property {CommonMapSettings[]} drupalSettings.geolocation.commonMap
  */
 
-(function ($, window, Drupal, drupalSettings) {
+(function ($, window, Drupal) {
   'use strict';
 
   /**
@@ -39,6 +37,9 @@
    *   Attaches common map style functionality to relevant elements.
    */
   Drupal.behaviors.geolocationCommonMap = {
+    /**
+     * @param {GeolocationSettings} drupalSettings.geolocation
+     */
     attach: function (context, drupalSettings) {
       if (typeof drupalSettings.geolocation === 'undefined') {
         return;
@@ -81,100 +82,48 @@
               }
             }
           }
-
-          if (
-            typeof commonMapSettings.markerScrollToResult !== 'undefined'
-            && commonMapSettings.markerScrollToResult === true
-          ) {
-
-            map.addLoadedCallback(function (map) {
-              $.each(map.mapMarkers, function (index, marker) {
-                marker.addListener('click', function () {
-                  var target = $('[data-location-id="' + location.data('location-id') + '"]:visible').first();
-
-                  // Alternatively select by class.
-                  if (target.length === 0) {
-                    target = $('.geolocation-location-id-' + location.data('location-id') + ':visible').first();
-                  }
-
-                  if (target.length === 1) {
-                    $('html, body').animate({
-                      scrollTop: target.offset().top
-                    }, 'slow');
-                  }
-
-                });
-              });
-            });
-          }
         }
       );
-
-    }
+    },
+    detach: function (context, drupalSettings) {}
   };
 
-  /**
-   * Insert updated map contents into the document.
-   *
-   * ATTENTION: This is a straight ripoff from misc/ajax.js ~line 1017 insert() function.
-   * Please read all code commentary there first!
-   *
-   * @param {Drupal.Ajax} ajax
-   *   {@link Drupal.Ajax} object created by {@link Drupal.ajax}.
-   * @param {object} response
-   *   The response from the Ajax request.
-   * @param {string} response.data
-   *   The data to use with the jQuery method.
-   * @param {string} [response.method]
-   *   The jQuery DOM manipulation method to be used.
-   * @param {string} [response.selector]
-   *   A optional jQuery selector string.
-   * @param {object} [response.settings]
-   *   An optional array of settings that will be used.
-   * @param {number} [status]
-   *   The XMLHttpRequest status.
-   */
-  Drupal.AjaxCommands.prototype.geolocationCommonMapsUpdate = function (ajax, response, status) {
+  Drupal.geolocation.commonMap = Drupal.geolocation.commonMap || {};
 
-    // See function comment for code origin first before any changes!
-    var contentWrapper = response.selector ? $(response.selector) : $(ajax.wrapper);
-    var settings = response.settings || ajax.settings || drupalSettings;
-
-    var newContent = $('<div></div>').html(response.data).contents();
-
-    if (newContent.length !== 1 || newContent.get(0).nodeType !== 1) {
-      newContent = newContent.parent();
+  Drupal.geolocation.commonMap.dynamicMapViewsAjaxSettings = function (commonMapSettings) {
+    // Make sure to load current form DOM element, which will change after every AJAX operation.
+    var view = $('.view-id-' + commonMapSettings.dynamic_map.update_view_id + '.view-display-id-' + commonMapSettings.dynamic_map.update_view_display_id);
+    if (view.length === 0) {
+      console.error("Geolocation - No common map container found.");
+      return;
     }
 
-    Drupal.detachBehaviors(contentWrapper.get(0), settings);
-
-    var replaceMap = false;
-    var existingMapContainer = null;
-
-    // Retain existing map if possible, to avoid jumping and improve UX.
-    if (
-      newContent.find('.geolocation-map-container').length > 0
-      && contentWrapper.find('.geolocation-map-container').length > 0
-    ) {
-      replaceMap = true;
-      newContent.find('.geolocation-map-container').remove();
-      existingMapContainer = contentWrapper.find('.geolocation-map-container').first().detach();
+    if (typeof commonMapSettings.dynamic_map.boundary_filter === 'undefined') {
+      return;
     }
 
-     contentWrapper.replaceWith(newContent);
+    // Extract the view DOM ID from the view classes.
+    var matches = /(js-view-dom-id-\w+)/.exec(view.attr('class').toString());
+    var currentViewId = matches[1].replace('js-view-dom-id-', 'views_dom_id:');
 
-    // Retain existing map if possible, to avoid jumping and improve UX.
-    if (replaceMap) {
-      existingMapContainer.prependTo(newContent.find('.geolocation-map-wrapper'));
+    var viewInstance = Drupal.views.instances[currentViewId];
+    var ajaxSettings = $.extend(true, {}, viewInstance.element_settings);
+    ajaxSettings.progress.type = 'none';
+
+    var exposedForm = $('form#views-exposed-form-' + commonMapSettings.dynamic_map.update_view_id.replace(/_/g, '-') + '-' + commonMapSettings.dynamic_map.update_view_display_id.replace(/_/g, '-'));
+    if (exposedForm.length) {
+      // Add form values.
+      jQuery.each(exposedForm.serializeArray(), function (index, field) {
+        var add = {};
+        add[field.name] = field.value;
+        ajaxSettings.submit = $.extend(ajaxSettings.submit, add);
+      });
     }
 
-    // Attach all JavaScript behaviors to the new content, if it was
-    // successfully added to the page, this if statement allows
-    // `#ajax['wrapper']` to be optional.
-    if (newContent.parents('html').length > 0) {
-      // Apply any settings from the returned JSON if available.
-      Drupal.attachBehaviors(newContent.get(0), settings);
-    }
+    // Trigger geolocation bounds specific behavior.
+    ajaxSettings.submit = $.extend(ajaxSettings.submit, {geolocation_common_map_dynamic_view: true});
+
+    return ajaxSettings;
   };
 
-})(jQuery, window, Drupal, drupalSettings);
+})(jQuery, window, Drupal);

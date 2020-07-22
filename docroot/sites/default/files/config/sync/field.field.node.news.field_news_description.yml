@@ -1,0 +1,28 @@
+uuid: 2d9c2930-8123-4629-bcf4-c16a1d1f3dae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_news_description
+    - node.type.news
+  module:
+    - datalayer
+    - text
+third_party_settings:
+  datalayer:
+    expose: 1
+    label: field_news_description
+_core:
+  default_config_hash: kt3_kKM8NTOxwnJeSEyC4yigY4nGaIS4MTKLtLdvM-Q
+id: node.news.field_news_description
+field_name: field_news_description
+entity_type: node
+bundle: news
+label: Description
+description: 'Textarea for the description/body with WYSIWYG, without summary.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

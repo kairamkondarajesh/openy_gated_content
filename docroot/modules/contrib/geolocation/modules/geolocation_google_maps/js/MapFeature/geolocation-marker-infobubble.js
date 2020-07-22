@@ -1,7 +1,13 @@
 /**
+ * @file
+ * Marker InfoBubble.
+ */
+
+/**
  * @typedef {Object} MarkerInfoBubbleSettings
  *
- * @property {bool} enable
+ * @extends {GeolocationMapFeatureSettings}
+ *
  * @property {bool} closeButton
  * @property {bool} closeOther
  * @property {String} closeButtonSrc
@@ -15,6 +21,9 @@
  * @property {Number} maxWidth
  * @property {Number} minHeight
  * @property {Number} maxHeight
+ * @property {Number} arrowSize
+ * @property {Number} arrowPosition
+ * @property {Number} arrowStyle
  */
 
 /**
@@ -22,9 +31,9 @@
  * @property {Function} open
  * @property {Function} close
  *
- * @property {bool} enable
- * @property {bool} closeButton
- * @property {bool} closeOther
+ * @property {Boolean} enable
+ * @property {Boolean} closeButton
+ * @property {Boolean} closeOther
  * @property {String} closeButtonSrc
  * @property {String} shadowStyle
  * @property {Number} padding
@@ -36,6 +45,9 @@
  * @property {Number} maxWidth
  * @property {Number} minHeight
  * @property {Number} maxHeight
+ * @property {Number} arrowSize
+ * @property {Number} arrowPosition
+ * @property {Number} arrowStyle
  */
 
 /**
@@ -45,7 +57,7 @@
 
 /* global InfoBubble */
 
-(function ($, Drupal) {
+(function (Drupal) {
 
   'use strict';
 
@@ -59,73 +71,64 @@
    */
   Drupal.behaviors.geolocationMarkerInfoBubble = {
     attach: function (context, drupalSettings) {
-      $.each(
-        drupalSettings.geolocation.maps,
+      Drupal.geolocation.executeFeatureOnAllMaps(
+        'marker_infobubble',
 
         /**
-         * @param {String} mapId - ID of current map
-         * @param {Object} mapSettings - settings for current map
-         * @param {MarkerInfoBubbleSettings} mapSettings.marker_infobubble - settings for current map
+         * @param {GeolocationGoogleMap} map - Current map.
+         * @param {MarkerInfoBubbleSettings} featureSettings - Settings for current feature.
          */
-        function (mapId, mapSettings) {
-          if (
-            typeof mapSettings.marker_infobubble !== 'undefined'
-            && mapSettings.marker_infobubble.enable
-          ) {
+        function (map, featureSettings) {
+          map.addMarkerAddedCallback(function (currentMarker) {
+            var content = currentMarker.locationWrapper.find('.location-content').html();
 
-            var map = Drupal.geolocation.getMapById(mapId);
-
-            if (!map) {
+            if (content.length < 1) {
               return;
             }
 
-            map.addMarkerAddedCallback(function (currentMarker) {
-              var content = currentMarker.locationWrapper.find('.location-content').html();
+            google.maps.event.addListener(currentMarker, 'click', function () {
 
-              if (content.length < 1) {
-                return;
+              if (typeof currentMarker.infoBubble === 'undefined') {
+                currentMarker.infoBubble = new InfoBubble({
+                  map: map.googleMap,
+                  content: content,
+                  shadowStyle: featureSettings.shadowStyle,
+                  padding: featureSettings.padding,
+                  borderRadius: featureSettings.borderRadius,
+                  borderWidth: featureSettings.borderWidth,
+                  borderColor: featureSettings.borderColor,
+
+                  arrowSize: featureSettings.arrowSize,
+                  arrowPosition: featureSettings.arrowPosition,
+                  arrowStyle: featureSettings.arrowStyle,
+
+                  hideCloseButton: !featureSettings.closeButton,
+                  closeSrc: featureSettings.closeButtonSrc,
+                  backgroundClassName: 'infobubble',
+                  backgroundColor: featureSettings.backgroundColor,
+                  minWidth: featureSettings.minWidth,
+                  maxWidth: featureSettings.maxWidth,
+                  minHeight: featureSettings.minHeight,
+                  maxHeight: featureSettings.maxHeight
+                });
               }
 
-              google.maps.event.addListener(currentMarker, 'click', function () {
-
-                if (typeof currentMarker.infoBubble === 'undefined') {
-                  currentMarker.infoBubble = new InfoBubble({
-                    map: map.googleMap,
-                    content: content,
-                    shadowStyle: mapSettings.marker_infobubble.shadowStyle,
-                    padding: mapSettings.marker_infobubble.padding,
-                    borderRadius: mapSettings.marker_infobubble.borderRadius,
-                    borderWidth: mapSettings.marker_infobubble.borderWidth,
-                    borderColor: mapSettings.marker_infobubble.borderColor,
-
-                    arrowSize: 10,
-                    arrowPosition: 30,
-                    arrowStyle: 2,
-
-                    hideCloseButton: !mapSettings.marker_infobubble.closeButton,
-                    closeButtonSrc: mapSettings.marker_infobubble.closeButtonSrc,
-                    backgroundClassName: 'infobubble',
-                    backgroundColor: mapSettings.marker_infobubble.backgroundColor,
-                    minWidth: mapSettings.marker_infobubble.minWidth,
-                    maxWidth: mapSettings.marker_infobubble.maxWidth,
-                    minHeight: mapSettings.marker_infobubble.minHeight,
-                    maxHeight: mapSettings.marker_infobubble.maxHeight
-                  });
+              if (featureSettings.closeOther) {
+                if (typeof map.infoBubble !== 'undefined') {
+                  map.infoBubble.close();
                 }
+                map.infoBubble = currentMarker.infoBubble;
+              }
 
-                if (mapSettings.marker_infobubble.closeOther) {
-                  if (typeof map.infoBubble !== 'undefined') {
-                    map.infoBubble.close();
-                  }
-                  map.infoBubble = currentMarker.infoBubble;
-                }
-
-                currentMarker.infoBubble.open(map.googleMap, currentMarker);
-              });
+              currentMarker.infoBubble.open(map.googleMap, currentMarker);
             });
-          }
-        }
+          });
+
+          return true;
+        },
+        drupalSettings
       );
-    }
+    },
+    detach: function (context, drupalSettings) {}
   };
-})(jQuery, Drupal);
+})(Drupal);

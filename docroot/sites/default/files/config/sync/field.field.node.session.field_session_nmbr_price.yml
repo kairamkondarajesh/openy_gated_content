@@ -1,0 +1,25 @@
+uuid: 5302f88b-997e-4a74-b71b-7aadb90e7680
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_session_nmbr_price
+    - node.type.session
+_core:
+  default_config_hash: Q8s8gJ_Gf7zWrutOLt66HfqQsHZ5COnbeAhnBn1qkBM
+id: node.session.field_session_nmbr_price
+field_name: field_session_nmbr_price
+entity_type: node
+bundle: session
+label: 'Non Member Price'
+description: 'Input with with the price information for members.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: $
+  suffix: ''
+field_type: decimal

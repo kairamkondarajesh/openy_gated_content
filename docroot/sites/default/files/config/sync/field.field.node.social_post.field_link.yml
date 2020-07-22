@@ -1,0 +1,25 @@
+uuid: ad7811b2-8eec-4608-b8ba-c29afb0262e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_link
+    - node.type.social_post
+  module:
+    - link
+_core:
+  default_config_hash: pFT6FJaGAEU--WEKa8_vYOD8cm9ovSxazPfTLON2IS4
+id: node.social_post.field_link
+field_name: field_link
+entity_type: node
+bundle: social_post
+label: Link
+description: 'Link to the original post in social network. '
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

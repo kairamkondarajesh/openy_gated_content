@@ -4,6 +4,7 @@ namespace Drupal\geysir\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Entity\EntityFieldManager;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 abstract class GeysirControllerBase extends ControllerBase {
@@ -11,23 +12,40 @@ abstract class GeysirControllerBase extends ControllerBase {
   /**
    * The entity field manager.
    *
-   * @var Drupal\Core\Entity\EntityFieldManager
+   * @var EntityFieldManager
    */
   protected $entityFieldManager;
 
   /**
+   * The entity type manager.
+   *
+   * @var EntityTypeManagerInterface
+   */
+  protected $entityTypeManager;
+
+  /**
    * {@inheritdoc}
    */
-  public function __construct(EntityFieldManager $entityFieldManager) {
+  public function __construct(
+    EntityFieldManager $entityFieldManager,
+    EntityTypeManagerInterface $entityTypeManager
+  ) {
     $this->entityFieldManager = $entityFieldManager;
+    $this->entityTypeManager = $entityTypeManager;
   }
 
   /**
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container) {
+    /** @var EntityFieldManager $entityFieldManager */
     $entityFieldManager = $container->get('entity_field.manager');
-    return new static($entityFieldManager);
+    /** @var EntityTypeManagerInterface $entityTypeManager */
+    $entityTypeManager = $container->get('entity_type.manager');
+    return new static(
+      $entityFieldManager,
+      $entityTypeManager
+    );
   }
 
   /**
@@ -46,7 +64,7 @@ abstract class GeysirControllerBase extends ControllerBase {
   protected function getParagraphTitle($parent_entity_type, $parent_entity_bundle, $field) {
     $form_mode = 'default';
 
-    $parent_field_settings = \Drupal::entityTypeManager()
+    $parent_field_settings = $this->entityTypeManager
       ->getStorage('entity_form_display')
       ->load($parent_entity_type . '.' . $parent_entity_bundle . '.' . $form_mode)
       ->getComponent($field);
@@ -56,6 +74,24 @@ abstract class GeysirControllerBase extends ControllerBase {
       $this->t('Paragraph');
 
     return strtolower($paragraph_title);
+  }
+
+  /**
+   * @param $parent_entity_type
+   * @param $parent_entity_revision
+   *
+   * @return \Drupal\Core\Entity\EntityInterface|null
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   */
+  protected function getParentRevisionOrParent($parent_entity_type, $parent_entity_revision) {
+    $entity_storage = $this->entityTypeManager->getStorage($parent_entity_type);
+    if ($this->entityTypeManager->getDefinition($parent_entity_type)->isRevisionable()) {
+      return $entity_storage->loadRevision($parent_entity_revision);
+    }
+    else {
+      return $entity_storage->load($parent_entity_revision);
+    }
   }
 
 }

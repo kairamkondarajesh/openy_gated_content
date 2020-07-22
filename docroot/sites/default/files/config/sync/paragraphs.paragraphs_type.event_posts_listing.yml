@@ -1,0 +1,11 @@
+uuid: e9643698-3b68-4708-8ee4-b9661b7f5ec9
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: fI2QQmcSuVY_9tuOrYeSVIci8IkcaJJtP33JM3g-nQ4
+id: event_posts_listing
+label: 'Event Posts Listing'
+icon_uuid: null
+description: null
+behavior_plugins: {  }

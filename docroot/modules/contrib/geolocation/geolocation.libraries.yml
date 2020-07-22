@@ -5,15 +5,16 @@
 #
 
 geolocation.api:
-  version: 8.x-1.x
+  version: 8.x-3.x
   js:
     js/geolocation-api.js: {}
   dependencies:
     - core/drupal
     - core/jquery
+    - core/jquery.once
 
 geolocation.geocoder.api:
-  version: 8.x-1.x
+  version: 8.x-3.x
   js:
     js/geolocation-geocoder-api.js: {}
   dependencies:
@@ -21,16 +22,16 @@ geolocation.geocoder.api:
     - core/jquery.ui.autocomplete
 
 geolocation.widget.api:
-  version: 1.x
+  version: 8.x-3.x
   js:
-    js/geolocation-widget-api.js: { scope: footer }
+    js/geolocation-widget-api.js: {}
   dependencies:
     - geolocation/geolocation.api
 
-geolocation.widget:
-  version: 8.x-1.x
+geolocation.widget.map:
+  version: 8.x-3.x
   js:
-    js/geolocation-widget.js: {}
+    js/geolocation-widget-map.js: {}
   dependencies:
       - geolocation/geolocation.map
       - geolocation/geolocation.widget.api
@@ -42,7 +43,7 @@ geolocation.widget:
 #
 
 geolocation.map:
-  version: 8.x-1.x
+  version: 8.x-3.x
   css:
     theme:
       css/geolocation-map.css: {}
@@ -61,6 +62,46 @@ geolocation.commonmap:
   dependencies:
     - geolocation/geolocation.map
 
+#
+# Map Center
+#
+map_center.static_location:
+  js:
+    js/MapCenter/static-location.js: {}
+
+map_center.fitlocations:
+  js:
+    js/MapCenter/fitlocations.js: {}
+
+map_center.fixed_boundaries:
+  js:
+    js/MapCenter/fixedBoundaries.js: {}
+
+map_center.client_location:
+  js:
+    js/MapCenter/client-location.js: {}
+
+map_center.viewsBoundaryFilter:
+  js:
+    js/MapCenter/viewsBoundaryFilter.js: {}
+
+map_center.viewsBoundaryArgument:
+  js:
+    js/MapCenter/viewsBoundaryArgument.js: {}
+
+
+#
+# Location Input
+#
+location_input.client_location:
+  js:
+    js/LocationInput/client-location.js: {}
+
+location_input.geocoder:
+  js:
+    js/LocationInput/geocoder.js: {}
+  dependencies:
+    - geolocation/geolocation.geocoder.api
 
 #
 #
@@ -68,17 +109,9 @@ geolocation.commonmap:
 #
 #
 
-#Geolocation views field geocoder function.
-geolocation.views.field.geocoder:
-  version: 8.x-1.x
-  js:
-    js/geolocation-views-field-geocoder.js: {}
-  dependencies:
-    - geolocation/geolocation.geocoder.api
-
 # Geolocation views filter geocoder function.
 geolocation.views.filter.geocoder:
-  version: 8.x-1.x
+  version: 8.x-3.x
   js:
     js/geolocation-views-filter-geocoder.js: {}
   dependencies:
@@ -92,9 +125,18 @@ geolocation.views.filter.geocoder:
 
 # HTML5 widget library.
 geolocation.widgets.html5:
-  version: 1.x
+  version: 8.x-3.x
   css:
     theme:
       css/geolocation-widget-html5.css: {}
   js:
-    js/geolocation-widget-html5.js: { scope: footer }
+    js/geolocation-widget-html5.js: {}
+
+#
+# Map Features
+#
+
+# Marker Scroll to ID support.
+geolocation.marker_scroll_to_id:
+  js:
+    js/MapFeature/geolocation-marker-scroll-to-id.js: {}

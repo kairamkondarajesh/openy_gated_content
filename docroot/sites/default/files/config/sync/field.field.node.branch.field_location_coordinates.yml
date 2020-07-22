@@ -1,0 +1,28 @@
+uuid: eb3720ce-2b43-47f4-bd68-8a4b589e92da
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location_coordinates
+    - node.type.branch
+  module:
+    - datalayer
+    - geolocation
+third_party_settings:
+  datalayer:
+    expose: 1
+    label: field_location_coordinates
+_core:
+  default_config_hash: 20kFUP8qtIOJJqaGcirkVdpVdCHlYZuNL73d8gG_26k
+id: node.branch.field_location_coordinates
+field_name: field_location_coordinates
+entity_type: node
+bundle: branch
+label: 'Branch Coordinates'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: geolocation

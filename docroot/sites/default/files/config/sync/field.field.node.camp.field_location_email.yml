@@ -1,0 +1,27 @@
+uuid: 1a99b202-0193-4aa1-b66d-c0f6e87a2a07
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location_email
+    - node.type.camp
+  module:
+    - datalayer
+third_party_settings:
+  datalayer:
+    expose: 1
+    label: field_location_email
+_core:
+  default_config_hash: Ec1dUodrJw8R-TZ0qUromKYOArvHGRgc9_4B9cx4k54
+id: node.camp.field_location_email
+field_name: field_location_email
+entity_type: node
+bundle: camp
+label: Email
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

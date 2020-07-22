@@ -1,0 +1,21 @@
+uuid: d831151f-c762-488d-8f08-aa258d16fd3e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - telephone
+_core:
+  default_config_hash: yng51JyebGgTtm41tDzVVGc_7sYD7qTDgqLbtBK9iE0
+id: node.field_location_fax
+field_name: field_location_fax
+entity_type: node
+type: telephone
+settings: {  }
+module: telephone
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: true
+custom_storage: false

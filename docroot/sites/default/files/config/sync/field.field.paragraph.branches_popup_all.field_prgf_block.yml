@@ -1,0 +1,32 @@
+uuid: 191f5072-2d8b-47b5-bac8-3ac42a192235
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_prgf_block
+    - paragraphs.paragraphs_type.branches_popup_all
+  module:
+    - plugin
+_core:
+  default_config_hash: P8j6AcLlmoIB7azG860zzNwnMdbVv_2I0I4b45SZGCs
+id: paragraph.branches_popup_all.field_prgf_block
+field_name: field_prgf_block
+entity_type: paragraph
+bundle: branches_popup_all
+label: Block
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    plugin_id: location_popup_link_block
+    plugin_configuration:
+      id: location_popup_link_block
+      label: Block
+      provider: null
+      label_display: null
+      filter: all
+    plugin_configuration_schema_id: block.settings.location_popup_link_block
+default_value_callback: ''
+settings: {  }
+field_type: 'plugin:block'

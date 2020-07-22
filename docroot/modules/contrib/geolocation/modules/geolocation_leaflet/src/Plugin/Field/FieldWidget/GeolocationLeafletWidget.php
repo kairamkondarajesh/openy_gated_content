@@ -23,12 +23,26 @@ class GeolocationLeafletWidget extends GeolocationMapWidgetBase {
   /**
    * {@inheritdoc}
    */
-  protected $mapProviderId = 'leaflet';
+  static protected $mapProviderId = 'leaflet';
 
   /**
    * {@inheritdoc}
    */
-  protected $mapProviderSettingsFormId = 'leaflet_settings';
+  static protected $mapProviderSettingsFormId = 'leaflet_settings';
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function defaultSettings() {
+    $settings = parent::defaultSettings();
+
+    $settings[self::$mapProviderSettingsFormId]['map_features']['leaflet_control_geocoder'] = [
+      'enabled' => TRUE,
+      'weight' => -100,
+    ];
+
+    return $settings;
+  }
 
   /**
    * {@inheritdoc}
@@ -40,7 +54,7 @@ class GeolocationLeafletWidget extends GeolocationMapWidgetBase {
       $element['#attached'],
       [
         'library' => [
-          'geolocation_leaflet/widget.api.leaflet',
+          'geolocation_leaflet/widget.leaflet',
         ],
       ]
     );

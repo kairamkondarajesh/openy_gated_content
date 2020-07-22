@@ -1,0 +1,13 @@
+uuid: fcd03e46-c167-4ab4-af7c-c4050b586efa
+langcode: en
+status: true
+dependencies:
+  module:
+    - openy_upgrade_tool
+_core:
+  default_config_hash: x62j3aTqX07I2VZrbtStgxMTC-ezdyCPRENFvN2gorg
+id: apply_active_version
+label: 'Apply current active version'
+type: openy_upgrade_log
+plugin: apply_active_version
+configuration: {  }

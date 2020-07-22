@@ -1,0 +1,11 @@
+--- geysir.module
++++ geysir.module
+@@ -277,7 +277,7 @@ function geysir_preprocess_field(&$vars) {
+ function geysir_preprocess_node(&$vars) {
+   $node = $vars["node"];
+ 
+-  if (empty($node)) {
++  if (empty($node) || !\Drupal::currentUser()->hasPermission('geysir manage paragraphs from front-end')) {
+     return;
+   }
+ 

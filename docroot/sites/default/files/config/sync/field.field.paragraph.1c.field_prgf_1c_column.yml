@@ -1,0 +1,31 @@
+uuid: 5cf4fe1c-4c3d-4b56-b4da-a4c75c9b225f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_prgf_1c_column
+    - paragraphs.paragraphs_type.1c
+_core:
+  default_config_hash: '-MLFiZuw_c68qdcB65j4E6nAVZj8zJPbTBRkLeavZuo'
+id: paragraph.1c.field_prgf_1c_column
+field_name: field_prgf_1c_column
+entity_type: paragraph
+bundle: 1c
+label: Column
+description: 'Enter column body.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default_no_dep:block_content'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: 1
+    auto_create_bundle: flexible_content
+    target_bundles_no_dep:
+      flexible_content: flexible_content
+      simple_block: simple_block
+field_type: entity_reference

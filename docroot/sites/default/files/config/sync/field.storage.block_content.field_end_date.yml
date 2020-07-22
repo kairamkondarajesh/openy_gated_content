@@ -1,0 +1,22 @@
+uuid: 29561467-1169-4231-a7b3-cc8869e4ceaa
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - datetime
+_core:
+  default_config_hash: bZ-mG_ebl1Vpq_ch--l8aipcdwfULeSPRK7-INyCms0
+id: block_content.field_end_date
+field_name: field_end_date
+entity_type: block_content
+type: datetime
+settings:
+  datetime_type: datetime
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

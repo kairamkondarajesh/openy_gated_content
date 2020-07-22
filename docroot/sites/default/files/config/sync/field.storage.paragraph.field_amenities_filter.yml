@@ -1,0 +1,22 @@
+uuid: e1eda28f-3697-447d-ac49-24f39a574bdb
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - views
+_core:
+  default_config_hash: l_qnAvDHyg3heqJ5PrBuRjnbruj0HZLH1LTynPr2sT0
+id: paragraph.field_amenities_filter
+field_name: field_amenities_filter
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: view
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

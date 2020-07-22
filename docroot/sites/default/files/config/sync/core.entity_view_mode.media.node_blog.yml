@@ -1,0 +1,12 @@
+uuid: 1a34c184-c114-4739-8f2e-59a220b690d7
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+_core:
+  default_config_hash: cyMfjDIzG3MF_e5zK62rnhqLnaJjWLRMiesFzghkAkw
+id: media.node_blog
+label: 'Node blog'
+targetEntityType: media
+cache: true

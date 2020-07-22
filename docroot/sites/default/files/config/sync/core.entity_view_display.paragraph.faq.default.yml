@@ -1,0 +1,26 @@
+uuid: 925e588a-3963-4347-8d42-36b3f8356584
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.faq.field_qa
+    - paragraphs.paragraphs_type.faq
+  module:
+    - openy_field_faq
+_core:
+  default_config_hash: anC50FkwfE7FFDppPLhOQuSK0D6P2pamSbD7X4TjP-k
+id: paragraph.faq.default
+targetEntityType: paragraph
+bundle: faq
+mode: default
+content:
+  field_qa:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: faq_default
+    region: content
+hidden:
+  created: true
+  uid: true

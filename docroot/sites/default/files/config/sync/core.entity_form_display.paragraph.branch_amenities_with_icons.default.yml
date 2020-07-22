@@ -1,0 +1,19 @@
+uuid: 659cc969-477b-4477-9e79-b3c897205183
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.branch_amenities_with_icons.field_branch_amenties_with_icons
+    - paragraphs.paragraphs_type.branch_amenities_with_icons
+_core:
+  default_config_hash: tamwG1VKSql7w1LacVDeBLXIjnjVd2gpPrasNdafj10
+id: paragraph.branch_amenities_with_icons.default
+targetEntityType: paragraph
+bundle: branch_amenities_with_icons
+mode: default
+content: {  }
+hidden:
+  created: true
+  field_branch_amenties_with_icons: true
+  status: true
+  uid: true

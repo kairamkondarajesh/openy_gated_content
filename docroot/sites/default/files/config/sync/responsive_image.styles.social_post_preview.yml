@@ -1,0 +1,19 @@
+uuid: 9ebf4b34-20d9-4ef1-a5e3-cc81c36bcc3b
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.medium
+    - image.style.social_post_preview
+_core:
+  default_config_hash: XUSdQ0oTsaGBd4kzx4FV9bm0j7kf9yrK6IlAO_8wZ-Q
+id: social_post_preview
+label: 'Social post preview'
+image_style_mappings:
+  -
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: social_post_preview
+breakpoint_group: responsive_image
+fallback_image_style: medium

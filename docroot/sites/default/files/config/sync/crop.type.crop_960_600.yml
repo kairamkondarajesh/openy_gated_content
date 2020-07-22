@@ -1,0 +1,14 @@
+uuid: a4ecb971-6202-43ef-b871-90d19dc8fb1d
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 2EcO18STaZxxCWPNAo2WBeCsrEhtEcIMJUMiIXfgApg
+id: crop_960_600
+label: 'Crop 960×600'
+description: 'Used in Banner paragraph'
+aspect_ratio: '960:600'
+soft_limit_width: null
+soft_limit_height: null
+hard_limit_width: 960
+hard_limit_height: 600

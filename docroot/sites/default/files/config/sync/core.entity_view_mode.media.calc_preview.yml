@@ -1,0 +1,12 @@
+uuid: ad00932e-6f7c-4775-b346-7390e826e9a9
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+_core:
+  default_config_hash: qoSOHeGntc-sdem1zpT6BbFrzlPhmji316s3DJ3-jzA
+id: media.calc_preview
+label: 'Calc preview'
+targetEntityType: media
+cache: true

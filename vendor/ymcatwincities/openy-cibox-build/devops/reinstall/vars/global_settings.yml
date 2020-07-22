@@ -67,6 +67,7 @@ build_environments:
 openy_profile_install_settings: 'openy_terms_of_use.agree_openy_terms=1 openy_terms_of_use.analytics_optin=1 install_configure_form.enable_update_status_emails=NULL openy_configure_profile.preset=complete'
 
 # SOLR
+use_solr: true
 solr_conf_path: '/opt/solr/solr'
 default_solr_collection_path: "{{ solr_conf_path }}/collection1"
 solr_module_config_path: 'modules/contrib/search_api_solr/solr-conf/4.x'

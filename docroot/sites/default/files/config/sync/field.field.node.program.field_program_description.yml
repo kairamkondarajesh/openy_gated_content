@@ -1,0 +1,28 @@
+uuid: e296f28f-09cc-4124-accd-3aea82c83bf5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_program_description
+    - node.type.program
+  module:
+    - datalayer
+    - text
+third_party_settings:
+  datalayer:
+    expose: 1
+    label: field_program_description
+_core:
+  default_config_hash: jmWQsNdi1Qn2OgmItDzvhT20ua1G4AQkzkmKlKg6fEc
+id: node.program.field_program_description
+field_name: field_program_description
+entity_type: node
+bundle: program
+label: Description
+description: 'Textarea for the description/body with WYSIWYG, without summary.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

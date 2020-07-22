@@ -1,0 +1,19 @@
+uuid: 80770e86-393b-468f-9dce-e1f852c68979
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.class_sessions.field_prgf_block
+    - paragraphs.paragraphs_type.class_sessions
+_core:
+  default_config_hash: tN3BjSwwOOB4G4mLtwBYphJYplIw5hWKTKArhMbMi9U
+id: paragraph.class_sessions.default
+targetEntityType: paragraph
+bundle: class_sessions
+mode: default
+content: {  }
+hidden:
+  created: true
+  field_prgf_block: true
+  status: true
+  uid: true

@@ -1,0 +1,17 @@
+uuid: a8c194b2-0a31-4b36-ba91-1fe6d9222f56
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: sEoMVVfHD6yNBZXvutElxUajZZLmMw_p3ftZrjoH7XM
+name: event_teaser
+label: 'Event teaser (266x247)'
+effects:
+  213e5e0e-e33d-4e0a-b65e-93c6a50c6038:
+    uuid: 213e5e0e-e33d-4e0a-b65e-93c6a50c6038
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 266
+      height: 247
+      anchor: center-center

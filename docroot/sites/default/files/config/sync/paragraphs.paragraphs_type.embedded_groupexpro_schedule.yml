@@ -1,0 +1,11 @@
+uuid: c4c84e4d-a8ae-4cd2-b52b-0713fd2d199f
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: ZJKu7k5maxX2jRlmqISRqVmvIbljvcYbOFx3MeZMCMI
+id: embedded_groupexpro_schedule
+label: 'Embedded GroupEx Pro Schedule'
+icon_uuid: null
+description: null
+behavior_plugins: {  }

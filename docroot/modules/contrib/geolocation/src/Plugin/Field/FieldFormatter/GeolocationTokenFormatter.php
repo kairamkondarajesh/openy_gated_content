@@ -2,11 +2,12 @@
 
 namespace Drupal\geolocation\Plugin\Field\FieldFormatter;
 
+use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\FormatterBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Component\Utility\Unicode;
-use Drupal\geolocation\GeolocationItemTokenTrait;
+use Drupal\filter\Entity\FilterFormat;
 
 /**
  * Plugin implementation of the 'geolocation_token' formatter.
@@ -22,7 +23,24 @@ use Drupal\geolocation\GeolocationItemTokenTrait;
  */
 class GeolocationTokenFormatter extends FormatterBase {
 
-  use GeolocationItemTokenTrait;
+  /**
+   * Data Provider.
+   *
+   * @var \Drupal\geolocation\DataProviderInterface
+   */
+  protected $dataProvider = NULL;
+
+  /**
+   * {@inheritdoc}
+   */
+  public function __construct($plugin_id, $plugin_definition, FieldDefinitionInterface $field_definition, array $settings, $label, $view_mode, array $third_party_settings) {
+    parent::__construct($plugin_id, $plugin_definition, $field_definition, $settings, $label, $view_mode, $third_party_settings);
+
+    $this->dataProvider = \Drupal::service('plugin.manager.geolocation.dataprovider')->getDataProviderByFieldDefinition($field_definition);
+    if (empty($this->dataProvider)) {
+      throw new \Exception('Geolocation data provider not found');
+    }
+  }
 
   /**
    * {@inheritdoc}
@@ -50,14 +68,14 @@ class GeolocationTokenFormatter extends FormatterBase {
       '#description' => $this->t('Enter any text or HTML to be shown for each value. Tokens will be replaced as available. The "token" module greatly expands the number of available tokens as well as provides a comfortable token browser.'),
     ];
     if (!empty($settings['tokenized_text']['value'])) {
-      $form['tokenized_text']['#default_value'] = $settings['tokenized_text']['value'];
+      $element['tokenized_text']['#default_value'] = $settings['tokenized_text']['value'];
     }
 
     if (!empty($settings['info_text']['format'])) {
-      $form['tokenized_text']['#format'] = $settings['tokenized_text']['format'];
+      $element['tokenized_text']['#format'] = $settings['tokenized_text']['format'];
     }
 
-    $element['token_help'] = $this->getTokenHelp();
+    $element['token_help'] = $this->dataProvider->getTokenHelp();
 
     return $element;
   }
@@ -106,20 +124,26 @@ class GeolocationTokenFormatter extends FormatterBase {
       ) {
         $elements[$delta] = [
           '#type' => 'processed_text',
-          '#text' => \Drupal::token()->replace(
-            $tokenized_text['value'],
-            $token_context,
-            [
-              'callback' => [$this, 'geolocationItemTokens'],
-              'clear' => TRUE,
-            ]
-          ),
+          '#text' => $this->dataProvider->replaceFieldItemTokens($tokenized_text['value'], $item),
           '#format' => $tokenized_text['format'],
         ];
       }
     }
 
     return $elements;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function calculateDependencies() {
+    $dependencies = parent::calculateDependencies();
+    $settings = $this->getSettings();
+    $filter_format = FilterFormat::load($settings['tokenized_text']['format']);
+    if ($filter_format) {
+      $dependencies['config'][] = $filter_format->getConfigDependencyName();
+    }
+    return $dependencies;
   }
 
 }

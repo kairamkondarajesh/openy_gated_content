@@ -1,13 +1,13 @@
 name: "Geysir"
 type: module
 description: "Enhancing the Drupal Author Experience."
-# core: '8.x'
+core: '8.x'
+core_version_requirement: ^8 || ^9
 package: Author Experience
 dependencies:
-  - paragraphs
+  - paragraphs:paragraphs
 
-# Information added by Drupal.org packaging script on 2018-09-10
-version: '8.x-1.1'
-core: '8.x'
+# Information added by Drupal.org packaging script on 2020-06-16
+version: '8.x-1.2'
 project: 'geysir'
-datestamp: 1536592984
+datestamp: 1592308119

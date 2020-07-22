@@ -1,0 +1,17 @@
+uuid: 12a7a586-aa6a-4d55-b381-5e71308e8233
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.google_search
+_core:
+  default_config_hash: 8i2NPJIzdBMzBnAWmIUUwXp9XdJHS8WiR8OqUAl2gIc
+id: paragraph.google_search.default
+targetEntityType: paragraph
+bundle: google_search
+mode: default
+content: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

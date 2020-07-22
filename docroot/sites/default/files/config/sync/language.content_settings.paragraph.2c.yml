@@ -1,0 +1,13 @@
+uuid: 7e1d15b9-ca04-474b-93df-42c4bf9b23e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.2c
+_core:
+  default_config_hash: cC0aCSahN3aho4AqLfyb-bzZSmlUvbxWs8Ld7v2pmnw
+id: paragraph.2c
+target_entity_type_id: paragraph
+target_bundle: 2c
+default_langcode: site_default
+language_alterable: true

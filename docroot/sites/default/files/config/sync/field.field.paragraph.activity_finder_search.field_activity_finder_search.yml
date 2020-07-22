@@ -1,0 +1,31 @@
+uuid: b5ef2697-1fa9-4511-b81d-b81941e261ca
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_activity_finder_search
+    - paragraphs.paragraphs_type.activity_finder_search
+  module:
+    - plugin
+_core:
+  default_config_hash: 7LJq6HIrL1jSVj6jgh2CE7NRwLtX8XTtq_ni3_tpXtg
+id: paragraph.activity_finder_search.field_activity_finder_search
+field_name: field_activity_finder_search
+entity_type: paragraph
+bundle: activity_finder_search
+label: 'Activity Finder Search'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    plugin_id: activity_finder_search_block
+    plugin_configuration:
+      id: activity_finder_search_block
+      label: 'Activity Finder Search Block'
+      provider: openy_activity_finder
+      label_display: '0'
+    plugin_configuration_schema_id: block.settings.activity_finder_search_block
+default_value_callback: ''
+settings: {  }
+field_type: 'plugin:block'

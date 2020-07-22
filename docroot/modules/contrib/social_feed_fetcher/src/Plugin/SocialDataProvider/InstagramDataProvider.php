@@ -3,10 +3,9 @@
 namespace Drupal\social_feed_fetcher\Plugin\SocialDataProvider;
 
 use Drupal\social_feed_fetcher\SocialDataProviderPluginBase;
-use MetzWeb\Instagram\Instagram;
 
 /**
- * Class InstagramDataProvider
+ * Class InstagramDataProvider.
  *
  * @package Drupal\social_feed_fetcher\Plugin\SocialDataProvider
  *
@@ -20,10 +19,9 @@ class InstagramDataProvider extends SocialDataProviderPluginBase {
   /**
    * Instagram client.
    *
-   * @var \MetzWeb\Instagram\Instagram
+   * @var \EspressoDev\InstagramBasicDisplay\InstagramBasicDisplay
    */
   protected $instagram;
-
 
   /**
    * Set the Instagram client.
@@ -32,8 +30,9 @@ class InstagramDataProvider extends SocialDataProviderPluginBase {
    */
   public function setClient() {
     if (NULL === $this->instagram) {
-      $this->instagram = new Instagram($this->config->get('in_client_id'));
-      $this->instagram->setAccessToken($this->config->get('in_access_token'));
+      $this->instagram = \Drupal::service('social_feed_fetcher.instagram.client');
+      $access_token = \Drupal::service('state')->get('insta_access_token');
+      $this->instagram->setAccessToken($access_token);
     }
   }
 
@@ -47,37 +46,18 @@ class InstagramDataProvider extends SocialDataProviderPluginBase {
    *   An array of stdClass posts.
    */
   public function getPosts($numPosts) {
-    $resolution = $this->config->get('in_picture_resolution');
     $posts    = [];
-    $response = $this->instagram->getUserMedia('self', $numPosts);
+    $response = $this->instagram->getUserMedia('me', $numPosts);
     if (isset($response->data)) {
-      $posts = array_map(function ($post) use ($resolution) {
-        $type = $this->getMediaArrayKey($post->type);
+      $posts = array_map(static function ($post) {
         return [
           'raw'       => $post,
-          'media_url' => isset($post->{$type}->{$resolution}) ? $post->{$type}->{$resolution}->url : '',
-          'type'      => $post->type,
+          'media_url' => $post->media_url ?? '',
+          'type'      => $post->media_type,
         ];
       }, $response->data);
     }
     return $posts;
-  }
-
-  /**
-   * Retrieve the array key to fetch the post media url.
-   *
-   * @param string $type
-   *   The post type.
-   *
-   * @return string
-   *   The array key to fetch post media url.
-   */
-  protected function getMediaArrayKey($type) {
-    $mediaType = 'images';
-    if ($type === 'video') {
-      $mediaType = 'videos';
-    }
-    return $mediaType;
   }
 
 }

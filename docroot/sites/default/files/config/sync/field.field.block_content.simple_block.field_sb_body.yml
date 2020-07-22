@@ -1,0 +1,23 @@
+uuid: 714ebe3b-002d-43e6-976d-f11ed0275529
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.simple_block
+    - field.storage.block_content.field_sb_body
+  module:
+    - text
+_core:
+  default_config_hash: e1FIOqorcUeSYrdnrPVZjNVwv7pMWU9tI4jP4vxVC9o
+id: block_content.simple_block.field_sb_body
+field_name: field_sb_body
+entity_type: block_content
+bundle: simple_block
+label: Body
+description: 'Enter body text.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

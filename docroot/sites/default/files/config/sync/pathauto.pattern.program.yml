@@ -1,0 +1,24 @@
+uuid: a8440e8a-b851-4ee8-9b23-56c615ff9c4a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: CIAtpPCP-z794bp6DcpJVBHpSCI2lMZxXyPR0JOG-i4
+id: program
+label: Program
+type: 'canonical_entities:node'
+pattern: '/programs/[node:title]'
+selection_criteria:
+  a771c5ee-afb9-4e78-a58b-31d513c69786:
+    id: node_type
+    bundles:
+      program: program
+    negate: false
+    context_mapping:
+      node: node
+    uuid: a771c5ee-afb9-4e78-a58b-31d513c69786
+selection_logic: and
+weight: -5
+relationships: {  }

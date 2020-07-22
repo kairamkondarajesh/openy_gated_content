@@ -1,0 +1,26 @@
+uuid: fa2b07a7-6b22-4f9b-9cd3-f553c0de1c33
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.schedule_search_list.field_prgf_block
+    - paragraphs.paragraphs_type.schedule_search_list
+  module:
+    - plugin
+_core:
+  default_config_hash: VFf1M5uE0oM3AcAqHQ51aNt34gsyCJcSaaRiz31M1rQ
+id: paragraph.schedule_search_list.default
+targetEntityType: paragraph
+bundle: schedule_search_list
+mode: default
+content:
+  field_prgf_block:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: plugin_block_built
+    region: content
+hidden:
+  created: true
+  uid: true

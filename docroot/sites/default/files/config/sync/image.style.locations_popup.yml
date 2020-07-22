@@ -1,0 +1,17 @@
+uuid: 2b75760c-fd46-4be4-be07-a62bcfa6c910
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 7ojC5Mt8RVE150ERTZ4spzK12-QNLRVYZzGogSpPtkg
+name: locations_popup
+label: 'Locations popup'
+effects:
+  748619aa-a4f2-46e9-aa74-35247927e69c:
+    uuid: 748619aa-a4f2-46e9-aa74-35247927e69c
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 750
+      height: 400
+      anchor: center-center

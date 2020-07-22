@@ -7,6 +7,7 @@ use Drupal\Core\Ajax\HtmlCommand;
 use Drupal\Core\Ajax\InvokeCommand;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\geysir\Ajax\GeysirCloseModalDialogCommand;
+use Drupal\geysir\Ajax\GeysirReattachBehaviors;
 
 /**
  * Functionality to edit a paragraph through a modal.
@@ -80,9 +81,9 @@ class GeysirModalParagraphForm extends GeysirParagraphForm {
         $route_match->getParameter('parent_entity_revision');
       $field_name = $route_match->getParameter('field');
       $field_wrapper_id = $route_match->getParameter('field_wrapper_id');
-      $parent_entity_revision = \Drupal::entityManager()
-        ->getStorage($parent_entity_type)
-        ->loadRevision($parent_entity_revision);
+
+      // Get the parent revision if available, otherwise the parent.
+      $parent_entity_revision = $this->getParentRevisionOrParent($parent_entity_type, $parent_entity_revision);
 
       // Refresh the paragraphs field.
       $response->addCommand(
@@ -92,8 +93,17 @@ class GeysirModalParagraphForm extends GeysirParagraphForm {
         )
       );
 
+      // Add change event after refreshing.
+      $response->addCommand(
+        new InvokeCommand(
+          '[data-geysir-field-paragraph-field-wrapper=' . $field_wrapper_id . ']',
+          'change'
+        )
+      );
+
       $response->addCommand(new GeysirCloseModalDialogCommand());
-      $response->addCommand(new InvokeCommand(NULL, 'reloadPageAjaxAction'));
+
+      $response->addCommand(new GeysirReattachBehaviors());
     }
 
     return $response;

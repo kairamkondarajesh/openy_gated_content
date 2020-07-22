@@ -1,0 +1,26 @@
+uuid: f14a3c9c-a0b3-4a8c-823d-b37c8920c6a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.camp_menu.field_prgf_block
+    - paragraphs.paragraphs_type.camp_menu
+  module:
+    - plugin
+_core:
+  default_config_hash: WTlic7s_znfN9mVHg0rsH0CESrXVE_9wE4PY92OjzBc
+id: paragraph.camp_menu.default
+targetEntityType: paragraph
+bundle: camp_menu
+mode: default
+content:
+  field_prgf_block:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: plugin_block_built
+    region: content
+hidden:
+  created: true
+  uid: true

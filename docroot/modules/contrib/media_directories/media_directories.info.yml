@@ -1,7 +1,7 @@
 name: Media Directories
 description: 'Add directory structure to Media entities.'
 type: module
-core: 8.x
+core_version_requirement: ^8.7.7 || ^9
 configure: media_directories.config_form
 
 dependencies:
@@ -11,7 +11,7 @@ dependencies:
   - drupal:taxonomy
   - drupal:views
 
-# Information added by Drupal.org packaging script on 2020-04-16
-version: '8.x-1.0-rc2'
+# Information added by Drupal.org packaging script on 2020-06-12
+version: '8.x-1.0-rc3'
 project: 'media_directories'
-datestamp: 1587027910
+datestamp: 1591998623

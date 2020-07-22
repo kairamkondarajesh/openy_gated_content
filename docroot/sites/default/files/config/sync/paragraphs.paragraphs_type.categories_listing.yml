@@ -1,0 +1,11 @@
+uuid: 5178a8d5-d39d-48f5-b8ee-7286890e16d0
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: n-GcBySiCu2uHvmclX3lcWFB7o2-Yx3tkKuJPc30eDM
+id: categories_listing
+label: 'Categories Listing'
+icon_uuid: null
+description: null
+behavior_plugins: {  }

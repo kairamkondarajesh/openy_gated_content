@@ -1,0 +1,26 @@
+uuid: e1773f8e-0d25-4e74-b591-f53d3445dc76
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.embedded_groupexpro_schedule.field_prgf_block
+    - paragraphs.paragraphs_type.embedded_groupexpro_schedule
+  module:
+    - plugin
+_core:
+  default_config_hash: f9LeFJyRGz5zmDKefvFbYMB870T17_QgXk83_UWRhI8
+id: paragraph.embedded_groupexpro_schedule.default
+targetEntityType: paragraph
+bundle: embedded_groupexpro_schedule
+mode: default
+content:
+  field_prgf_block:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: plugin_block_built
+    region: content
+hidden:
+  created: true
+  uid: true

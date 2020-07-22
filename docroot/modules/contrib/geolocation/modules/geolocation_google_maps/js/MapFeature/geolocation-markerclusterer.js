@@ -1,18 +1,28 @@
 /**
- * @typedef {Object} MarkerClustererSettings
- *
- * @property {String} enable
- * @property {String} imagePath
- * @property {Object} styles
- * @property {string} maxZoom
+ * @file
+ * Marker Clusterer.
  */
 
-(function ($, Drupal) {
+/**
+ * @typedef {Object} MarkerClustererSettings
+ *
+ * @extends {GeolocationMapFeatureSettings}
+ *
+ * @property {String} imagePath
+ * @property {Object} styles
+ * @property {Number} maxZoom
+ * @property {Number} gridSize
+ * @property {Boolean} zoomOnClick
+ * @property {Number} averageCenter
+ * @property {Number} minimumClusterSize
+ */
+
+(function (Drupal) {
 
   'use strict';
 
   /**
-   * MarkerClustererSettings.
+   * MarkerClusterer.
    *
    * @type {Drupal~behavior}
    *
@@ -21,68 +31,72 @@
    */
   Drupal.behaviors.geolocationMarkerClusterer = {
     attach: function (context, drupalSettings) {
-      $.each(
-        drupalSettings.geolocation.maps,
+      Drupal.geolocation.executeFeatureOnAllMaps(
+        'marker_clusterer',
 
         /**
-         * @param {String} mapId - ID of current map
-         * @param {Object} mapSettings - settings for current map
-         * @param {MarkerClustererSettings} mapSettings.marker_clusterer - settings for current map
+         * @param {GeolocationGoogleMap} map - Current map.
+         * @param {MarkerClustererSettings} featureSettings - Settings for current feature.
          */
-        function (mapId, mapSettings) {
-          if (
-            typeof mapSettings.marker_clusterer !== 'undefined'
-            && mapSettings.marker_clusterer.enable
-            && typeof MarkerClusterer !== 'undefined'
-          ) {
-
-            /* global MarkerClusterer */
-
-            var imagePath = '';
-            if (mapSettings.marker_clusterer.imagePath) {
-              imagePath = mapSettings.marker_clusterer.imagePath;
-            }
-            else {
-              imagePath = 'https://cdn.rawgit.com/googlemaps/js-marker-clusterer/gh-pages/images/m';
-            }
-
-            var markerClustererStyles = '';
-            if (typeof mapSettings.marker_clusterer.styles !== 'undefined') {
-              markerClustererStyles = mapSettings.marker_clusterer.styles;
-            }
-
-            var map = Drupal.geolocation.getMapById(mapId);
-
-            if (!map) {
-              return;
-            }
-
-            map.addReadyCallback(function (map) {
-
-              if (typeof map.markerClusterer === 'undefined') {
-                map.markerClusterer = new MarkerClusterer(
-                  map.googleMap,
-                  [],
-                  {
-                    imagePath: imagePath,
-                    styles: markerClustererStyles,
-                    maxZoom: parseInt(mapSettings.marker_clusterer.maxZoom)
-                  }
-                );
-              }
-
-              map.addMarkerAddedCallback(function (marker) {
-                map.markerClusterer.addMarker(marker);
-              });
-
-              map.addMarkerRemoveCallback(function (marker) {
-                map.markerClusterer.removeMarker(marker);
-              });
-            });
+        function (map, featureSettings) {
+          if (typeof MarkerClusterer === 'undefined') {
+            return;
           }
-        }
+
+          /* global MarkerClusterer */
+
+          var imagePath = '';
+          if (featureSettings.imagePath) {
+            imagePath = featureSettings.imagePath;
+          }
+          else {
+            imagePath = 'https://cdn.jsdelivr.net/gh/googlemaps/js-marker-clusterer@gh-pages/images/m';
+          }
+
+          var markerClustererStyles = {};
+          if (
+            typeof featureSettings.styles !== 'undefined') {
+            markerClustererStyles = featureSettings.styles;
+          }
+
+          map.addPopulatedCallback(function (map) {
+            if (typeof map.markerClusterer === 'undefined') {
+              map.markerClusterer = new MarkerClusterer(
+                map.googleMap,
+                map.mapMarkers,
+                {
+                  imagePath: imagePath,
+                  styles: markerClustererStyles,
+                  maxZoom: featureSettings.maxZoom,
+                  gridSize: featureSettings.gridSize,
+                  zoomOnClick: featureSettings.zoomOnClick,
+                  averageCenter: featureSettings.averageCenter,
+                  minimumClusterSize: featureSettings.minimumClusterSize
+                }
+              );
+            }
+
+            map.addMarkerAddedCallback(function (marker) {
+              map.markerClusterer.addMarker(marker);
+            });
+
+            map.addMarkerRemoveCallback(function (marker) {
+              map.markerClusterer.removeMarker(marker);
+            });
+          });
+
+          map.addUpdatedCallback(function (map, mapSettings) {
+            if (typeof map.markerClusterer !== 'undefined') {
+              map.markerClusterer.clearMarkers();
+            }
+          });
+
+          return true;
+        },
+        drupalSettings
       );
-    }
+    },
+    detach: function (context, drupalSettings) {}
   };
 
-})(jQuery, Drupal);
+})(Drupal);

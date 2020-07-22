@@ -1,0 +1,37 @@
+uuid: 262843ef-0877-476d-9b01-5ec119cf7e35
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.featured_news.field_fnews_posts
+    - field.field.paragraph.featured_news.field_prgf_headline
+    - paragraphs.paragraphs_type.featured_news
+_core:
+  default_config_hash: LPZwEVNBDeVXrqPtybyQ5CU48BjA2IVRg8cVCpfsuYU
+id: paragraph.featured_news.default
+targetEntityType: paragraph
+bundle: featured_news
+mode: default
+content:
+  field_fnews_posts:
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_prgf_headline:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: 'Provide title here'
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

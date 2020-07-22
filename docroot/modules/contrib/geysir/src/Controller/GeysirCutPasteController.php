@@ -4,6 +4,7 @@ namespace Drupal\geysir\Controller;
 
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\ReplaceCommand;
+use Drupal\geysir\Ajax\GeysirReattachBehaviors;
 
 /**
  * Controller for cut & paste functionality.
@@ -15,9 +16,8 @@ class GeysirCutPasteController extends GeysirControllerBase {
    */
   public function cut($parent_entity_type, $parent_entity_bundle, $parent_entity_revision, $field, $field_wrapper_id, $delta, $paragraph_to_cut, $paragraph_revision, $js = 'nojs') {
     if ($js == 'ajax') {
-      $parent_entity_revision = \Drupal::entityTypeManager()
-        ->getStorage($parent_entity_type)
-        ->loadRevision($parent_entity_revision);
+      // Get the parent revision if available, otherwise the parent.
+      $parent_entity_revision = $this->getParentRevisionOrParent($parent_entity_type, $parent_entity_revision);
 
       $parent_entity_revision->get($field)->removeItem($delta);
 
@@ -39,9 +39,8 @@ class GeysirCutPasteController extends GeysirControllerBase {
    */
   public function paste($parent_entity_type, $parent_entity_bundle, $parent_entity_revision, $field, $field_wrapper_id, $delta, $position, $paragraph_to_paste, $paragraph_revision, $js = 'nojs') {
     if ($js == 'ajax') {
-        $parent_entity_revision = \Drupal::entityTypeManager()
-        ->getStorage($parent_entity_type)
-        ->loadRevision($parent_entity_revision);
+      // Get the parent revision if available, otherwise the parent.
+      $parent_entity_revision = $this->getParentRevisionOrParent($parent_entity_type, $parent_entity_revision);
 
       $list_items = $parent_entity_revision->get($field)->getIterator();
 
@@ -91,6 +90,9 @@ class GeysirCutPasteController extends GeysirControllerBase {
           $parent_entity_revision->get($field)->view('default')
         )
       );
+
+      $response->addCommand(new GeysirReattachBehaviors());
+
       return $response;
     }
 

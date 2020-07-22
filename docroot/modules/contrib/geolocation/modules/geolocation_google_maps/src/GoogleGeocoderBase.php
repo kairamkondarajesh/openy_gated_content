@@ -2,42 +2,103 @@
 
 namespace Drupal\geolocation_google_maps;
 
+use Drupal\geolocation\GeocoderInterface;
 use Drupal\geolocation\GeocoderBase;
 use Drupal\Core\Render\BubbleableMetadata;
+use Drupal\geolocation\MapProviderManager;
+use Drupal\geolocation\GeocoderCountryFormattingManager;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Base class.
  *
  * @package Drupal\geolocation_google_places_api
  */
-abstract class GoogleGeocoderBase extends GeocoderBase {
-
-  protected $geocoderId = NULL;
+abstract class GoogleGeocoderBase extends GeocoderBase implements GeocoderInterface {
 
   /**
-   * Google Maps Provider.
+   * Google maps provider.
    *
    * @var \Drupal\geolocation_google_maps\Plugin\geolocation\MapProvider\GoogleMaps
    */
-  protected $googleMapsProvider = NULL;
+  protected $googleMapsProvider;
+
+  /**
+   * GoogleGeocoderBase constructor.
+   *
+   * @param array $configuration
+   *   Configuration.
+   * @param string $plugin_id
+   *   Plugin ID.
+   * @param mixed $plugin_definition
+   *   Plugin definition.
+   * @param \Drupal\geolocation\GeocoderCountryFormattingManager $geocoder_country_formatter_manager
+   *   Country formatter manager.
+   * @param \Drupal\geolocation\MapProviderManager $map_provider_manager
+   *   Map provider management.
+   */
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, GeocoderCountryFormattingManager $geocoder_country_formatter_manager, MapProviderManager $map_provider_manager) {
+    parent::__construct($configuration, $plugin_id, $plugin_definition, $geocoder_country_formatter_manager);
+
+    $this->googleMapsProvider = $map_provider_manager->getMapProvider('google_maps');
+  }
 
   /**
    * {@inheritdoc}
    */
-  public function attachments($input_id) {
-    $attachments = parent::attachments($input_id);
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
+    return new static(
+      $configuration,
+      $plugin_id,
+      $plugin_definition,
+      $container->get('plugin.manager.geolocation.geocoder_country_formatting'),
+      $container->get('plugin.manager.geolocation.mapprovider')
+    );
+  }
 
-    $attachments = BubbleableMetadata::mergeAttachments(
-      $attachments,
+  /**
+   * {@inheritdoc}
+   */
+  protected function getDefaultSettings() {
+    $default_settings = parent::getDefaultSettings();
+
+    $default_settings['autocomplete_min_length'] = 1;
+
+    $default_settings['component_restrictions'] = [
+      'route' => '',
+      'locality' => '',
+      'administrative_area' => '',
+      'postal_code' => '',
+      'country' => '',
+    ];
+
+    $default_settings['boundary_restriction'] = [
+      'south' => '',
+      'west' => '',
+      'north' => '',
+      'east' => '',
+    ];
+
+    return $default_settings;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function formAttachGeocoder(array &$render_array, $element_name) {
+    parent::formAttachGeocoder($render_array, $element_name);
+
+    $render_array['#attached'] = BubbleableMetadata::mergeAttachments(
+      empty($render_array['#attached']) ? [] : $render_array['#attached'],
       [
+        'library' => [
+          'geolocation_google_maps/google',
+        ],
         'drupalSettings' => [
           'geolocation' => [
-            'google_map_url' => $this->googleMapsProvider->getGoogleMapsApiUrl(),
             'geocoder' => [
-              $this->geocoderId => [
-                'inputIds' => [
-                  $input_id,
-                ],
+              $this->getPluginId() => [
+                'autocompleteMinLength' => empty($this->configuration['autocomplete_min_length']) ? 1 : (int) $this->configuration['autocomplete_min_length'],
               ],
             ],
           ],
@@ -61,13 +122,13 @@ abstract class GoogleGeocoderBase extends GeocoderBase {
             break;
         }
 
-        $attachments = BubbleableMetadata::mergeAttachments(
-          $attachments,
+        $render_array['#attached'] = BubbleableMetadata::mergeAttachments(
+          empty($render_array['#attached']) ? [] : $render_array['#attached'],
           [
             'drupalSettings' => [
               'geolocation' => [
                 'geocoder' => [
-                  $this->geocoderId => [
+                  $this->getPluginId() => [
                     'componentRestrictions' => [
                       $component => $restriction,
                     ],
@@ -80,33 +141,32 @@ abstract class GoogleGeocoderBase extends GeocoderBase {
       }
     }
 
-    return $attachments;
-  }
+    if (!empty($this->configuration['boundary_restriction'])) {
+      $bounds = [];
+      foreach ($this->configuration['boundary_restriction'] as $key => $value) {
+        if (empty($value)) {
+          return;
+        }
+        $bounds[$key] = (float) $value;
+      }
 
-  /**
-   * {@inheritdoc}
-   */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition) {
-    parent::__construct($configuration, $plugin_id, $plugin_definition);
-
-    $this->googleMapsProvider = \Drupal::service('plugin.manager.geolocation.mapprovider')->getMapProvider('google_maps');
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  protected function getDefaultSettings() {
-    $default_settings = parent::getDefaultSettings();
-
-    $default_settings['component_restrictions'] = [
-      'route' => '',
-      'locality' => '',
-      'administrative_area' => '',
-      'postal_code' => '',
-      'country' => '',
-    ];
-
-    return $default_settings;
+      if (!empty($bounds)) {
+        $render_array['#attached'] = BubbleableMetadata::mergeAttachments(
+          empty($render_array['#attached']) ? [] : $render_array['#attached'],
+          [
+            'drupalSettings' => [
+              'geolocation' => [
+                'geocoder' => [
+                  $this->getPluginId() => [
+                    'bounds' => $bounds,
+                  ],
+                ],
+              ],
+            ],
+          ]
+        );
+      }
+    }
   }
 
   /**
@@ -118,11 +178,19 @@ abstract class GoogleGeocoderBase extends GeocoderBase {
 
     $form = parent::getOptionsForm();
 
+    $form['autocomplete_min_length'] = [
+      '#title' => $this->t('Autocomplete minimal input length'),
+      '#type' => 'number',
+      '#min' => 1,
+      '#step' => 1,
+      '#default_value' => $settings['autocomplete_min_length'],
+    ];
+
     $form += [
       'component_restrictions' => [
         '#type' => 'fieldset',
         '#title' => $this->t('Component Restrictions'),
-        '#description' => $this->t('See https://developers.google.com/maps/documentation/geocoding/intro#ComponentFiltering'),
+        '#description' => $this->t('See <a href="https://developers.google.com/maps/documentation/geocoding/intro#ComponentFiltering">Component Filtering</a>'),
         'route' => [
           '#type' => 'textfield',
           '#default_value' => $settings['component_restrictions']['route'],
@@ -152,6 +220,35 @@ abstract class GoogleGeocoderBase extends GeocoderBase {
           '#default_value' => $settings['component_restrictions']['country'],
           '#title' => $this->t('Country'),
           '#size' => 5,
+        ],
+      ],
+      'boundary_restriction' => [
+        '#type' => 'fieldset',
+        '#title' => $this->t('Boundary Restriction'),
+        '#description' => $this->t('See <a href="https://developers.google.com/maps/documentation/geocoding/intro#Viewports">Viewports</a>'),
+        'south' => [
+          '#type' => 'textfield',
+          '#default_value' => $settings['boundary_restriction']['south'],
+          '#title' => $this->t('South'),
+          '#size' => 15,
+        ],
+        'west' => [
+          '#type' => 'textfield',
+          '#default_value' => $settings['boundary_restriction']['west'],
+          '#title' => $this->t('West'),
+          '#size' => 15,
+        ],
+        'north' => [
+          '#type' => 'textfield',
+          '#default_value' => $settings['boundary_restriction']['north'],
+          '#title' => $this->t('North'),
+          '#size' => 15,
+        ],
+        'east' => [
+          '#type' => 'textfield',
+          '#default_value' => $settings['boundary_restriction']['east'],
+          '#title' => $this->t('East'),
+          '#size' => 15,
         ],
       ],
     ];

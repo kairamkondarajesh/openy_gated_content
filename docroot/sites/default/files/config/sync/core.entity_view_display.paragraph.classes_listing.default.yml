@@ -1,0 +1,26 @@
+uuid: 3cd4bcba-118f-456e-8f0e-d6bdef9dc8a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.classes_listing.field_prgf_block
+    - paragraphs.paragraphs_type.classes_listing
+  module:
+    - plugin
+_core:
+  default_config_hash: 73Uq89pqCb8zCjnIX2JusE9ex_ngdIezubwbGf6it60
+id: paragraph.classes_listing.default
+targetEntityType: paragraph
+bundle: classes_listing
+mode: default
+content:
+  field_prgf_block:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: plugin_block_built
+    region: content
+hidden:
+  created: true
+  uid: true

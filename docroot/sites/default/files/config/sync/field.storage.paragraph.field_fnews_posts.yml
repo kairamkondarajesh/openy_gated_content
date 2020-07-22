@@ -1,0 +1,22 @@
+uuid: 266e1b02-4785-404f-bc32-96e1fedbf558
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - paragraphs
+_core:
+  default_config_hash: g1Mj9jbaYpoHsGDj5kV27yQSwEEoTX5ukaRASY1tTkU
+id: paragraph.field_fnews_posts
+field_name: field_fnews_posts
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

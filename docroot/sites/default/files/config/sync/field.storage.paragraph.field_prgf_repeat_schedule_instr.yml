@@ -1,0 +1,20 @@
+uuid: 263a1b84-b33e-4572-b91b-92007bf5b6b7
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+_core:
+  default_config_hash: X20smr-E_G0D9wWBDoUZwb03PS0fOqLZRe9UQwKS5_c
+id: paragraph.field_prgf_repeat_schedule_instr
+field_name: field_prgf_repeat_schedule_instr
+entity_type: paragraph
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

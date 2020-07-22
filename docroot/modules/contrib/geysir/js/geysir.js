@@ -53,6 +53,14 @@
     }
   };
 
+  Drupal.AjaxCommands.prototype.geysirReattachBehaviors = function() {
+      Drupal.ajax.instances = Drupal.ajax.instances.filter(function(el) {
+        return el;
+    });
+
+    Drupal.attachBehaviors();
+  };
+
   /**
    * Triggered by AJAX action for page reload.
    */

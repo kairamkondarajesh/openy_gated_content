@@ -1,0 +1,10 @@
+uuid: e41beaa5-5c4b-44f9-add5-5fc674b9459e
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: OT9K_eJFl0LRcqakzoQOS6J8lr95DiCKmdysQzqSKCg
+id: menu_block
+label: 'Menu Block'
+revision: 0
+description: 'The Menu Block.'

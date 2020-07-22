@@ -1,0 +1,12 @@
+uuid: f1d67cfd-71c5-4866-a378-5e5b44477505
+langcode: en
+status: false
+dependencies:
+  module:
+    - block_content
+_core:
+  default_config_hash: i2RTSsbEGC44oMfNK-EcDzX07lWbS52Rvw7BPXCf2CI
+id: block_content.trimmed
+label: Trimmed
+targetEntityType: block_content
+cache: true

@@ -1,0 +1,39 @@
+uuid: 2e509048-770a-4dac-a3b5-963ed2765cfa
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.node_news_teaser
+    - field.field.media.image.field_media_caption
+    - field.field.media.image.field_media_image
+    - field.field.media.image.field_media_in_library
+    - field.field.media.image.field_media_tags
+    - image.style.node_news_teaser
+    - media.type.image
+  module:
+    - image
+_core:
+  default_config_hash: NGm90_nhxX9o8t0HIIpg2tob6OjlCdau3H8p2m9uWpE
+id: media.image.node_news_teaser
+targetEntityType: media
+bundle: image
+mode: node_news_teaser
+content:
+  field_media_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: node_news_teaser
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  created: true
+  field_media_caption: true
+  field_media_in_library: true
+  field_media_tags: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

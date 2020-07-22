@@ -1,0 +1,12 @@
+uuid: 85aee0eb-5b16-4de2-8722-cb7bd8bddde0
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+_core:
+  default_config_hash: vMn-mE6JD9n75MKWdnoKvxIvzXasrkegVHPk48u7R0s
+id: media.node_news_teaser
+label: 'Node news teaser'
+targetEntityType: media
+cache: true

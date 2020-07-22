@@ -1,0 +1,13 @@
+uuid: fc23afc1-7846-4ad8-b54c-15fa40c70959
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.1c
+_core:
+  default_config_hash: POsg3EDz700YtktkmDLPaASZy-B6sEyUDvLsZ1cNzEg
+id: paragraph.1c
+target_entity_type_id: paragraph
+target_bundle: 1c
+default_langcode: site_default
+language_alterable: true

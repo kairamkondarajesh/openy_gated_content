@@ -1,0 +1,30 @@
+uuid: e0a66758-35da-46ea-8e13-52095d75ddea
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.date_block
+    - field.storage.paragraph.field_prgf_date_block
+    - paragraphs.paragraphs_type.block_date
+_core:
+  default_config_hash: VdY7GR-vkWbA8iBAlt1c9Cjb_SeLdHnIabABbMM44B0
+id: paragraph.block_date.field_prgf_date_block
+field_name: field_prgf_date_block
+entity_type: paragraph
+bundle: block_date
+label: 'Date block'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      date_block: date_block
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

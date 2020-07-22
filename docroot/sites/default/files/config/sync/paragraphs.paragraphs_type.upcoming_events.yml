@@ -1,0 +1,11 @@
+uuid: 5b9b2443-396b-45ad-b07c-2aeb865efa7b
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: ks8FOZZ_68JdFRvXNr_xR6pPnM-ckN4YCeZ6XfRUGG4
+id: upcoming_events
+label: 'Upcoming Events'
+icon_uuid: null
+description: null
+behavior_plugins: {  }

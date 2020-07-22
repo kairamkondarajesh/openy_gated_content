@@ -1,0 +1,21 @@
+uuid: f69fa739-5aa6-44d9-adb2-35c70d742e6b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lto_subtitle
+    - paragraphs.paragraphs_type.lto
+_core:
+  default_config_hash: evpe-LR4Wjen8Bco_GjNjJ_bqu6nJUDusHwrll_DvE8
+id: paragraph.lto.field_lto_subtitle
+field_name: field_lto_subtitle
+entity_type: paragraph
+bundle: lto
+label: Subtitle
+description: 'Enter subtitle for Limited time offer.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

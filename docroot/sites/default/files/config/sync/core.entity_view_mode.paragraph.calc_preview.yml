@@ -1,0 +1,12 @@
+uuid: 49cf589b-cc0e-4c11-828a-627ac4498eca
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+_core:
+  default_config_hash: 4igg0M4ilJfnFFHCmtsM4xzOtmoZ1Fj3-72a65wnQtg
+id: paragraph.calc_preview
+label: 'Calculator Preview'
+targetEntityType: paragraph
+cache: true

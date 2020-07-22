@@ -1,0 +1,31 @@
+uuid: e22aed7d-18bc-4725-8942-a493e3bc1b3a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_prgf_block
+    - paragraphs.paragraphs_type.class_sessions
+  module:
+    - plugin
+_core:
+  default_config_hash: 0K5TZa0e6d3Cw2A_m11czeNYDr5VD3ULxdJY3V_v5UU
+id: paragraph.class_sessions.field_prgf_block
+field_name: field_prgf_block
+entity_type: paragraph
+bundle: class_sessions
+label: Block
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    plugin_id: class_sessions
+    plugin_configuration:
+      id: class_sessions
+      label: Block
+      provider: null
+      label_display: null
+    plugin_configuration_schema_id: block.settings.class_sessions
+default_value_callback: ''
+settings: {  }
+field_type: 'plugin:block'

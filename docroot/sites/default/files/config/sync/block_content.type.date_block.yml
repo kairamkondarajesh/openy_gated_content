@@ -1,0 +1,10 @@
+uuid: d7d685a9-e76e-4367-9926-f9212023a0bb
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 6Yz83uNB-h8jWYGzGMJGf9aNVIBTBlYQSoNHDTSq1qU
+id: date_block
+label: 'Date block'
+revision: 1
+description: 'Date based block.'

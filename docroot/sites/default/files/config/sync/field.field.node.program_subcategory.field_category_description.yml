@@ -1,0 +1,28 @@
+uuid: 6b285d57-dfc0-4f62-9fae-ff6d486ed7c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_category_description
+    - node.type.program_subcategory
+  module:
+    - datalayer
+    - text
+third_party_settings:
+  datalayer:
+    expose: 1
+    label: field_category_description
+_core:
+  default_config_hash: q8LFpmR_D8aDNGhJguPbhfyFMaqZNi7CdPpWNUrNW1s
+id: node.program_subcategory.field_category_description
+field_name: field_category_description
+entity_type: node
+bundle: program_subcategory
+label: Description
+description: 'Textarea for the description/body with WYSIWYG, without summary.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

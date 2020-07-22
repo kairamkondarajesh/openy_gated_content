@@ -1,0 +1,22 @@
+uuid: c73097e1-8371-4042-95d8-3e42aaab0028
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - node
+_core:
+  default_config_hash: vtJ4Xs_9-IujbW42ZBbDVY4PyOivr5J2jonriBmVjtA
+id: node.field_program_icon
+field_name: field_program_icon
+entity_type: node
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

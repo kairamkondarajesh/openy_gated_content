@@ -1,0 +1,23 @@
+uuid: a824cf2d-e084-47c0-be83-5876787ad489
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_prgf_grid_clm_description
+    - paragraphs.paragraphs_type.grid_columns
+  module:
+    - text
+_core:
+  default_config_hash: 9ZOOV9036-DvVtGMT-r5J97BtOL-kDMvnIdtniF3llE
+id: paragraph.grid_columns.field_prgf_grid_clm_description
+field_name: field_prgf_grid_clm_description
+entity_type: paragraph
+bundle: grid_columns
+label: Description
+description: 'Textarea for the description/body with WYSIWYG, without summary.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

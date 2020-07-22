@@ -56,6 +56,7 @@
     - include: devops/reinstall/solr.yml
       tags: [ 'solr-commands' ]
       become: yes
+      when: use_solr
 
     - include: devops/reinstall/drush_commands.yml
       tags: [ 'drush-commands' ]

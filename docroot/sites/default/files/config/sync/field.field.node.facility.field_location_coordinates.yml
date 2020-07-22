@@ -1,0 +1,28 @@
+uuid: 8a73ccbb-2d8c-4b08-9ef9-55881ac3fcef
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location_coordinates
+    - node.type.facility
+  module:
+    - datalayer
+    - geolocation
+third_party_settings:
+  datalayer:
+    expose: 1
+    label: field_location_coordinates
+_core:
+  default_config_hash: MpLPWUdwLLZbu3UDZ2Ld19BlBSnKDoebBcnCOiSmyvA
+id: node.facility.field_location_coordinates
+field_name: field_location_coordinates
+entity_type: node
+bundle: facility
+label: 'Facility Coordinates'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: geolocation

@@ -1,0 +1,23 @@
+uuid: 70ad0f80-f961-4107-895e-6c8773d9629b
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+_core:
+  default_config_hash: Sq9W5dgbPt4-pAxdRUaBFGTNpZXhpBqOArkcVYoZy0A
+id: paragraph.field_prgf_clm_class
+field_name: field_prgf_clm_class
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,30 @@
+uuid: 4cc5de13-2fa1-4ea6-821d-7f1c979db05d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.repeat_schedules_loc.field_prgf_block
+    - field.field.paragraph.repeat_schedules_loc.field_prgf_repeat_lschedules_prf
+    - paragraphs.paragraphs_type.repeat_schedules_loc
+_core:
+  default_config_hash: 4sOc3seMXohQczhYl2iudHfovf_84BJXTyNlOTnDGoY
+id: paragraph.repeat_schedules_loc.default
+targetEntityType: paragraph
+bundle: repeat_schedules_loc
+mode: default
+content:
+  field_prgf_repeat_lschedules_prf:
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+hidden:
+  created: true
+  field_prgf_block: true
+  status: true
+  uid: true

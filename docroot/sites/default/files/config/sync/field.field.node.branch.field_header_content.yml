@@ -1,0 +1,26 @@
+uuid: 876c79e8-bc72-4edc-9bbe-bc213be19407
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_header_content
+    - node.type.branch
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: JghrQX5yqZCHyJFzuzTBM9K0czwVtAprKECKvf65vkE
+id: node.branch.field_header_content
+field_name: field_header_content
+entity_type: node
+bundle: branch
+label: 'Header content'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles: null
+field_type: entity_reference_revisions

@@ -1,31 +1,10 @@
 /**
  * @file
- *   Javascript for the Google Places API geocoder.
+ * Javascript for the Google Places API geocoder.
  */
 
 /**
- * @property {Object} drupalSettings.geolocation.geocoder.googlePlacesAPI.componentRestrictions
- */
-
-/**
- * @name PlacePrediction
- * @property {String} description - Description
- * @property {String} place_id - Place ID
- */
-
-/**
- * @name PlaceResult
- * @augments GoogleAddress
- */
-
-/**
- * @property {Object} GoogleMap.places.PlacesServiceStatus
- * @property {String} GoogleMap.places.PlacesServiceStatus.OK
- *
- * @property {function():Object} GoogleMap.places.AutocompleteService
- * @property {function():Object} GoogleMap.places.PlacesService
- * @property {Function} GoogleMap.places.AutocompleteService.getPlacePredictions
- * @property {function(Object, Function)} GoogleMap.places.PlacesService.getDetails
+ * @property {Object} drupalSettings.geolocation.geocoder.google_places_api.componentRestrictions
  */
 
 (function ($, Drupal) {
@@ -38,38 +17,42 @@
   }
 
   Drupal.geolocation.geocoder.googlePlacesAPI = {};
-  drupalSettings.geolocation.geocoder.googlePlacesAPI = drupalSettings.geolocation.geocoder.googlePlacesAPI || {};
+  drupalSettings.geolocation.geocoder.google_places_api = drupalSettings.geolocation.geocoder.google_places_api || {};
+
+  var minLength = 1;
+  if (
+      typeof drupalSettings.geolocation.geocoder.google_places_api.autocompleteMinLength !== 'undefined'
+      && parseInt(drupalSettings.geolocation.geocoder.google_places_api.autocompleteMinLength)
+  ) {
+    minLength = parseInt(drupalSettings.geolocation.geocoder.google_places_api.autocompleteMinLength);
+  }
 
   /**
    * @param {HTMLElement} context Context
    */
   Drupal.geolocation.geocoder.googlePlacesAPI.attach = function (context) {
-    var autocomplete = $('input.geolocation-geocoder-google-places-api', context);
+    var autocomplete = $('input.geolocation-geocoder-address', context);
     if (!autocomplete.length) {
       return;
     }
 
     autocomplete.once().autocomplete({
       autoFocus: true,
+      minLength: minLength,
       source: function (request, response) {
         var autocompleteResults = [];
         var componentRestrictions = {};
-        if (typeof drupalSettings.geolocation.geocoder.googlePlacesAPI.componentRestrictions !== 'undefined') {
-          componentRestrictions = drupalSettings.geolocation.geocoder.googlePlacesAPI.componentRestrictions;
+        if (typeof drupalSettings.geolocation.geocoder.google_places_api.componentRestrictions !== 'undefined') {
+          componentRestrictions = drupalSettings.geolocation.geocoder.google_places_api.componentRestrictions;
         }
 
         Drupal.geolocation.geocoder.googlePlacesAPI.autocompleteService.getPlacePredictions(
           {
             input: request.term,
-            componentRestrictions: componentRestrictions
+            componentRestrictions: componentRestrictions,
+            sessionToken: Drupal.geolocation.geocoder.googlePlacesAPI.sessionToken
           },
 
-          /**
-           * Google Places API geocode.
-           *
-           * @param {PlacePrediction[]} results - Returned results
-           * @param {string} status - Whether geocoding was successful
-           */
           function (results, status) {
             if (status === google.maps.places.PlacesServiceStatus.OK) {
               $.each(results, function (index, result) {
@@ -98,17 +81,12 @@
             placeId: ui.item.place_id
           },
 
-          /**
-           * @param {PlaceResult} place GoogleAddress compatible place.
-           * @param {String} status GoogleGeocoderStatus
-           */
           function (place, status) {
             if (status === google.maps.places.PlacesServiceStatus.OK) {
               if (typeof place.geometry.location === 'undefined') {
                 return;
               }
-              Drupal.geolocation.geocoder.resultCallback(place, $(event.target).data('source-identifier'));
-              $('.geolocation-geocoder-google-places-api-state[data-source-identifier="' + $(event.target).data('source-identifier') + '"]').val(1);
+              Drupal.geolocation.geocoder.resultCallback(place, $(event.target).data('source-identifier').toString());
             }
           }
         );
@@ -123,13 +101,12 @@
     };
 
     autocomplete.on('input', function () {
-      $('.geolocation-geocoder-google-places-api-state[data-source-identifier="' + $(this).data('source-identifier') + '"]').val(0);
-      Drupal.geolocation.geocoder.clearCallback($(this).data('source-identifier'));
+      Drupal.geolocation.geocoder.clearCallback($(this).data('source-identifier').toString());
     });
   };
 
   /**
-   * Attach geocoder input for Google places API
+   * Attach geocoder input for Google places API.
    *
    * @type {Drupal~behavior}
    *
@@ -140,17 +117,19 @@
     attach: function (context) {
       var attribution_block = $('#geolocation-google-places-api-attribution');
       if (attribution_block.length === 0) {
-        console.error("Geolocation Google Places API attribution block missing."); // eslint-disable-line no-console
+        console.error("Geolocation Google Places API attribution block missing."); // eslint-disable-line no-console .
         return;
       }
 
-      Drupal.geolocation.google.addLoadedCallback(function() {
+      Drupal.geolocation.google.addLoadedCallback(function () {
         if (typeof Drupal.geolocation.geocoder.googlePlacesAPI.service === 'undefined') {
-          Drupal.geolocation.geocoder.googlePlacesAPI.service = new google.maps.places.PlacesService(attribution_block.get(0));
+          Drupal.geolocation.geocoder.googlePlacesAPI.service = new google.maps.places.PlacesService(attribution_block[0]);
+          // Create a new session token.
+          Drupal.geolocation.geocoder.googlePlacesAPI.sessionToken = new google.maps.places.AutocompleteSessionToken();
           Drupal.geolocation.geocoder.googlePlacesAPI.autocompleteService = new google.maps.places.AutocompleteService();
-
-          Drupal.geolocation.geocoder.googlePlacesAPI.attach(context);
         }
+
+        Drupal.geolocation.geocoder.googlePlacesAPI.attach(context);
       });
 
       // Load Google Maps API and execute all callbacks.

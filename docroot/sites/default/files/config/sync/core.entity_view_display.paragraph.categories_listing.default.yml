@@ -1,0 +1,26 @@
+uuid: 615ec7d1-108d-40f7-b745-b5246d8c4a6e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.categories_listing.field_prgf_block
+    - paragraphs.paragraphs_type.categories_listing
+  module:
+    - plugin
+_core:
+  default_config_hash: HeSYzrZApWexH-P6swxLP_GP75ONsS5pa6rozNJAzYE
+id: paragraph.categories_listing.default
+targetEntityType: paragraph
+bundle: categories_listing
+mode: default
+content:
+  field_prgf_block:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: plugin_block_built
+    region: content
+hidden:
+  created: true
+  uid: true

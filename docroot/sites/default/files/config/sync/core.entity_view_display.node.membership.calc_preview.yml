@@ -1,0 +1,53 @@
+uuid: 88889067-b786-49ef-adfb-4ab588afc4af
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.calc_preview
+    - field.field.node.membership.field_mbrshp_description
+    - field.field.node.membership.field_mbrshp_image
+    - field.field.node.membership.field_mbrshp_info
+    - node.type.membership
+  module:
+    - text
+    - user
+_core:
+  default_config_hash: _gESSKcnN_M1hMyhTubETNV1vUa3Q-4acpeB5e7Ki7Y
+id: node.membership.calc_preview
+targetEntityType: node
+bundle: membership
+mode: calc_preview
+content:
+  addthis:
+    label: hidden
+    type: string
+    weight: 100
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_mbrshp_description:
+    weight: 2
+    label: hidden
+    settings:
+      trim_length: 250
+    third_party_settings: {  }
+    type: text_trimmed
+    region: content
+  field_mbrshp_image:
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: calc_preview
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  links:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_mbrshp_info: true
+  langcode: true

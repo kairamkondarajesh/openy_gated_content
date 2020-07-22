@@ -1,0 +1,34 @@
+uuid: ba50d98d-a998-4508-b5e8-89be61bb36df
+langcode: en
+status: true
+dependencies:
+  module:
+    - search_api_solr
+_core:
+  default_config_hash: xenmngP1D1xjKpfCYL5UdP3yFDnp-QrvIaA3rK1GWW4
+id: solr
+name: Solr
+description: ''
+backend: search_api_solr
+backend_config:
+  connector: standard
+  connector_config:
+    scheme: http
+    host: solr
+    port: '8983'
+    path: /solr
+    core: collection1
+    timeout: 5
+    index_timeout: 5
+    optimize_timeout: 10
+    commit_within: 1000
+    solr_version: ''
+    http_method: AUTO
+  retrieve_data: false
+  highlight_data: false
+  excerpt: false
+  skip_schema_check: false
+  site_hash: true
+  suggest_suffix: true
+  suggest_corrections: true
+  suggest_words: false

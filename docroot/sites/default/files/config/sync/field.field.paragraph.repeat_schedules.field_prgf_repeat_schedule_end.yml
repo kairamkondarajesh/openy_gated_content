@@ -1,0 +1,31 @@
+uuid: 96efcf7e-4a49-42dd-902d-e66e80b1faaf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_prgf_repeat_schedule_end
+    - paragraphs.paragraphs_type.repeat_schedules
+  module:
+    - datalayer
+third_party_settings:
+  datalayer:
+    expose: 0
+    label: field_prgf_repeat_schedule_end
+_core:
+  default_config_hash: 2hQYZiFAT92VbS-nuqmSqaImevGg2Gzx9IBSPkQqUtQ
+id: paragraph.repeat_schedules.field_prgf_repeat_schedule_end
+field_name: field_prgf_repeat_schedule_end
+entity_type: paragraph
+bundle: repeat_schedules
+label: 'Display end time'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

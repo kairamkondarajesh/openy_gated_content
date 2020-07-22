@@ -1,0 +1,11 @@
+uuid: 050bbee6-8f9e-4ae3-bd9c-c749a720e647
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: ljmcub1R4yf3U45_JsTA8-9deAsvKD7jjTlkWONG0Qg
+id: branch_amenities_with_icons
+label: 'Branch Amenities with Icons'
+icon_uuid: null
+description: 'Add this block if you want to display Amenities widget with attached icons. This paragraph display its content only at Branch pages.'
+behavior_plugins: {  }

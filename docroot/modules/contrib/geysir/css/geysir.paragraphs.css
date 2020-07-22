@@ -182,11 +182,25 @@
   width: 40px;
 }
 
+.geysir-field-paragraph-links a.disabled {
+  background-color: #dddddd;
+  border: 2px solid #aaaaaa;
+  color: #aaaaaa;
+}
+
+.geysir-field-paragraph-wrapper .geysir-field-paragraph-wrapper:hover .geysir-field-paragraph-links a:hover,
 .geysir-field-paragraph-links a:hover {
   background-color: #f78a5f;
   border-color: #f78a5f;
   box-shadow: 0 0 5px #000;
   color: #fff;
+}
+
+.geysir-field-paragraph-links a.disabled:hover {
+  background-color: #dddddd;
+  border-color: #aaaaaa;
+  cursor: not-allowed;
+  box-shadow: none;
 }
 
 .geysir-field-paragraph-links li.add-after a,

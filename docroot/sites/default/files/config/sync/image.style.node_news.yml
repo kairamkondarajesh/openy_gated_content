@@ -1,0 +1,19 @@
+uuid: 3d38d9e7-ebc6-466e-a18f-4ba960958a49
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+_core:
+  default_config_hash: ee2G78YQYzVI7kjqfxKXRgh8iUgHR8-a6da70pSZymQ
+name: node_news
+label: 'Node news'
+effects:
+  c45d98ad-b676-42b9-b59b-12e671b55141:
+    uuid: c45d98ad-b676-42b9-b59b-12e671b55141
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 762
+      height: 451
+      crop_type: focal_point

@@ -50,7 +50,7 @@ class Drawing extends MapFeatureBase {
   public function getSettingsForm(array $settings, array $parents) {
     $settings = $this->getSettings($settings);
 
-    $states_prefix = array_shift($parents) . '[' . implode($parents, '][') . ']';
+    $states_prefix = array_shift($parents) . '[' . implode('][', $parents) . ']';
 
     $form['polyline'] = [
       '#type' => 'checkbox',
@@ -66,11 +66,8 @@ class Drawing extends MapFeatureBase {
       '#default_value' => $settings['strokeColor'],
       '#states' => [
         'visible' => [
-          [
-            ['input[name="' . $states_prefix . '[polyline]"]' => ['checked' => TRUE]],
-            'or',
-            ['input[name="' . $states_prefix . '[polygon]"]' => ['checked' => TRUE]],
-          ],
+          ['input[name="' . $states_prefix . '[polyline]"]' => ['checked' => TRUE]],
+          ['input[name="' . $states_prefix . '[polygon]"]' => ['checked' => TRUE]],
         ],
       ],
     ];
@@ -82,11 +79,8 @@ class Drawing extends MapFeatureBase {
       '#default_value' => $settings['strokeOpacity'],
       '#states' => [
         'visible' => [
-          [
-            ['input[name="' . $states_prefix . '[polyline]"]' => ['checked' => TRUE]],
-            'or',
-            ['input[name="' . $states_prefix . '[polygon]"]' => ['checked' => TRUE]],
-          ],
+          ['input[name="' . $states_prefix . '[polyline]"]' => ['checked' => TRUE]],
+          ['input[name="' . $states_prefix . '[polygon]"]' => ['checked' => TRUE]],
         ],
       ],
     ];
@@ -98,11 +92,8 @@ class Drawing extends MapFeatureBase {
       '#default_value' => $settings['strokeWeight'],
       '#states' => [
         'visible' => [
-          [
-            ['input[name="' . $states_prefix . '[polyline]"]' => ['checked' => TRUE]],
-            'or',
-            ['input[name="' . $states_prefix . '[polygon]"]' => ['checked' => TRUE]],
-          ],
+          ['input[name="' . $states_prefix . '[polyline]"]' => ['checked' => TRUE]],
+          ['input[name="' . $states_prefix . '[polygon]"]' => ['checked' => TRUE]],
         ],
       ],
     ];
@@ -113,11 +104,8 @@ class Drawing extends MapFeatureBase {
       '#default_value' => $settings['geodesic'],
       '#states' => [
         'visible' => [
-          [
-            ['input[name="' . $states_prefix . '[polyline]"]' => ['checked' => TRUE]],
-            'or',
-            ['input[name="' . $states_prefix . '[polygon]"]' => ['checked' => TRUE]],
-          ],
+          ['input[name="' . $states_prefix . '[polyline]"]' => ['checked' => TRUE]],
+          ['input[name="' . $states_prefix . '[polygon]"]' => ['checked' => TRUE]],
         ],
       ],
     ];
@@ -168,13 +156,13 @@ class Drawing extends MapFeatureBase {
       empty($render_array['#attached']) ? [] : $render_array['#attached'],
       [
         'library' => [
-          'geolocation_google_maps/geolocation.drawing',
+          'geolocation_google_maps/mapfeature.' . $this->getPluginId(),
         ],
         'drupalSettings' => [
           'geolocation' => [
             'maps' => [
               $render_array['#id'] => [
-                'drawing' => [
+                $this->getPluginId() => [
                   'enable' => TRUE,
                   'settings' => $feature_settings,
                 ],

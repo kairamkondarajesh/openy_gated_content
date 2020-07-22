@@ -1,0 +1,23 @@
+uuid: 86dadb25-3a70-469d-aa09-eb19e1ff0b91
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_prgf_description
+    - paragraphs.paragraphs_type.featured_content
+  module:
+    - text
+_core:
+  default_config_hash: d7n7xkYKQhhLP-x7up_tT76WngYt-JXV7xEgtd3xBeI
+id: paragraph.featured_content.field_prgf_description
+field_name: field_prgf_description
+entity_type: paragraph
+bundle: featured_content
+label: Description
+description: 'Textarea for the description/body with WYSIWYG, without summary.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

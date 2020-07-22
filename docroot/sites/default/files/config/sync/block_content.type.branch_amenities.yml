@@ -1,0 +1,10 @@
+uuid: f580ca22-8665-4cc9-9354-497169f56487
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: h5AW3Q9fUHeLqsVHO3q8ceW-d0JXnmPzSJYe-06Gs7o
+id: branch_amenities
+label: 'Branch amenities'
+revision: 0
+description: 'Display Amenities of the current center in a block.'

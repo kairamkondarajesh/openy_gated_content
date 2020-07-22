@@ -1,0 +1,11 @@
+uuid: aa7f1b83-5068-4922-9482-935d9f9c8dac
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Tb7cbOEfQVUxfvHUS3dgylBYr9dVH0qJGdRtrLPJbi4
+id: latest_news_posts_branch
+label: 'Latest news posts (branch)'
+icon_uuid: null
+description: null
+behavior_plugins: {  }

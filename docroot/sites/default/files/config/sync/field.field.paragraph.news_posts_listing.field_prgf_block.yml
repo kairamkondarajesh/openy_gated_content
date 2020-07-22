@@ -1,0 +1,33 @@
+uuid: 272ff403-597e-4225-918e-bd27d1c7550f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_prgf_block
+    - paragraphs.paragraphs_type.news_posts_listing
+  module:
+    - plugin
+_core:
+  default_config_hash: obJ3Ne5db7KS2GH1bs2v0k5GtX0IxbsLgdsjOcwH144
+id: paragraph.news_posts_listing.field_prgf_block
+field_name: field_prgf_block
+entity_type: paragraph
+bundle: news_posts_listing
+label: Block
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    plugin_id: 'views_block:listing_news_posts-block'
+    plugin_configuration:
+      id: 'views_block:listing_news_posts-block'
+      label: Block
+      provider: null
+      label_display: null
+      views_label: ''
+      items_per_page: none
+    plugin_configuration_schema_id: 'block.settings.views_block:listing_news_posts-block'
+default_value_callback: ''
+settings: {  }
+field_type: 'plugin:block'

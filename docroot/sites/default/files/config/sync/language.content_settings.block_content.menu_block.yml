@@ -1,0 +1,13 @@
+uuid: bf9686a9-754b-4abe-b9d1-f254a659cf76
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.menu_block
+_core:
+  default_config_hash: MXQ_IcgNHLzuO9XU6Ez5jP515OaDGCdgjmgqyPtDzVA
+id: block_content.menu_block
+target_entity_type_id: block_content
+target_bundle: menu_block
+default_langcode: site_default
+language_alterable: true

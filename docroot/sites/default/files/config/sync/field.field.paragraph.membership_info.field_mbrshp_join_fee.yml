@@ -1,0 +1,25 @@
+uuid: f354b908-1533-43e9-a822-f27b20ddf08d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_mbrshp_join_fee
+    - paragraphs.paragraphs_type.membership_info
+_core:
+  default_config_hash: KPwKD-UDn13rN1j1SRfSiLaKzEXUjYhZQmtTkXDAVRk
+id: paragraph.membership_info.field_mbrshp_join_fee
+field_name: field_mbrshp_join_fee
+entity_type: paragraph
+bundle: membership_info
+label: 'Join Fee'
+description: 'Dollar value for how much someone has to pay to join.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: $
+  suffix: ''
+field_type: decimal

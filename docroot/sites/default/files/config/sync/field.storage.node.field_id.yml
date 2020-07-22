@@ -1,0 +1,26 @@
+uuid: 1acd8b90-ddc8-4481-a8bc-56253dcc8740
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - social_feed_fetcher
+  module:
+    - node
+_core:
+  default_config_hash: IPKISCvqRkPtE9cpbIvUCac-TldHUFevksyRFwt6eMo
+id: node.field_id
+field_name: field_id
+entity_type: node
+type: string
+settings:
+  max_length: 40
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

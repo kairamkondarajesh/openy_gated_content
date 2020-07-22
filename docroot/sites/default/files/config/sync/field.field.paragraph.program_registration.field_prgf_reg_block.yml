@@ -1,0 +1,33 @@
+uuid: a17a2ff7-a43e-4025-912f-2a16a4d70ab2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_prgf_reg_block
+    - paragraphs.paragraphs_type.program_registration
+  module:
+    - plugin
+_core:
+  default_config_hash: 8NYjxA_GBrlMiBznMcDtAVsoAd-A_dpNounTavczkr0
+id: paragraph.program_registration.field_prgf_reg_block
+field_name: field_prgf_reg_block
+entity_type: paragraph
+bundle: program_registration
+label: 'Program registration block'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    plugin_id: programs_search_block
+    plugin_configuration:
+      id: programs_search_block
+      label: 'Program registration block'
+      provider: null
+      label_display: null
+      enabled_locations: null
+      enabled_categories: null
+    plugin_configuration_schema_id: block.settings.programs_search_block
+default_value_callback: ''
+settings: {  }
+field_type: 'plugin:block'

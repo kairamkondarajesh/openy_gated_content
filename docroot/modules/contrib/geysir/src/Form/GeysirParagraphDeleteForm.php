@@ -4,6 +4,7 @@ namespace Drupal\geysir\Form;
 
 use Drupal\Core\Entity\ContentEntityDeleteForm;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
 
 /**
  * Functionality to delete a paragraph.
@@ -20,7 +21,8 @@ class GeysirParagraphDeleteForm extends ContentEntityDeleteForm {
     $field_name = $route_match->getParameter('field');
     $delta = $route_match->getParameter('delta');
 
-    $parent_entity_revision = $this->entityTypeManager->getStorage($parent_entity_type)->loadRevision($parent_entity_revision);
+    // Get the parent revision if available, otherwise the parent.
+    $parent_entity_revision = $this->getParentRevisionOrParent($parent_entity_type, $parent_entity_revision);
 
     $field = $parent_entity_revision->get($field_name);
     $field_definition = $field->getFieldDefinition();
@@ -43,12 +45,15 @@ class GeysirParagraphDeleteForm extends ContentEntityDeleteForm {
     $field_name = $route_match->getParameter('field');
     $delta = $route_match->getParameter('delta');
 
-    $parent_entity_revision = $this->entityTypeManager->getStorage($parent_entity_type)->loadRevision($parent_entity_revision);
+    // Get the parent revision if available, otherwise the parent.
+    $parent_entity_revision = $this->getParentRevisionOrParent($parent_entity_type, $parent_entity_revision);
 
     $parent_entity_revision->get($field_name)->removeItem($delta);
     $parent_entity_revision->save();
 
-    $form_state->setTemporary(['parent_entity_revision' => $parent_entity_revision->getRevisionId()]);
+    // Use the parent revision id if available, otherwise the parent id.
+    $parent_revision_id = ($parent_entity_revision->getRevisionId()) ? $parent_entity_revision->getRevisionId() : $parent_entity_revision->id();
+    $form_state->setTemporary(['parent_entity_revision' => $parent_revision_id]);
 
     $form_state->setRedirectUrl($this->getRedirectUrl());
   }
@@ -64,12 +69,27 @@ class GeysirParagraphDeleteForm extends ContentEntityDeleteForm {
    * {@inheritdoc}
    */
   protected function getRedirectUrl() {
-    $route_match = $this->getRouteMatch();
-    $parent_entity_type = $route_match->getParameter('parent_entity_type');
-    $parent_entity_revision = $route_match->getParameter('parent_entity_revision');
+    $referer = $this->getRequest()->server->get('HTTP_REFERER');
+    $path = parse_url($referer, PHP_URL_PATH);
+    return Url::fromUserInput($path);
+  }
 
-    $parent_entity_revision = $this->entityTypeManager->getStorage($parent_entity_type)->loadRevision($parent_entity_revision);
-    return $parent_entity_revision->toUrl();
+  /**
+   * @param $parent_entity_type
+   * @param $parent_entity_revision
+   *
+   * @return \Drupal\Core\Entity\EntityInterface|null
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   */
+  protected function getParentRevisionOrParent($parent_entity_type, $parent_entity_revision) {
+    $entity_storage = $this->entityTypeManager->getStorage($parent_entity_type);
+    if ($this->entityTypeManager->getDefinition($parent_entity_type)->isRevisionable()) {
+      return $entity_storage->loadRevision($parent_entity_revision);
+    }
+    else {
+      return $entity_storage->load($parent_entity_revision);
+    }
   }
 
 }

@@ -1,0 +1,21 @@
+uuid: b1b3c6fc-04ed-4f4a-83c6-4ff4ccb72556
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+_core:
+  default_config_hash: 95wTlhGfQGs9jYcfDVexGJiPB0S-dWtvF0m55mK6zgQ
+id: node.field_mbrshp_description
+field_name: field_mbrshp_description
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

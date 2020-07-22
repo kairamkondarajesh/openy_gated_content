@@ -1,0 +1,22 @@
+uuid: 1b20a87b-d925-473e-99ec-e444c23a2be1
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - paragraphs
+_core:
+  default_config_hash: lMd_MpDa8Adogrq1XKdIJZEttE0z4c-g0Yyf2nfHgTs
+id: paragraph.field_prgf_block_ref
+field_name: field_prgf_block_ref
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: block_content
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

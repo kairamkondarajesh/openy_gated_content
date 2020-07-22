@@ -1,3 +1,8 @@
+/**
+ * @file
+ * Disable POI.
+ */
+
 (function ($, Drupal) {
 
   'use strict';
@@ -10,52 +15,38 @@
    * @prop {Drupal~behaviorAttach} attach
    *   Attaches common map style functionality to relevant elements.
    */
-  Drupal.behaviors.geolocationContextPopup = {
+  Drupal.behaviors.geolocationMapDisablePOI = {
     attach: function (context, drupalSettings) {
-      $.each(
-        drupalSettings.geolocation.maps,
+
+      Drupal.geolocation.executeFeatureOnAllMaps(
+        'map_disable_poi',
 
         /**
-         * @param {String} mapId - ID of current map
-         * @param {Object} mapSettings - settings for current map
-         * @param {ContextPopupSettings} mapSettings.map_disable_poi.enable - Enabled
+         * @param {GeolocationGoogleMap} map - Current map.
+         * @param {GeolocationMapFeatureSettings} featureSettings - Settings for current feature.
          */
-        function (mapId, mapSettings) {
-          if (
-            typeof mapSettings.map_disable_poi !== 'undefined'
-            && mapSettings.map_disable_poi.enable
-          ) {
+        function (map, featureSettings) {
+          map.addInitializedCallback(function (map) {
 
-            var map = Drupal.geolocation.getMapById(mapId);
-
-            if (!map) {
-              return;
+            var styles = [];
+            if (typeof map.googleMap.styles !== 'undefined') {
+              styles = map.googleMap.styles;
             }
+            styles = $.merge(styles, [{
+              featureType: "poi",
+              stylers: [
+                { visibility: "off" }
+              ]
+            }]);
 
-            if (map.wrapper.hasClass('geolocation-map-disable-poi-processed')) {
-              return;
-            }
+            map.googleMap.setOptions({styles: styles});
+          });
 
-            map.wrapper.addClass('geolocation-map-disable-poi-processed');
-
-            map.addReadyCallback(function (map) {
-
-              var styles = [];
-              if (typeof map.googleMap.styles !== 'undefined') {
-                styles = map.googleMap.styles;
-              }
-              styles = $.merge(styles, [{
-                featureType: "poi",
-                stylers: [
-                  { visibility: "off" }
-                ]
-              }]);
-
-              map.googleMap.setOptions({styles: styles});
-            });
-          }
-        }
+          return true;
+        },
+        drupalSettings
       );
-    }
+    },
+    detach: function (context, drupalSettings) {}
   };
 })(jQuery, Drupal);

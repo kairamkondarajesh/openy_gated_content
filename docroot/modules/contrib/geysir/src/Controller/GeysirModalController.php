@@ -11,40 +11,48 @@ use Drupal\paragraphs\Entity\Paragraph;
  * Controller for all modal dialogs.
  */
 class GeysirModalController extends GeysirControllerBase {
-   /**
-    * Create a modal dialog to add the first paragraph.
-    */
-   public function addFirst($parent_entity_type, $parent_entity_bundle, $parent_entity_revision, $field, $field_wrapper_id, $delta, $position, $js = 'nojs', $bundle = NULL) {
+  /**
+   * Create a modal dialog to add the first paragraph.
+   */
+  public function addFirst($parent_entity_type, $parent_entity_bundle, $parent_entity_revision, $field, $field_wrapper_id, $delta, $position, $js = 'nojs', $bundle = NULL) {
     if ($js == 'ajax') {
-        $response = new AjaxResponse();
-        $paragraph_title = $this->getParagraphTitle($parent_entity_type, $parent_entity_bundle, $field);
+      $response = new AjaxResponse();
+      $paragraph_title = $this->getParagraphTitle($parent_entity_type, $parent_entity_bundle, $field);
+      $entity = $this->entityTypeManager()->getStorage($parent_entity_type)->loadRevision($parent_entity_revision);
 
-        if ($bundle) {
-            $newParagraph = Paragraph::create(['type' => $bundle]);
-            $form = $this->entityFormBuilder()->getForm($newParagraph, 'geysir_modal_add', []);
+      if ($bundle) {
+        $newParagraph = Paragraph::create([
+          'type' => $bundle,
+          'langcode' => $entity->language()->getId(),
+        ]);
+        $form = $this->entityFormBuilder()->getForm($newParagraph, 'geysir_modal_add', []);
 
-            $response->addCommand(new GeysirOpenModalDialogCommand($this->t('Add @paragraph_title', ['@paragraph_title' => $paragraph_title]), render($form)));
-        } else {
-            $entity = $this->entityTypeManager()->getStorage($parent_entity_type)->loadRevision($parent_entity_revision);
-            $bundle_fields = $this->entityFieldManager->getFieldDefinitions($parent_entity_type, $entity->bundle());
-            $field_definition = $bundle_fields[$field];
-            $bundles = $field_definition->getSetting('handler_settings')['target_bundles'];
+        $response->addCommand(new GeysirOpenModalDialogCommand($this->t('Add @paragraph_title', ['@paragraph_title' => $paragraph_title]), render($form)));
+      }
+      else {
+        $bundle_fields = $this->entityFieldManager->getFieldDefinitions($parent_entity_type, $entity->bundle());
+        $field_definition = $bundle_fields[$field];
+        $bundles = $field_definition->getSetting('handler_settings')['target_bundles'];
 
-            $routeParams = [
-                'parent_entity_type' => $parent_entity_type,
-                'parent_entity_bundle' => $parent_entity_bundle,
-                'parent_entity_revision' => $parent_entity_revision,
-                'field' => $field,
-                'field_wrapper_id' => $field_wrapper_id,
-                'delta' => $delta,
-                'position' => $position,
-                'js' => $js,
-            ];
-
-            $form = \Drupal::formBuilder()->getForm('\Drupal\geysir\Form\GeysirModalParagraphAddSelectTypeForm', $routeParams, $bundles);
-            $response->addCommand(new GeysirOpenModalDialogCommand($this->t('Add @paragraph_title', ['@paragraph_title' => $paragraph_title]), render($form)));
+        if ($field_definition->getSetting('handler_settings')['negate']) {
+          $bundles = array_diff_key(\Drupal::service('entity_type.bundle.info')->getBundleInfo('paragraph'), $bundles);
         }
-        return $response;
+
+        $routeParams = [
+          'parent_entity_type' => $parent_entity_type,
+          'parent_entity_bundle' => $parent_entity_bundle,
+          'parent_entity_revision' => $parent_entity_revision,
+          'field' => $field,
+          'field_wrapper_id' => $field_wrapper_id,
+          'delta' => $delta,
+          'position' => $position,
+          'js' => $js,
+        ];
+
+        $form = \Drupal::formBuilder()->getForm('\Drupal\geysir\Form\GeysirModalParagraphAddSelectTypeForm', $routeParams, $bundles);
+        $response->addCommand(new GeysirOpenModalDialogCommand($this->t('Add @paragraph_title', ['@paragraph_title' => $paragraph_title]), render($form)));
+      }
+      return $response;
     }
 
     return $this->t('Javascript is required for this functionality to work properly.');
@@ -57,18 +65,27 @@ class GeysirModalController extends GeysirControllerBase {
     if ($js == 'ajax') {
       $response = new AjaxResponse();
       $paragraph_title = $this->getParagraphTitle($parent_entity_type, $parent_entity_bundle, $field);
+      // Get the parent revision if available, otherwise the parent.
+      $entity = $this->getParentRevisionOrParent($parent_entity_type, $parent_entity_revision);
 
       if ($bundle) {
-        $newParagraph = Paragraph::create(['type' => $bundle]);
+        $newParagraph = Paragraph::create([
+          'type' => $bundle,
+          'langcode' => $entity->language()->getId(),
+        ]);
         $form = $this->entityFormBuilder()->getForm($newParagraph, 'geysir_modal_add', []);
 
         $response->addCommand(new GeysirOpenModalDialogCommand($this->t('Add @paragraph_title', ['@paragraph_title' => $paragraph_title]), render($form)));
       }
       else {
-        $entity = $this->entityTypeManager()->getStorage($parent_entity_type)->loadRevision($parent_entity_revision);
+
         $bundle_fields = $this->entityFieldManager->getFieldDefinitions($parent_entity_type, $entity->bundle());
         $field_definition = $bundle_fields[$field];
         $bundles = $field_definition->getSetting('handler_settings')['target_bundles'];
+
+        if ($field_definition->getSetting('handler_settings')['negate']) {
+          $bundles = array_diff_key(\Drupal::service('entity_type.bundle.info')->getBundleInfo('paragraph'), $bundles);
+        }
 
         $routeParams = [
           'parent_entity_type'     => $parent_entity_type,
@@ -99,9 +116,27 @@ class GeysirModalController extends GeysirControllerBase {
   public function edit($parent_entity_type, $parent_entity_bundle, $parent_entity_revision, $field, $field_wrapper_id, $delta, $paragraph, $paragraph_revision, $js = 'nojs') {
     if ($js == 'ajax') {
       $response = new AjaxResponse();
-      $form = $this->entityFormBuilder()->getForm($paragraph, 'geysir_modal_edit', []);
+      $form = $this->entityFormBuilder()->getForm($paragraph_revision, 'geysir_modal_edit', []);
       $paragraph_title = $this->getParagraphTitle($parent_entity_type, $parent_entity_bundle, $field);
       $response->addCommand(new GeysirOpenModalDialogCommand($this->t('Edit @paragraph_title', ['@paragraph_title' => $paragraph_title]), render($form)));
+
+      return $response;
+    }
+
+    return $this->t('Javascript is required for this functionality to work properly.');
+  }
+
+  /**
+   * Create a modal dialog to translate a single paragraph.
+   */
+  public function translate($parent_entity_type, $parent_entity_bundle, $parent_entity_revision, $field, $field_wrapper_id, $delta, Paragraph $paragraph, $paragraph_revision, $js = 'nojs') {
+    if ($js == 'ajax') {
+      $response = new AjaxResponse();
+      $langcode = $this->languageManager()->getCurrentLanguage()->getId();
+      $translated_paragraph = $paragraph->addTranslation($langcode, $paragraph->toArray());
+      $form = $this->entityFormBuilder()->getForm($translated_paragraph, 'geysir_modal_edit', []);
+      $paragraph_title = $this->getParagraphTitle($parent_entity_type, $parent_entity_bundle, $field);
+      $response->addCommand(new GeysirOpenModalDialogCommand($this->t('Translate @paragraph_title', ['@paragraph_title' => $paragraph_title]), render($form)));
 
       return $response;
     }

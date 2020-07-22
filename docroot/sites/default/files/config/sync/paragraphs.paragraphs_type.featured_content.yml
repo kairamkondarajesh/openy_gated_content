@@ -1,0 +1,11 @@
+uuid: 769b7fad-195d-489b-904d-c4cbc3f57c4a
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 5OpoZIxH6Qu54z6JNY6sZ3juGGgxrmGP_XhUYvbal68
+id: featured_content
+label: 'Featured Content'
+icon_uuid: null
+description: null
+behavior_plugins: {  }

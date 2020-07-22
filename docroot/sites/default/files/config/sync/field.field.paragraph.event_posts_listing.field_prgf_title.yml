@@ -1,0 +1,21 @@
+uuid: 6add6daf-a1ec-49f4-8c95-61293a25a529
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_prgf_title
+    - paragraphs.paragraphs_type.event_posts_listing
+_core:
+  default_config_hash: 7lv1npo1W0hU3FbUttAcATYOGPgs_oT8j17-9X9sdR4
+id: paragraph.event_posts_listing.field_prgf_title
+field_name: field_prgf_title
+entity_type: paragraph
+bundle: event_posts_listing
+label: Title
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

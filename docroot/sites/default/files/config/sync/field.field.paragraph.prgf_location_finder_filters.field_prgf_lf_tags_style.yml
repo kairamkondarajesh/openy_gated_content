@@ -1,0 +1,25 @@
+uuid: 80ce374f-e5d0-4a8a-abbc-8a0003a98f7b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_prgf_lf_tags_style
+    - paragraphs.paragraphs_type.prgf_location_finder_filters
+  module:
+    - options
+_core:
+  default_config_hash: XB2KkJ7ls984q7l3oNBPNv7rz5DdhuoMnf0n-y70ckY
+id: paragraph.prgf_location_finder_filters.field_prgf_lf_tags_style
+field_name: field_prgf_lf_tags_style
+entity_type: paragraph
+bundle: prgf_location_finder_filters
+label: 'Tags style'
+description: 'Tags style that will be used for map tags filter. Default - checkboxes. Second option is multiselect widget with checkboxes.'
+required: true
+translatable: false
+default_value:
+  -
+    value: checkboxes
+default_value_callback: ''
+settings: {  }
+field_type: list_string

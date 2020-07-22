@@ -1,10 +1,17 @@
 /**
+ * @file
+ * Marker InfoWindow.
+ */
+
+/**
  * @typedef {Object} MarkerInfoWindowSettings
  *
- * @property {String} enable
- * @property {bool} infoAutoDisplay
- * @property {bool} disableAutoPan
- * @property {bool} infoWindowSolitary
+ * @extends {GeolocationMapFeatureSettings}
+ *
+ * @property {Boolean} infoAutoDisplay
+ * @property {Boolean} disableAutoPan
+ * @property {Boolean} infoWindowSolitary
+ * @property {int} maxWidth
  */
 
 /**
@@ -18,7 +25,7 @@
  * @property {function({}):GoogleInfoWindow} GeolocationGoogleMap.InfoWindow
  */
 
-(function ($, Drupal) {
+(function (Drupal) {
 
   'use strict';
 
@@ -32,69 +39,60 @@
    */
   Drupal.behaviors.geolocationMarkerInfoWindow = {
     attach: function (context, drupalSettings) {
-      $.each(
-        drupalSettings.geolocation.maps,
+      Drupal.geolocation.executeFeatureOnAllMaps(
+        'marker_infowindow',
 
         /**
-         * @param {String} mapId - ID of current map
-         * @param {Object} mapSettings - settings for current map
-         * @param {MarkerInfoWindowSettings} mapSettings.marker_infowindow - settings for current map
+         * @param {GeolocationGoogleMap} map - Current map.
+         * @param {MarkerInfoWindowSettings} featureSettings - Settings for current feature.
          */
-        function (mapId, mapSettings) {
-          if (
-            typeof mapSettings.marker_infowindow !== 'undefined'
-            && mapSettings.marker_infowindow.enable
-          ) {
-
-            var map = Drupal.geolocation.getMapById(mapId);
-
-            if (!map) {
+        function (map, featureSettings) {
+          map.addMarkerAddedCallback(function (currentMarker) {
+            if (typeof (currentMarker.locationWrapper) === 'undefined') {
               return;
             }
 
-            if (map.wrapper.hasClass('geolocation-marker-infowindow-processed')) {
+            var content = currentMarker.locationWrapper.find('.location-content');
+
+            if (content.length < 1) {
               return;
             }
+            content = content.html();
 
-            map.wrapper.addClass('geolocation-marker-infowindow-processed');
+            var markerInfoWindow = {
+              content: content.toString(),
+              disableAutoPan: featureSettings.disableAutoPan
+            };
 
-            map.addMarkerAddedCallback(function (currentMarker) {
-              if (typeof (currentMarker.locationWrapper) === 'undefined') {
-                return;
-              }
+            if (featureSettings.maxWidth > 0) {
+              markerInfoWindow.maxWidth = featureSettings.maxWidth;
+            }
 
-              var content = currentMarker.locationWrapper.find('.location-content');
+            // Set the info popup text.
+            var currentInfoWindow = new google.maps.InfoWindow(markerInfoWindow);
 
-              if (content.length < 1) {
-                return;
-              }
-              content = content.html();
-
-              // Set the info popup text.
-              var currentInfoWindow = new google.maps.InfoWindow({
-                content: content,
-                disableAutoPan: mapSettings.marker_infowindow.disableAutoPan
-              });
-
-              currentMarker.addListener('click', function () {
-                if (mapSettings.marker_infowindow.infoWindowSolitary) {
-                  if (typeof map.infoWindow !== 'undefined') {
-                    map.infoWindow.close();
-                  }
-                  map.infoWindow = currentInfoWindow;
+            currentMarker.addListener('click', function () {
+              if (featureSettings.infoWindowSolitary) {
+                if (typeof map.infoWindow !== 'undefined') {
+                  map.infoWindow.close();
                 }
-                currentInfoWindow.open(map.googleMap, currentMarker);
-              });
-
-              if (mapSettings.marker_infowindow.infoAutoDisplay) {
-                google.maps.event.addListenerOnce(map.googleMap, 'tilesloaded', function () {
-                  google.maps.event.trigger(currentMarker, 'click');
-                });
+                map.infoWindow = currentInfoWindow;
               }
+              currentInfoWindow.open(map.googleMap, currentMarker);
             });
-          }
-        }
+
+            if (featureSettings.infoAutoDisplay) {
+              google.maps.event.addListenerOnce(map.googleMap, 'tilesloaded', function () {
+                google.maps.event.trigger(currentMarker, 'click');
+              });
+            }
+          });
+
+          return true;
+        },
+        drupalSettings
       );
-    }
+    },
+    detach: function (context, drupalSettings) {}
   };
-})(jQuery, Drupal);
+})(Drupal);

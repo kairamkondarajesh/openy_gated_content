@@ -1,0 +1,28 @@
+uuid: 2c041bc2-43b0-442c-bb84-52af8a433cdc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.advanced_help_block.field_ahb_description
+  module:
+    - advanced_help_block
+    - datalayer
+    - text
+third_party_settings:
+  datalayer:
+    expose: 0
+    label: field_ahb_description
+_core:
+  default_config_hash: ysE62U1qI-krKs7dRoJHRyzzVElyARV4PqcyWHU3X_k
+id: advanced_help_block.advanced_help_block.field_ahb_description
+field_name: field_ahb_description
+entity_type: advanced_help_block
+bundle: advanced_help_block
+label: Description
+description: 'User can add description with this field. This description will be shown in help block.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

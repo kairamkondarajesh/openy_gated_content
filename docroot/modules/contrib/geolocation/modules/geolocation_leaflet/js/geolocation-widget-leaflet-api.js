@@ -1,9 +1,9 @@
 /**
  * @file
- *   Javascript for the map geocoder widget.
+ * Javascript for the map geocoder widget.
  */
 
-(function ($, Drupal) {
+(function (Drupal) {
   'use strict';
 
   /**
@@ -11,7 +11,7 @@
    *
    * @constructor
    * @augments {GeolocationMapWidgetBase}
-   * @implements {GeolocationMapWidgetInterface}
+   * @implements {GeolocationWidgetInterface}
    * @inheritDoc
    */
   function GeolocationLeafletMapWidget(widgetSettings) {
@@ -24,39 +24,51 @@
   GeolocationLeafletMapWidget.prototype.addMarker = function (location, delta) {
     Drupal.geolocation.widget.GeolocationMapWidgetBase.prototype.addMarker.call(this, location, delta);
 
-    var that = this;
-
-    // delta could legally be '0'.
     if (typeof delta === 'undefined') {
       delta = this.getNextDelta();
     }
 
+    if (delta === false) {
+      return;
+    }
+
     var marker = this.map.setMapMarker({
-      position: location,
-      title: Drupal.t('[@delta] Latitude: @latitude Longitude: @longitude', {
-        '@delta': delta.toString(),
-        '@latitude': location.lat,
-        '@longitude': location.lng
-      }),
-      setMarker: true,
-      draggable: true
+      position: location
     });
-    marker.delta = delta;
+    marker = this.initializeMarker(marker, delta);
 
-    marker.on('dragend', function(e) {
-      that.updateInput({lat: Number(e.latlng.lat), lng: Number(e.latlng.lng)}, marker.delta);
+    return marker;
+  };
+  GeolocationLeafletMapWidget.prototype.initializeMarker = function (marker, delta) {
+    Drupal.geolocation.widget.GeolocationMapWidgetBase.prototype.initializeMarker.call(this, marker, delta);
+
+    var location = marker.getLatLng();
+    marker.setPopupContent(Drupal.t('[@delta] Latitude: @latitude Longitude: @longitude', {
+      '@delta': delta,
+      '@latitude': location.lat,
+      '@longitude': location.lng
+    }));
+    marker.dragging.enable();
+    marker.bindTooltip(String((delta + 1)), {
+      permanent: true,
+      direction: 'top'
     });
 
-    marker.on('click', function() {
-      that.removeInput(marker.delta);
+    var that = this;
+    marker.on('dragend', function (e) {
+      var latLng = e.target.getLatLng();
+      that.locationAlteredCallback('marker', {lat: latLng.lat, lng: latLng.lng}, marker.delta);
+    });
+
+    marker.on('click', function () {
       that.removeMarker(marker.delta);
-      that.locationRemovedCallback(marker.delta);
+      that.locationAlteredCallback('marker', null, marker.delta);
     });
 
     return marker;
   };
   GeolocationLeafletMapWidget.prototype.updateMarker = function (location, delta) {
-    Drupal.geolocation.widget.GeolocationMapWidgetBase.prototype.updateMarker.call(this, delta);
+    Drupal.geolocation.widget.GeolocationMapWidgetBase.prototype.updateMarker.call(this, location, delta);
 
     var marker = this.getMarkerByDelta(delta);
     marker.setLatLng(location);
@@ -67,4 +79,4 @@
 
   Drupal.geolocation.widget.addWidgetProvider('geolocation_leaflet', 'GeolocationLeafletMapWidget');
 
-})(jQuery, Drupal);
+})(Drupal);

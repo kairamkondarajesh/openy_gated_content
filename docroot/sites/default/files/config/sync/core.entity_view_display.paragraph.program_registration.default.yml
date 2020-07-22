@@ -1,0 +1,26 @@
+uuid: f91d138e-fc41-4b89-a419-411d417eb37b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.program_registration.field_prgf_reg_block
+    - paragraphs.paragraphs_type.program_registration
+  module:
+    - plugin
+_core:
+  default_config_hash: hj9AsxGWHQbShyDty5aDgfrIId3bBemIiX2sRDAu6SE
+id: paragraph.program_registration.default
+targetEntityType: paragraph
+bundle: program_registration
+mode: default
+content:
+  field_prgf_reg_block:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: plugin_block_built
+    region: content
+hidden:
+  created: true
+  uid: true

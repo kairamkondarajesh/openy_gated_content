@@ -16,18 +16,21 @@
    *   Attaches Geolocation Maps formatter functionality to relevant elements.
    */
   Drupal.behaviors.geolocationMap = {
+
+    /**
+     * @param context
+     * @param drupalSettings
+     * @param {Object} drupalSettings.geolocation
+     */
     attach: function (context, drupalSettings) {
-      $('.geolocation-map-wrapper', context).each(function (index, item) {
+      $('.geolocation-map-wrapper').once('geolocation-map-processed').each(function (index, item) {
         var mapWrapper = $(item);
         var mapSettings = {};
-        mapSettings.centreBehavior = 'fitlocations';
+        var reset = false;
         mapSettings.id = mapWrapper.attr('id');
         mapSettings.wrapper = mapWrapper;
 
-        if (
-          mapWrapper.length === 0
-          || mapWrapper.hasClass('geolocation-map-processed')
-        ) {
+        if (mapWrapper.length === 0) {
           return;
         }
 
@@ -46,12 +49,8 @@
           mapSettings.type = mapWrapper.data('map-type');
         }
 
-        if (mapWrapper.data('centre-behavior')) {
-          mapSettings.centreBehavior = mapWrapper.data('centre-behavior');
-        }
-
         if (typeof drupalSettings.geolocation === 'undefined') {
-          console.err("Bailing out for lack of settings.");  // eslint-disable-line no-console
+          console.error("Bailing out for lack of settings.");  // eslint-disable-line no-console .
           return;
         }
 
@@ -61,35 +60,55 @@
           }
         });
 
-        var map = Drupal.geolocation.Factory(mapSettings);
+        if (mapWrapper.parent().hasClass('preview-section')) {
+          if (mapWrapper.parentsUntil('#views-live-preview').length) {
+            reset = true;
+          }
+        }
+
+        var map = Drupal.geolocation.Factory(mapSettings, reset);
 
         if (!map) {
-          console.error(mapSettings, 'Geolocation - Couldn\'t initialize map.'); // eslint-disable-line no-console
+          mapWrapper.removeOnce('geolocation-map-processed');
           return;
         }
 
-        // Set the already processed flag.
-        map.wrapper.addClass('geolocation-map-processed');
-
-        map.addLoadedCallback(function (map) {
+        map.addInitializedCallback(function (map) {
+          map.removeControls();
           $('.geolocation-map-controls > *', map.wrapper).each(function (index, control) {
             map.addControl(control);
           });
 
           map.removeMapMarkers();
-
           var locations = map.loadMarkersFromContainer();
-
           $.each(locations, function (index, location) {
             map.setMapMarker(location);
           });
 
+          map.removeShapes();
+          var shapes = map.loadShapesFromContainer();
+          $.each(shapes, function (index, shape) {
+            map.addShape(shape);
+          });
+
+          map.setCenter();
+
           map.wrapper.find('.geolocation-location').hide();
-          map.setCenterByBehavior();
         });
 
+        map.addUpdatedCallback(function (map, mapSettings) {
+          map.settings = $.extend(map.settings, mapSettings.settings);
+          map.wrapper = mapSettings.wrapper;
+          mapSettings.wrapper.find('.geolocation-map-container').replaceWith(map.container);
+          map.lat = mapSettings.lat;
+          map.lng = mapSettings.lng;
+          if (typeof mapSettings.map_center !== 'undefined') {
+            map.mapCenter = mapSettings.map_center;
+          }
+        });
       });
-    }
+    },
+    detach: function (context, drupalSettings) {}
   };
 
 })(jQuery, Drupal);

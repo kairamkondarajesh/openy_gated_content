@@ -1,0 +1,25 @@
+uuid: 00c255e5-204b-4245-bd85-caf15a127b42
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_mbrshp_monthly_rate
+    - paragraphs.paragraphs_type.membership_info
+_core:
+  default_config_hash: 6T7cceDBLaDrDSpPfOSDvrowiuWJRGZuAi2HG5HvJyA
+id: paragraph.membership_info.field_mbrshp_monthly_rate
+field_name: field_mbrshp_monthly_rate
+entity_type: paragraph
+bundle: membership_info
+label: 'Monthly Rate'
+description: 'Dollar value for the monthly fee of the membership.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: $
+  suffix: ''
+field_type: decimal

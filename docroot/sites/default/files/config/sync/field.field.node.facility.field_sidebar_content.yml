@@ -1,0 +1,26 @@
+uuid: 9da0d3ff-4078-4299-9975-9dc9feb2834b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sidebar_content
+    - node.type.facility
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: dpT2SLthF_QejrCZ1Az41Kv7_2Zp9KGwlxeMg3-0o2Y
+id: node.facility.field_sidebar_content
+field_name: field_sidebar_content
+entity_type: node
+bundle: facility
+label: 'Sidebar content'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles: null
+field_type: entity_reference_revisions

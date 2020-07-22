@@ -1,0 +1,25 @@
+uuid: dcb90ab2-6552-417b-b46c-dc04aa458d34
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.code_block
+    - field.field.block_content.code_block.field_code
+  module:
+    - text
+_core:
+  default_config_hash: D3CDwlEWFWFqWIpNpJfVZWr8n-T-_YvsJNRLYZ261t0
+id: block_content.code_block.default
+targetEntityType: block_content
+bundle: code_block
+mode: default
+content:
+  field_code:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  langcode: true

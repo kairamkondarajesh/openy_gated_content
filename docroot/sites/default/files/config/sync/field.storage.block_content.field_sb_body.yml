@@ -1,0 +1,21 @@
+uuid: eb012730-1451-42eb-be79-2d9e80d94676
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - text
+_core:
+  default_config_hash: HWJhwHUY-fa3FC5Pw7BVr8aDL4tKU2ZrYwPeJ9vJXlc
+id: block_content.field_sb_body
+field_name: field_sb_body
+entity_type: block_content
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

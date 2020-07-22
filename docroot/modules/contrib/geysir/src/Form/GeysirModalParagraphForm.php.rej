@@ -1,0 +1,18 @@
+--- src/Form/GeysirModalParagraphForm.php
++++ src/Form/GeysirModalParagraphForm.php
+@@ -4,6 +4,7 @@ namespace Drupal\geysir\Form;
+ 
+ use Drupal\Core\Ajax\AjaxResponse;
+ use Drupal\Core\Ajax\HtmlCommand;
++use Drupal\Core\Ajax\InvokeCommand;
+ use Drupal\Core\Form\FormStateInterface;
+ use Drupal\geysir\Ajax\GeysirCloseModalDialogCommand;
+ 
+@@ -92,6 +93,7 @@ class GeysirModalParagraphForm extends GeysirParagraphForm {
+       );
+ 
+       $response->addCommand(new GeysirCloseModalDialogCommand());
++      $response->addCommand(new InvokeCommand(NULL, 'reloadPageAjaxAction'));
+     }
+ 
+     return $response;

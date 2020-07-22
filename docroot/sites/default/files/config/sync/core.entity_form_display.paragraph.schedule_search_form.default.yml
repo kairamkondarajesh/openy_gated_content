@@ -1,0 +1,19 @@
+uuid: 07ad2218-80c8-4aa5-8676-13c37e938c5e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.schedule_search_form.field_prgf_block
+    - paragraphs.paragraphs_type.schedule_search_form
+_core:
+  default_config_hash: lHdJqGdeNdTpQbYOtmG6XvEBoNb2Hzrv2k2jiinnPKw
+id: paragraph.schedule_search_form.default
+targetEntityType: paragraph
+bundle: schedule_search_form
+mode: default
+content: {  }
+hidden:
+  created: true
+  field_prgf_block: true
+  status: true
+  uid: true

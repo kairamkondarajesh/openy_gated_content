@@ -1,0 +1,19 @@
+uuid: 1631626c-54a6-4931-8461-00084f71dc99
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.camp_menu.field_prgf_block
+    - paragraphs.paragraphs_type.camp_menu
+_core:
+  default_config_hash: JZ8dRApnFd7c_AHTKAWztxXwrqUCasG64Y6JP4nXzRE
+id: paragraph.camp_menu.default
+targetEntityType: paragraph
+bundle: camp_menu
+mode: default
+content: {  }
+hidden:
+  created: true
+  field_prgf_block: true
+  status: true
+  uid: true

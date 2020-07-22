@@ -1,0 +1,23 @@
+uuid: a78dc489-a40e-4cab-a044-f7d8998c0d8d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_session_time_days
+    - paragraphs.paragraphs_type.session_time
+  module:
+    - options
+_core:
+  default_config_hash: zYFK2DDqacaoOZYk5bYILQYUFqYcRquIxiqym_Q_jlY
+id: paragraph.session_time.field_session_time_days
+field_name: field_session_time_days
+entity_type: paragraph
+bundle: session_time
+label: Days
+description: 'Indicate on what days your class is repeating during period specified in previous field.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

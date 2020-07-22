@@ -1,0 +1,20 @@
+uuid: 6e924a74-b7e8-4bd4-a176-5843dc3a382f
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+_core:
+  default_config_hash: Z-i2zFSAXDKy_-EH-2Y8wdX5ylsBTYR-az0e5x_tRh8
+name: Activity
+type: activity
+description: 'Activity content type is used for adding Activities on the site.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

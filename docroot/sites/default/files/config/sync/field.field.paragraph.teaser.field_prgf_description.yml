@@ -1,0 +1,23 @@
+uuid: ccc10799-1e7e-41c5-9408-5ef275ab3dc6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_prgf_description
+    - paragraphs.paragraphs_type.teaser
+  module:
+    - text
+_core:
+  default_config_hash: KuTmfxdvKEQUMsgbMPN6DenQN2DT2pfJxRTqzRNHZCk
+id: paragraph.teaser.field_prgf_description
+field_name: field_prgf_description
+entity_type: paragraph
+bundle: teaser
+label: Description
+description: 'WYSIWYG field without summary.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

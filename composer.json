@@ -4,10 +4,11 @@
     "type": "project",
     "license": "GPL-2.0+",
     "require": {
-        "ymcatwincities/openy": "8.2.*",
+        "ymcatwincities/openy": "^8.2.5",
         "composer/installers": "^1.2",
-        "drupal-composer/drupal-scaffold": "2.4.0",
         "cweagans/composer-patches": "~1.0",
+        "drupal/core-composer-scaffold": "^8.8",
+        "drupal/core-recommended": "^8.8",
         "drupal/field_group": "~3.0@dev",
         "zaporylie/composer-drupal-optimizations": "^1.0"
     },
@@ -31,7 +32,7 @@
         {
             "type": "composer",
             "url": "https://openy.cibox.tools:4681"
-        },        
+        },
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
@@ -166,14 +167,12 @@
     ],
     "scripts": {
         "post-install-cmd": [
-            "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
             "@cibox-build",
             "@cibox-vm",
             "@docksal",
             "bash scripts/remove_vendor_git_folders.sh || :"
         ],
         "post-update-cmd": [
-            "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
             "@cibox-build",
             "@cibox-vm",
             "@docksal",
@@ -184,6 +183,18 @@
         "docksal": "[ -d ./vendor/ymcatwincities/openy-docksal ] && (rsync -r --exclude=composer.json --exclude=.git --exclude=README.md ./vendor/ymcatwincities/openy-docksal/ ./) || (rm -rf .docksal build.sh)"
     },
     "extra": {
+        "drupal-scaffold": {
+            "locations": {
+                "web-root": "docroot/"
+            },
+            "allowed-packages": [
+                "drupal/core"
+            ],
+            "file-mapping": {
+                "[web-root]/sites/default.services.yml": false,
+                "[web-root]/sites/default.settings.php": false
+            }
+        },
         "installer-types": [
             "bower-asset",
             "npm-asset"

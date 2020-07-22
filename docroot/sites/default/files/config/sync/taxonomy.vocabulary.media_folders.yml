@@ -1,0 +1,10 @@
+uuid: 8588e914-de5c-4f4a-aeda-f5a0089ea4c0
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Y809dt8E18e1_9HbUNpvBNftA6PMNMe9Nh9nY4AK9jQ
+name: 'Media folders'
+vid: media_folders
+description: 'Folders for organizing media objects.'
+weight: 0

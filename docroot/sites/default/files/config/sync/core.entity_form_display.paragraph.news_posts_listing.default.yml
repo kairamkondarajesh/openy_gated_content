@@ -1,0 +1,28 @@
+uuid: a033b25e-c247-4262-b748-09b70c746282
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.news_posts_listing.field_prgf_block
+    - field.field.paragraph.news_posts_listing.field_prgf_title
+    - paragraphs.paragraphs_type.news_posts_listing
+_core:
+  default_config_hash: kqh_5hxKbYKaa726Fr_5Igd7ssp_vSzQnhBec1BMGgU
+id: paragraph.news_posts_listing.default
+targetEntityType: paragraph
+bundle: news_posts_listing
+mode: default
+content:
+  field_prgf_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  field_prgf_block: true
+  status: true
+  uid: true

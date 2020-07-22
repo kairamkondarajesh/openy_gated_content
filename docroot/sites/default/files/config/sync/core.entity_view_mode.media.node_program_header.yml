@@ -1,0 +1,12 @@
+uuid: 2ac5aa5f-8766-4cc4-a674-a1ef414bb878
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+_core:
+  default_config_hash: K4b5rW5nPPBtv39M0wt0F4fB8OBLDlzT0Zr9E4ltY3c
+id: media.node_program_header
+label: 'Node Program Header'
+targetEntityType: media
+cache: true

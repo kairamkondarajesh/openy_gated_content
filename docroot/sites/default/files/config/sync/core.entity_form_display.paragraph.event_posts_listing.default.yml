@@ -1,0 +1,29 @@
+uuid: 10d252f0-8cb0-428f-88d2-b085b9279f7c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.event_posts_listing.field_prgf_block
+    - field.field.paragraph.event_posts_listing.field_prgf_title
+    - paragraphs.paragraphs_type.event_posts_listing
+_core:
+  default_config_hash: 9KbK8iVkXpzHTdQlADllpzOV-Q-FrozZVzCC4mzhYIU
+id: paragraph.event_posts_listing.default
+targetEntityType: paragraph
+bundle: event_posts_listing
+mode: default
+content:
+  field_prgf_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  field_prgf_block: true
+  moderation_state: true
+  status: true
+  uid: true

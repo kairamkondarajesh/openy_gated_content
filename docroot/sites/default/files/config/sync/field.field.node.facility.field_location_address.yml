@@ -1,0 +1,44 @@
+uuid: 23aadc82-6980-4be1-ba0c-6105dd6a28bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location_address
+    - node.type.facility
+  module:
+    - address
+    - datalayer
+third_party_settings:
+  datalayer:
+    expose: 1
+    label: field_location_address
+_core:
+  default_config_hash: 059TiKdQolsW6E_TBr3kAPQSq4EJIRjJi3-xI3rRfuY
+id: node.facility.field_location_address
+field_name: field_location_address
+entity_type: node
+bundle: facility
+label: Address
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  available_countries:
+    US: US
+  fields:
+    administrativeArea: administrativeArea
+    locality: locality
+    postalCode: postalCode
+    addressLine1: addressLine1
+    dependentLocality: '0'
+    sortingCode: '0'
+    addressLine2: '0'
+    organization: '0'
+    givenName: '0'
+    additionalName: '0'
+    familyName: '0'
+  langcode_override: ''
+  field_overrides: {  }
+field_type: address

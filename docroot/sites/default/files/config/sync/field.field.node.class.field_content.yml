@@ -1,0 +1,26 @@
+uuid: be202cc0-c0b2-4497-b438-60ea1a6e3ee0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_content
+    - node.type.class
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: c8R7bsovQajq3Lg7yIzliPfLGSqhbcZwENvrOGxMANs
+id: node.class.field_content
+field_name: field_content
+entity_type: node
+bundle: class
+label: Content
+description: 'A paragraph embed field that will allow us to add various flexible content modules, from the predefined list of paragraph types.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles: null
+field_type: entity_reference_revisions

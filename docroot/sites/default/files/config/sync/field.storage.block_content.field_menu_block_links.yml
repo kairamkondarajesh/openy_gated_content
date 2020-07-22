@@ -1,0 +1,21 @@
+uuid: 13585c7e-dcbc-4f2a-9b00-a3355d2695c3
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - link
+_core:
+  default_config_hash: NFPym-UjytQHf1tggP5FG2iZIaJN7Sy2YlfxcEr6NSU
+id: block_content.field_menu_block_links
+field_name: field_menu_block_links
+entity_type: block_content
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

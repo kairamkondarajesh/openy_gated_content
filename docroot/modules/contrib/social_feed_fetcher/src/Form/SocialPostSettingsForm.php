@@ -10,6 +10,7 @@ use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\State\StateInterface;
 use Drupal\Core\Url;
+use LinkedIn\Scope;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -93,7 +94,7 @@ class SocialPostSettingsForm extends ConfigFormBase {
     $next_execution = !empty($next_execution) ? $next_execution : $this->requestTime;
 
     $args = [
-      '%time'    => date_iso8601($this->state->get('social_feed_fetcher.next_execution')),
+      '%time'    => date('c', ($this->state->get('social_feed_fetcher.next_execution'))),
       '%seconds' => $next_execution - $this->requestTime,
     ];
     $form['status']['last'] = [
@@ -184,7 +185,6 @@ class SocialPostSettingsForm extends ConfigFormBase {
         ],
       ],
     ];
-
 
     $form['twitter'] = [
       '#type'  => 'details',
@@ -329,11 +329,11 @@ class SocialPostSettingsForm extends ConfigFormBase {
         ],
       ],
     ];
-    $form['instagram']['in_redirect_uri'] = [
+    $form['instagram']['in_client_secret'] = [
       '#type'          => 'textfield',
-      '#title'         => $this->t('Redirect URI'),
-      '#description'   => $this->t('Redirect URI from Instagram account'),
-      '#default_value' => $config->get('in_redirect_uri'),
+      '#title'         => $this->t('Client Secret'),
+      '#description'   => $this->t('Client Secret from Instagram account'),
+      '#default_value' => $config->get('in_client_secret'),
       '#size'          => 60,
       '#maxlength'     => 100,
       '#required'      => $config->get('instagram_enabled') ? TRUE : FALSE,
@@ -343,34 +343,62 @@ class SocialPostSettingsForm extends ConfigFormBase {
         ],
       ],
     ];
-    $form['instagram']['in_auth_link'] = [
-      '#type'          => 'item',
-      '#title'         => $this->t('Generate Instagram Access Token'),
-      '#description'   => $this->t('Access this URL in your browser https://instagram.com/oauth/authorize/?client_id=&lt;your_client_id&gt;&redirect_uri=&lt;your_redirect_uri&gt;&response_type=token, you will get the access token.'),
-      '#default_value' => $config->get('in.auth_link'),
-      '#markup'        => $this->t('Check <a href="@this" target="_blank">this</a> article.', [
-        '@this' => Url::fromUri('http://jelled.com/instagram/access-token')
-          ->toString(),
-      ]),
-      '#states'        => [
-        'visible' => [
+    $form['instagram']['feed'] = [
+      '#type'   => 'item',
+      '#title'  => $this->t('Feed URL'),
+      '#markup' => $this->t('Your url redirect is : @url_redirect',
+        [
+          '@url_redirect'  => \Drupal::request()->getHost() . '/instagram/oauth/callback',
+        ]
+      ),
+      '#states' => [
+        'visible'  => [
           ':input[name="instagram_enabled"]' => ['checked' => TRUE],
         ],
       ],
     ];
-    $form['instagram']['in_access_token'] = [
-      '#type'          => 'textfield',
-      '#title'         => $this->t('Access Token'),
-      '#default_value' => $config->get('in_access_token'),
-      '#size'          => 60,
-      '#maxlength'     => 100,
-      '#required'      => $config->get('instagram_enabled') ? TRUE : FALSE,
-      '#states'        => [
-        'visible' => [
-          ':input[name="instagram_enabled"]' => ['checked' => TRUE],
-        ],
-      ],
-    ];
+    if ($config->get('in_client_id') && $config->get('in_client_secret')) {
+      $url = Url::fromUri(
+        'https://api.instagram.com/oauth/authorize',
+        [
+          'query' => [
+            'response_type' => 'code',
+            'scope' => implode(',', ['user_profile', 'user_media']),
+            'client_id' => $config->get('in_client_id'),
+            'redirect_uri' => \Drupal::request()
+              ->getScheme() . '://' . \Drupal::request()
+              ->getHost() . '/instagram/oauth/callback',
+          ],
+        ]
+      );
+
+      $form['instagram']['url_connector'] = [
+        '#type' => 'item',
+        '#title' => $this->t('URL connector'),
+        '#description' => $this->t('You need to click on this link to update the access token. this one expire all the 60 days.'),
+        '#markup' => $this->t('Your url redirect is : <a href="@url_connector" target="@blank">here</a>',
+          [
+            '@url_connector' => $url->toString(),
+            '@blank' => '_blank',
+          ]
+        ),
+      ];
+      $insta_access = $this->state->getMultiple([
+        'insta_access_token',
+        'insta_expires_in_save',
+        'insta_expires_in',
+      ]);
+      $time = time();
+      $message = $this->t("You're disconnect to Instagram API. You need to refresh the token");
+      if (($insta_access['insta_expires_in_save'] + $insta_access['insta_expires_in']) > $time) {
+        $message = $this->t("You're connected to Instagram API.");
+      }
+      $form['instagram']['connect_api'] = [
+        '#type' => 'item',
+        '#title' => $this->t('State API connection'),
+        '#markup' => $message,
+      ];
+    }
     $form['instagram']['in_picture_count'] = [
       '#type'          => 'number',
       '#title'         => $this->t('Picture Count'),
@@ -379,33 +407,6 @@ class SocialPostSettingsForm extends ConfigFormBase {
       '#maxlength'     => 100,
       '#min'           => 1,
       '#max'           => 30,
-      '#states'        => [
-        'visible' => [
-          ':input[name="instagram_enabled"]' => ['checked' => TRUE],
-        ],
-      ],
-    ];
-    if ($config->get('in_access_token')) {
-      $form['instagram']['feed'] = [
-        '#type'   => 'item',
-        '#title'  => $this->t('Feed URL'),
-        '#markup' => $this->t('https://api.instagram.com/v1/users/self/feed?access_token=@access_token&count=@picture_count',
-          [
-            '@access_token'  => $config->get('in_access_token'),
-            '@picture_count' => $config->get('in_picture_count'),
-          ]
-        ),
-      ];
-    }
-    $form['instagram']['in_picture_resolution'] = [
-      '#type'          => 'select',
-      '#title'         => $this->t('Picture Resolution'),
-      '#default_value' => $config->get('in_picture_resolution'),
-      '#options'       => [
-        'thumbnail'           => $this->t('Thumbnail'),
-        'low_resolution'      => $this->t('Low Resolution'),
-        'standard_resolution' => $this->t('Standard Resolution'),
-      ],
       '#states'        => [
         'visible' => [
           ':input[name="instagram_enabled"]' => ['checked' => TRUE],
@@ -442,8 +443,8 @@ class SocialPostSettingsForm extends ConfigFormBase {
       '#states'        => [
         'visible'  => [
           ':input[name="linkedin_enabled"]' => ['checked' => TRUE],
-        ]
-      ]
+        ],
+      ],
     ];
     $form['linkedin']['linkedin_companies_id'] = [
       '#type'          => 'textfield',
@@ -498,15 +499,15 @@ class SocialPostSettingsForm extends ConfigFormBase {
       '#states'        => [
         'visible'  => [
           ':input[name="linkedin_enabled"]' => ['checked' => TRUE],
-        ]
-      ]
+        ],
+      ],
     ];
     $form['linkedin']['feed'] = [
       '#type'   => 'item',
       '#title'  => $this->t('Feed URL'),
       '#markup' => $this->t('Your url redirect is : @url_redirect',
         [
-          '@url_redirect'  => \Drupal::request()->getHost() . '/oauth/callback',
+          '@url_redirect'  => \Drupal::request()->getScheme() . '://' . \Drupal::request()->getHost() . '/oauth/callback',
         ]
       ),
       '#states' => [
@@ -516,28 +517,33 @@ class SocialPostSettingsForm extends ConfigFormBase {
       ],
     ];
     if ($config->get('linkedin_client_id') && $config->get('linkedin_secret_app')) {
-      $url = Url::fromUri(
-        'https://www.linkedin.com/oauth/v2/authorization',
-        [
-          'query' => [
-            'response_type' => 'code',
-            'client_id' => $config->get('linkedin_client_id'),
-            'redirect_uri' => 'https://' . \Drupal::request()->getHost() . '/oauth/callback',
-          ]
-        ]
-      );
+      /** @var \LinkedIn\Client $linkedin */
+      $linkedin = \Drupal::service('social_feed_fetcher.linkedin.client');
+      // Define scope permissions.
+      $scopes = [
+        Scope::READ_BASIC_PROFILE,
+        Scope::READ_EMAIL_ADDRESS,
+        Scope::MANAGE_COMPANY,
+        Scope::SHARING,
+      ];
+      $linkedin->setRedirectUrl(\Drupal::request()->getScheme() . '://' . \Drupal::request()->getHost() . '/oauth/callback');
+      $loginUrl = $linkedin->getLoginUrl($scopes);
       $form['linkedin']['url_connector'] = [
         '#type'   => 'item',
         '#title'  => $this->t('URL connector'),
         '#description' => $this->t('You need to click on this link to update the access token. this one expire all the 60 days.'),
         '#markup' => $this->t('Your url redirect is : <a href="@url_connector" target="@blank">here</a>',
           [
-            '@url_connector'  => $url->toString(),
+            '@url_connector'  => $loginUrl  ,
             '@blank' => '_blank',
           ]
         ),
       ];
-      $access = $this->state->getMultiple(['access_token', 'expires_in', 'expires_in_save']);
+      $access = $this->state->getMultiple([
+        'access_token',
+        'expires_in',
+        'expires_in_save',
+      ]);
       $time = time();
       $message = $this->t("You're disconnect to Linkedin API. You need to refresh the token");
       if (($access['expires_in_save'] + $access['expires_in']) > $time) {
@@ -549,7 +555,6 @@ class SocialPostSettingsForm extends ConfigFormBase {
         '#markup' => $message,
       ];
     }
-
 
     if ($this->currentUser->hasPermission('administer site configuration')) {
       $form['cron_run'] = [

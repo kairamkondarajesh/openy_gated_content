@@ -1,0 +1,28 @@
+uuid: cea6adef-98df-4c9b-a271-3e35d268c1df
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location_phone
+    - node.type.camp
+  module:
+    - datalayer
+    - telephone
+third_party_settings:
+  datalayer:
+    expose: 1
+    label: field_location_phone
+_core:
+  default_config_hash: VpeCmZXCTHI8lDA_jdZjLd_qEmxm8B0rz2brUI1iP14
+id: node.camp.field_location_phone
+field_name: field_location_phone
+entity_type: node
+bundle: camp
+label: Phone
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

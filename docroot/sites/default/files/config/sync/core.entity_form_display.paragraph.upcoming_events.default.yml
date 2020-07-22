@@ -1,0 +1,29 @@
+uuid: 95d91958-f4d1-426c-addb-ea07e5983b82
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.upcoming_events.field_prgf_block
+    - field.field.paragraph.upcoming_events.field_prgf_title
+    - paragraphs.paragraphs_type.upcoming_events
+_core:
+  default_config_hash: 5ar2qdlO3SAJOx3qmgcxaikmiiwXwJvR5MXiWCXzZUE
+id: paragraph.upcoming_events.default
+targetEntityType: paragraph
+bundle: upcoming_events
+mode: default
+content:
+  field_prgf_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  field_prgf_block: true
+  moderation_state: true
+  status: true
+  uid: true

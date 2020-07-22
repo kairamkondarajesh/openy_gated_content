@@ -1,0 +1,30 @@
+uuid: 772e8ab5-a1b9-4108-a70e-34c713e90351
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_prgf_af_categ_excl
+    - paragraphs.paragraphs_type.activity_finder
+_core:
+  default_config_hash: HNSeaQf5JSglfmOFzV-toPeWgJvitEqZxQDYs1t3nIE
+id: paragraph.activity_finder.field_prgf_af_categ_excl
+field_name: field_prgf_af_categ_excl
+entity_type: paragraph
+bundle: activity_finder
+label: 'Categories exclude'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default_no_dep:node'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: 0
+    auto_create_bundle: ''
+    target_bundles_no_dep:
+      program_subcategory: program_subcategory
+field_type: entity_reference

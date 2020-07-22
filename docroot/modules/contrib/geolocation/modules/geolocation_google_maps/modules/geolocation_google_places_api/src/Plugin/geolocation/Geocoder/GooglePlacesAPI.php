@@ -5,7 +5,6 @@ namespace Drupal\geolocation_google_places_api\Plugin\geolocation\Geocoder;
 use GuzzleHttp\Exception\RequestException;
 use Drupal\Component\Serialization\Json;
 use Drupal\geolocation_google_maps\GoogleGeocoderBase;
-use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Render\BubbleableMetadata;
 use Drupal\geolocation_google_maps\Plugin\geolocation\MapProvider\GoogleMaps;
 
@@ -18,103 +17,26 @@ use Drupal\geolocation_google_maps\Plugin\geolocation\MapProvider\GoogleMaps;
  *   description = @Translation("Attention: This Plugin needs you to follow Google Places API TOS and either use the Attribution Block or provide it yourself."),
  *   locationCapable = true,
  *   boundaryCapable = true,
+ *   frontendCapable = true,
+ *   reverseCapable = false,
  * )
  */
 class GooglePlacesAPI extends GoogleGeocoderBase {
 
-  protected $geocoderId = 'googlePlacesAPI';
-
   /**
    * {@inheritdoc}
    */
-  public function attachments($input_id) {
-    $attachments = parent::attachments($input_id);
+  public function formAttachGeocoder(array &$render_array, $element_name) {
+    parent::formAttachGeocoder($render_array, $element_name);
 
-    $attachments = BubbleableMetadata::mergeAttachments(
-      $attachments,
+    $render_array['#attached'] = BubbleableMetadata::mergeAttachments(
+      $render_array['#attached'],
       [
         'library' => [
           'geolocation_google_places_api/geolocation_google_places_api.geocoder.googleplacesapi',
         ],
       ]
     );
-
-    return $attachments;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function formAttachGeocoder(array &$render_array, $element_name) {
-    $settings = $this->getSettings();
-
-    $render_array['geolocation_geocoder_google_places_api'] = [
-      '#type' => 'textfield',
-      '#title' => $settings['label'],
-      '#description' => $settings['description'],
-      '#description_display' => 'after',
-      '#attributes' => [
-        'class' => [
-          'form-autocomplete',
-          'geolocation-geocoder-google-places-api',
-        ],
-        'data-source-identifier' => $element_name,
-      ],
-    ];
-    $render_array['geolocation_geocoder_google_places_api_state'] = [
-      '#type' => 'hidden',
-      '#default_value' => 1,
-      '#attributes' => [
-        'class' => [
-          'geolocation-geocoder-google-places-api-state',
-        ],
-        'data-source-identifier' => $element_name,
-      ],
-    ];
-
-    $render_array['#attached'] = $this->attachments($element_name);
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function formValidateInput(FormStateInterface $form_state) {
-    $input = $form_state->getUserInput();
-    if (
-      !empty($input['geolocation_geocoder_google_places_api'])
-      && empty($input['geolocation_geocoder_google_places_api_state'])
-    ) {
-      $location_data = $this->geocode($input['geolocation_geocoder_google_places_api']);
-
-      if (empty($location_data)) {
-        $form_state->setErrorByName('geolocation_geocoder_google_places_api', $this->t('Failed to geocode %input.', ['%input' => $input['geolocation_geocoder_google_places_api']]));
-        return FALSE;
-      }
-    }
-    return TRUE;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function formProcessInput(array &$input, $element_name) {
-    if (
-      !empty($input['geolocation_geocoder_google_places_api'])
-      && empty($input['geolocation_geocoder_google_places_api_state'])
-    ) {
-      $location_data = $this->geocode($input['geolocation_geocoder_google_places_api']);
-
-      if (empty($location_data)) {
-        $input['geolocation_geocoder_google_places_api_state'] = 0;
-        return FALSE;
-      }
-
-      $input['geolocation_geocoder_google_places_api'] = $location_data['address'];
-      $input['geolocation_geocoder_google_places_api_state'] = 1;
-
-      return $location_data;
-    }
-    return TRUE;
   }
 
   /**
@@ -128,9 +50,9 @@ class GooglePlacesAPI extends GoogleGeocoderBase {
 
     $config = \Drupal::config('geolocation_google_maps.settings');
 
-    $request_url = GoogleMaps::$GOOGLEMAPSAPIURLBASE;
+    $request_url = GoogleMaps::$googleMapsApiUrlBase;
     if ($config->get('china_mode')) {
-      $request_url = GoogleMaps::$GOOGLEMAPSAPIURLBASECHINA;
+      $request_url = GoogleMaps::$googleMapsApiUrlBaseChina;
     }
     $request_url .= '/maps/api/place/autocomplete/json?input=' . $address;
 
@@ -169,10 +91,16 @@ class GooglePlacesAPI extends GoogleGeocoderBase {
     }
 
     try {
-      $details_url = GoogleMaps::$GOOGLEMAPSAPIURLBASE;
-      if ($config->get('china_mode')) {
-        $details_url = GoogleMaps::$GOOGLEMAPSAPIURLBASECHINA;
+      if (!empty($config->get('google_maps_base_url'))) {
+        $details_url = $config->get('google_maps_base_url');
       }
+      elseif ($config->get('china_mode')) {
+        $details_url = GoogleMaps::$googleMapsApiUrlBaseChina;
+      }
+      else {
+        $details_url = GoogleMaps::$googleMapsApiUrlBase;
+      }
+
       $details_url .= '/maps/api/place/details/json?placeid=' . $result['predictions'][0]['place_id'];
 
       if (!empty($google_key)) {
