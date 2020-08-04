@@ -107,6 +107,8 @@
 
 # Open Y stuff
 /provisioning
+/cibox
+/html
 
 # Other common rules
 # ------------------
