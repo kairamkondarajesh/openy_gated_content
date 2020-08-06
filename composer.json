@@ -218,6 +218,9 @@
         "patches": {
             "drupal/field_group": {
                 "3059615 - Undefined property: stdClass::$region in field_group_form_process()": "https://www.drupal.org/files/issues/2020-06-15/3059614-37.patch"
+            },
+            "drupal/redis": {
+                "2882796 - Add support for persistent connections to redis host": "https://www.drupal.org/files/issues/2019-09-17/2882796-17-persist-connection.patch"
             }
         }
     },
