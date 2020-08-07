@@ -10150,17 +10150,17 @@
         },
         {
             "name": "ymcatwincities/openy",
-            "version": "8.2.5.0",
+            "version": "8.2.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ymcatwincities/openy.git",
-                "reference": "ec844a191ea0102388a18271a2cf2be423dc205a"
+                "reference": "3c2e5b6f3774b9e8beb7714120ebb737cf2f0cb3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ymcatwincities/openy/zipball/ec844a191ea0102388a18271a2cf2be423dc205a",
-                "reference": "ec844a191ea0102388a18271a2cf2be423dc205a",
-                "shasum": ""
+                "url": "http://openy.cibox.tools:4680/dist/ymcatwincities/openy/ymcatwincities-openy-3c2e5b6f3774b9e8beb7714120ebb737cf2f0cb3-zip-1539a2.zip",
+                "reference": "3c2e5b6f3774b9e8beb7714120ebb737cf2f0cb3",
+                "shasum": "45b1ff1c99b054c831868702a98efc9cc12ada50"
             },
             "require": {
                 "composer/installers": "^1.0",
@@ -10359,10 +10359,10 @@
             ],
             "description": "Open Y distribution",
             "support": {
-                "source": "https://github.com/ymcatwincities/openy/tree/8.2.5.0",
+                "source": "https://github.com/ymcatwincities/openy/tree/8.2.5.3",
                 "issues": "https://github.com/ymcatwincities/openy/issues"
             },
-            "time": "2020-05-26T15:36:11+00:00"
+            "time": "2020-07-31T14:26:02+00:00"
         },
         {
             "name": "ymcatwincities/openy_gated_content",
