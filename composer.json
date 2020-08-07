@@ -11,7 +11,7 @@
         "drupal/core-recommended": "^8.8",
         "drupal/field_group": "~3.0@dev",
         "zaporylie/composer-drupal-optimizations": "^1.0",
-        "ymcatwincities/openy_gated_content": "^0.6.0",
+        "ymcatwincities/openy_gated_content": "~0.9",
         "drupal/redis": "^1.4",
         "drupal/cloudflare": "^1.0@beta"
     },
