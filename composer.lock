@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0ba2d35b05744d0203fe7b9991cbd7ba",
+    "content-hash": "f8e203259bf64a5c51e1dc55a73358cc",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -1609,16 +1609,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "8.9.2",
+            "version": "8.9.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "8f0e24555c093669ce41edbb30637fe19df16802"
+                "reference": "ee02fd4cbe4ac148b4d7e297ec63b3459983862e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/8f0e24555c093669ce41edbb30637fe19df16802",
-                "reference": "8f0e24555c093669ce41edbb30637fe19df16802",
+                "url": "https://api.github.com/repos/drupal/core/zipball/ee02fd4cbe4ac148b4d7e297ec63b3459983862e",
+                "reference": "ee02fd4cbe4ac148b4d7e297ec63b3459983862e",
                 "shasum": ""
             },
             "require": {
@@ -1843,11 +1843,11 @@
                 "GPL-2.0-or-later"
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
-            "time": "2020-07-08T18:53:45+00:00"
+            "time": "2020-08-05T21:49:40+00:00"
         },
         {
             "name": "drupal/core-composer-scaffold",
-            "version": "8.9.2",
+            "version": "8.9.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-composer-scaffold.git",
@@ -1855,9 +1855,9 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core-composer-scaffold/zipball/07cdfe2799789fc0c2d0e3e1ba64cb5e2a973ece",
+                "url": "http://openy.cibox.tools:4680/dist/drupal/core-composer-scaffold/drupal-core-composer-scaffold-07cdfe2799789fc0c2d0e3e1ba64cb5e2a973ece-zip-d9b20a.zip",
                 "reference": "07cdfe2799789fc0c2d0e3e1ba64cb5e2a973ece",
-                "shasum": ""
+                "shasum": "a357bffdc31e0439450dfbf015e065608fa42383"
             },
             "require": {
                 "composer-plugin-api": "^1 || ^2",
@@ -1894,18 +1894,7 @@
         },
         {
             "name": "drupal/core-recommended",
-            "version": "8.9.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/drupal/core-recommended.git",
-                "reference": "8301ff766f17ce8a9eb36d3ffd183cbfff01dad6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/8301ff766f17ce8a9eb36d3ffd183cbfff01dad6",
-                "reference": "8301ff766f17ce8a9eb36d3ffd183cbfff01dad6",
-                "shasum": ""
-            },
+            "version": "8.9.3",
             "require": {
                 "asm89/stack-cors": "1.3.0",
                 "composer/semver": "1.5.1",
@@ -1915,7 +1904,7 @@
                 "doctrine/common": "v2.7.3",
                 "doctrine/inflector": "v1.2.0",
                 "doctrine/lexer": "1.0.2",
-                "drupal/core": "8.9.2",
+                "drupal/core": "8.9.3",
                 "easyrdf/easyrdf": "0.9.1",
                 "egulias/email-validator": "2.1.17",
                 "guzzlehttp/guzzle": "6.5.4",
@@ -1972,7 +1961,7 @@
                 "GPL-2.0-or-later"
             ],
             "description": "Locked core dependencies; require this project INSTEAD OF drupal/core.",
-            "time": "2020-07-08T18:53:45+00:00"
+            "time": "2020-08-05T21:49:40+00:00"
         },
         {
             "name": "drupal/crop",
@@ -2658,26 +2647,26 @@
         },
         {
             "name": "drupal/easy_breadcrumb",
-            "version": "1.12.0",
+            "version": "1.13.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/easy_breadcrumb.git",
-                "reference": "8.x-1.12"
+                "reference": "8.x-1.13"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://openy.cibox.tools:4680/dist/drupal/easy_breadcrumb/drupal-easy_breadcrumb-1.12.0-8.x-1.12-b7e101.zip",
-                "reference": "8.x-1.12",
-                "shasum": "1364f8d3e36b1847279eeabf14ed26c62afcd750"
+                "url": "http://openy.cibox.tools:4680/dist/drupal/easy_breadcrumb/drupal-easy_breadcrumb-1.13.0-8.x-1.13-713b1d.zip",
+                "reference": "8.x-1.13",
+                "shasum": "8a8be82e1de1383eb849989b1c5790dd13270ffa"
             },
             "require": {
-                "drupal/core": "~8.0"
+                "drupal/core": "^8 || ^9"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.12",
-                    "datestamp": "1557509285",
+                    "version": "8.x-1.13",
+                    "datestamp": "1595445195",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2686,16 +2675,18 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
-                    "name": "Greg Boggs",
-                    "homepage": "https://www.drupal.org/user/153069"
+                    "name": "Neslee Canil Pinto",
+                    "homepage": "https://www.drupal.org/u/neslee-canil-pinto",
+                    "role": "Maintainer"
                 },
                 {
-                    "name": "Neslee Canil Pinto",
-                    "homepage": "https://www.drupal.org/user/3580850"
+                    "name": "Greg Boggs",
+                    "homepage": "https://www.drupal.org/u/greg-boggs",
+                    "role": "Maintainer"
                 },
                 {
                     "name": "RenatoG",
@@ -2729,7 +2720,8 @@
             "description": "Adds configuration to the system breadcrumbs.",
             "homepage": "https://www.drupal.org/project/easy_breadcrumb",
             "support": {
-                "source": "https://git.drupalcode.org/project/easy_breadcrumb"
+                "source": "https://git.drupalcode.org/project/easy_breadcrumb",
+                "issues": "https://www.drupal.org/project/issues/easy_breadcrumb"
             }
         },
         {
@@ -3339,17 +3331,17 @@
         },
         {
             "name": "drupal/field_inheritance",
-            "version": "1.0.0-beta4",
+            "version": "1.0.0-rc1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/field_inheritance.git",
-                "reference": "8.x-1.0-beta4"
+                "reference": "8.x-1.0-rc1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/field_inheritance-8.x-1.0-beta4.zip",
-                "reference": "8.x-1.0-beta4",
-                "shasum": "a75155c50abefb9bbb2af54777235ad7a8e7fb2a"
+                "url": "https://ftp.drupal.org/files/projects/field_inheritance-8.x-1.0-rc1.zip",
+                "reference": "8.x-1.0-rc1",
+                "shasum": "e427779d47bf7b2fa8729c36d9592438df4e3517"
             },
             "require": {
                 "cweagans/composer-patches": "~1.0",
@@ -3359,8 +3351,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.0-beta4",
-                    "datestamp": "1594415019",
+                    "version": "8.x-1.0-rc1",
+                    "datestamp": "1595873080",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -5241,27 +5233,27 @@
         },
         {
             "name": "drupal/recurring_events",
-            "version": "2.0.0-alpha2",
+            "version": "2.0.0-beta1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/recurring_events.git",
-                "reference": "2.0.0-alpha2"
+                "reference": "2.0.0-beta1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/recurring_events-2.0.0-alpha2.zip",
-                "reference": "2.0.0-alpha2",
-                "shasum": "b9e92e4724b455a34aa24540e72d4cb141864b75"
+                "url": "https://ftp.drupal.org/files/projects/recurring_events-2.0.0-beta1.zip",
+                "reference": "2.0.0-beta1",
+                "shasum": "12a7daecbda263f496bf027ad576ff3972bdd01d"
             },
             "require": {
-                "drupal/core": "^8 || ^9",
+                "drupal/core": "^8.8 || ^9",
                 "drupal/field_inheritance": "^1"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.0-alpha2",
-                    "datestamp": "1591305950",
+                    "version": "2.0.0-beta1",
+                    "datestamp": "1595873485",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -6115,7 +6107,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/tzfield.git",
-                "reference": "f48016556f7d530ef772baca41b8b91aa614e5cc"
+                "reference": "2c31c4aedee2ca85ad397c2e878846ccef32a1a8"
             },
             "require": {
                 "drupal/core": "^8 || ^9"
@@ -6126,8 +6118,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.1+1-dev",
-                    "datestamp": "1578636787",
+                    "version": "8.x-1.2+3-dev",
+                    "datestamp": "1595943208",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -6153,7 +6145,7 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/tzfield"
             },
-            "time": "2020-01-10T06:11:27+00:00"
+            "time": "2020-07-28T13:33:01+00:00"
         },
         {
             "name": "drupal/verf",
@@ -7762,10 +7754,10 @@
         },
         {
             "name": "npm-asset/dropzone",
-            "version": "5.7.1",
+            "version": "5.7.2",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/dropzone/-/dropzone-5.7.1.tgz"
+                "url": "https://registry.npmjs.org/dropzone/-/dropzone-5.7.2.tgz"
             },
             "type": "npm-asset",
             "license": [
@@ -12217,7 +12209,7 @@
         },
         {
             "name": "symfony/browser-kit",
-            "version": "v4.4.10",
+            "version": "v4.4.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/browser-kit.git",
@@ -12290,16 +12282,16 @@
         },
         {
             "name": "symfony/config",
-            "version": "v4.4.10",
+            "version": "v4.4.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "395f6e09e1dc6ac9c1a5eea3b7f44f7a820a5504"
+                "reference": "b1d8f0d9341ea1d378b8b043ba90739f37c49d36"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/395f6e09e1dc6ac9c1a5eea3b7f44f7a820a5504",
-                "reference": "395f6e09e1dc6ac9c1a5eea3b7f44f7a820a5504",
+                "url": "https://api.github.com/repos/symfony/config/zipball/b1d8f0d9341ea1d378b8b043ba90739f37c49d36",
+                "reference": "b1d8f0d9341ea1d378b8b043ba90739f37c49d36",
                 "shasum": ""
             },
             "require": {
@@ -12364,7 +12356,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-05-23T09:11:46+00:00"
+            "time": "2020-07-15T08:27:46+00:00"
         },
         {
             "name": "symfony/css-selector",
