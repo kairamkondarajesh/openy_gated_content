@@ -109,6 +109,28 @@
 /provisioning
 /cibox
 /html
+/docroot/devops
+/docroot/ansible.cfg
+/docroot/codestyleautofix.yml
+/docroot/config_clean.sh
+/docroot/config_clean.yml
+/docroot/devops.yml
+/docroot/htmlsniffer.yml
+/docroot/README.md
+/docroot/README.reinstall.md
+/docroot/README.windows.md
+/docroot/reinstall.yml
+/docroot/reinstall.sh
+/docroot/reinstall_install.sh
+/docroot/reinstall_upgrade.sh
+/docroot/runcodestyleautofix.sh
+/docroot/rundevops.sh
+/docroot/runhtmlsniffers.sh
+/docroot/runsniffers.sh
+/docroot/runtests.sh
+/docroot/scss-lint.yml
+/docroot/sniffers.yml
+/docroot/tests.yml
 
 # Other common rules
 # ------------------
