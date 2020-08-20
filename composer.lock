@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3c5ebc8f243a1985ff48bc99b3ab0390",
+    "content-hash": "5a629c26849ec9e1c5eda0060c26a511",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -1125,7 +1125,9 @@
                         "message": "Covered by Drupal's security advisory policy"
                     }
                 },
-                "patches_applied": []
+                "patches_applied": {
+                    "Add option for native browser lazy load": "https://www.drupal.org/files/issues/2020-06-18/3142503-native-option-2.patch"
+                }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
@@ -1809,11 +1811,11 @@
                     }
                 },
                 "patches_applied": {
-                    "Views does not support computed bundle fields": "https://www.drupal.org/files/issues/2019-10-20/2981047-fix-only-44.patch",
                     "1236098 - Notice: Undefined index in _color_rewrite_stylesheet()": "https://www.drupal.org/files/issues/undefined-index-in-_color_rewrite_stylesheet-1236098-37.patch",
                     "2484693 - Telephone Link field formatter InvalidArgumentException with 5 digits or fewer in the number": "https://www.drupal.org/files/issues/2484693-54.patch",
                     "2862702 - PrepareModulesEntityUninstallForm::formTitle does not exist": "https://www.drupal.org/files/issues/2862702-3.patch",
-                    "2996114 - JSON:API Argument error": "https://www.drupal.org/files/issues/2020-02-11/2996114-124.patch"
+                    "2996114 - JSON:API Argument error": "https://www.drupal.org/files/issues/2020-02-11/2996114-124.patch",
+                    "Views does not support computed bundle fields": "https://www.drupal.org/files/issues/2019-10-20/2981047-fix-only-44.patch"
                 }
             },
             "autoload": {
@@ -10062,17 +10064,17 @@
         },
         {
             "name": "ymcatwincities/openy",
-            "version": "8.2.6.1",
+            "version": "dev-8.x-2.x",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ymcatwincities/openy.git",
-                "reference": "0ca0f93ee60d39ca3cf1e3177fda2b2dc7350858"
+                "reference": "15203fa41750916134e8fa4a9958f6ddfcc4cb6f"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://openy.cibox.tools:4680/dist/ymcatwincities/openy/ymcatwincities-openy-0ca0f93ee60d39ca3cf1e3177fda2b2dc7350858-zip-13ba2b.zip",
-                "reference": "0ca0f93ee60d39ca3cf1e3177fda2b2dc7350858",
-                "shasum": "23b64e2ac6ab657d9836f26039acf7edacd7df4b"
+                "url": "https://api.github.com/repos/ymcatwincities/openy/zipball/15203fa41750916134e8fa4a9958f6ddfcc4cb6f",
+                "reference": "15203fa41750916134e8fa4a9958f6ddfcc4cb6f",
+                "shasum": ""
             },
             "require": {
                 "composer/installers": "^1.0",
@@ -10170,6 +10172,7 @@
                 "npm-asset/dropzone": "^5.5",
                 "npm-asset/jquery.easing": "^1.4",
                 "npm-asset/slick-carousel": "^1.8",
+                "oomphinc/composer-installers-extender": "^1.1",
                 "php": ">=7.1",
                 "symfony/dom-crawler": "~2.8|~3.0|~4.2"
             },
@@ -10240,7 +10243,8 @@
                         "2918172 - Media Entity upgrade -> core fails on absent column revision_uid": "https://www.drupal.org/files/issues/2918172-6-8.4.4.patch"
                     },
                     "drupal/blazy": {
-                        "Remove core media dependencies to unblock upgrade": "https://raw.githubusercontent.com/ymcatwincities/openy/8.x-2.x/patches/blazy/remove-core-media-dependencies.patch"
+                        "Remove core media dependencies to unblock upgrade": "https://raw.githubusercontent.com/ymcatwincities/openy/8.x-2.x/patches/blazy/remove-core-media-dependencies.patch",
+                        "Add option for native browser lazy load": "https://www.drupal.org/files/issues/2020-06-18/3142503-native-option-2.patch"
                     },
                     "drupal/migrate_tools": {
                         "3099611 - Class 'Drush\\Commands\\DrushCommands' not found": "https://www.drupal.org/files/issues/2019-12-11/3099611-15.patch"
@@ -10253,24 +10257,12 @@
                     }
                 }
             },
-            "scripts": {
-                "post-install-cmd": [
-                    "@composer drupal-scaffold",
-                    "bash scripts/remove_openy_docroot_folder.sh || :"
-                ],
-                "post-update-cmd": [
-                    "bash scripts/remove_openy_docroot_folder.sh || :"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0-or-later"
             ],
             "description": "Open Y distribution",
-            "support": {
-                "source": "https://github.com/ymcatwincities/openy/tree/8.2.6.1",
-                "issues": "https://github.com/ymcatwincities/openy/issues"
-            },
-            "time": "2020-08-11T12:36:24+00:00"
+            "time": "2020-08-20T11:17:11+00:00"
         },
         {
             "name": "ymcatwincities/openy_gated_content",
@@ -12504,6 +12496,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "ymcatwincities/openy": 20,
         "drupal/field_group": 20,
         "drupal/cloudflare": 10,
         "ymcatwincities/openy-cibox-build": 20,

@@ -4,7 +4,7 @@
     "type": "project",
     "license": "GPL-2.0+",
     "require": {
-        "ymcatwincities/openy": "^8.2.6",
+        "ymcatwincities/openy": "dev-8.x-2.x",
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "~1.0",
         "drupal/core-composer-scaffold": "^8.8",
@@ -14,8 +14,7 @@
         "ymcatwincities/openy_gated_content": "~0.9",
         "drupal/redis": "^1.4",
         "drupal/cloudflare": "^1.0@beta",
-        "drupal/disable_messages": "^2.0",
-        "oomphinc/composer-installers-extender": "^1.1"
+        "drupal/disable_messages": "^2.0"
     },
     "require-dev": {
         "ymcatwincities/openy-cibox-build": "dev-master",
