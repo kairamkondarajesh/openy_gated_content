@@ -14,7 +14,8 @@
         "ymcatwincities/openy_gated_content": "~0.9",
         "drupal/redis": "^1.4",
         "drupal/cloudflare": "^1.0@beta",
-        "drupal/disable_messages": "^2.0"
+        "drupal/disable_messages": "^2.0",
+        "drupal/allow_iframed_site": "^3.0"
     },
     "require-dev": {
         "ymcatwincities/openy-cibox-build": "dev-master",

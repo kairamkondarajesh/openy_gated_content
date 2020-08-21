@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5a629c26849ec9e1c5eda0060c26a511",
+    "content-hash": "5e2a4a57c7d8210a4e915d0f0df71a6f",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -1039,6 +1039,58 @@
             }
         },
         {
+            "name": "drupal/allow_iframed_site",
+            "version": "3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/allow_iframed_site.git",
+                "reference": "3.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/allow_iframed_site-3.0.1.zip",
+                "reference": "3.0.1",
+                "shasum": "e60c361716781c5d1ed9a3cf9154b0d4fc6d926e"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.0.1",
+                    "datestamp": "1591834515",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "AndyD328",
+                    "homepage": "https://www.drupal.org/user/2261214"
+                },
+                {
+                    "name": "SKAUGHT",
+                    "homepage": "https://www.drupal.org/user/297907"
+                },
+                {
+                    "name": "karan_mudi",
+                    "homepage": "https://www.drupal.org/user/644760"
+                }
+            ],
+            "description": "Watch out for clickjacking...",
+            "homepage": "https://www.drupal.org/project/allow_iframed_site",
+            "support": {
+                "source": "https://git.drupalcode.org/project/allow_iframed_site"
+            }
+        },
+        {
             "name": "drupal/better_exposed_filters",
             "version": "3.0.0-alpha6",
             "source": {
@@ -1811,11 +1863,11 @@
                     }
                 },
                 "patches_applied": {
+                    "Views does not support computed bundle fields": "https://www.drupal.org/files/issues/2019-10-20/2981047-fix-only-44.patch",
                     "1236098 - Notice: Undefined index in _color_rewrite_stylesheet()": "https://www.drupal.org/files/issues/undefined-index-in-_color_rewrite_stylesheet-1236098-37.patch",
                     "2484693 - Telephone Link field formatter InvalidArgumentException with 5 digits or fewer in the number": "https://www.drupal.org/files/issues/2484693-54.patch",
                     "2862702 - PrepareModulesEntityUninstallForm::formTitle does not exist": "https://www.drupal.org/files/issues/2862702-3.patch",
-                    "2996114 - JSON:API Argument error": "https://www.drupal.org/files/issues/2020-02-11/2996114-124.patch",
-                    "Views does not support computed bundle fields": "https://www.drupal.org/files/issues/2019-10-20/2981047-fix-only-44.patch"
+                    "2996114 - JSON:API Argument error": "https://www.drupal.org/files/issues/2020-02-11/2996114-124.patch"
                 }
             },
             "autoload": {
