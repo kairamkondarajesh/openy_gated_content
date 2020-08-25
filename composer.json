@@ -15,7 +15,10 @@
         "drupal/redis": "^1.4",
         "drupal/cloudflare": "^1.0@beta",
         "drupal/disable_messages": "^2.0",
-        "drupal/allow_iframed_site": "^3.0"
+        "drupal/allow_iframed_site": "^3.0",
+        "drupal/charts": "~4",
+        "billboardjs/billboard": "1.6.2",
+        "d3v4/d3": "4.9.1"
     },
     "require-dev": {
         "ymcatwincities/openy-cibox-build": "dev-master",
@@ -166,6 +169,39 @@
                 "dist": {
                     "url": "https://github.com/vakata/jstree/archive/3.3.8.zip",
                     "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "billboardjs/billboard",
+                "version": "1.6.2",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "billboard"
+                },
+                "dist": {
+                    "url": "https://github.com/naver/billboard.js/archive/1.6.2.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "d3v4/d3",
+                "version": "4.9.1",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "d3v4"
+                },
+                "dist": {
+                    "url": "https://cdnjs.cloudflare.com/ajax/libs/d3/4.9.1/d3.js",
+                    "type": "file"
+                },
+                "require": {
+                    "composer/installers": "~1.0"
                 }
             }
         }

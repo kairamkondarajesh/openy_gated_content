@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5e2a4a57c7d8210a4e915d0f0df71a6f",
+    "content-hash": "188215b52195a070907d233b92790059",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -111,6 +111,18 @@
                 "stack"
             ],
             "time": "2019-12-24T22:41:47+00:00"
+        },
+        {
+            "name": "billboardjs/billboard",
+            "version": "1.6.2",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/naver/billboard.js/archive/1.6.2.zip"
+            },
+            "type": "drupal-library",
+            "extra": {
+                "installer-name": "billboard"
+            }
         },
         {
             "name": "commerceguys/addressing",
@@ -402,6 +414,21 @@
             ],
             "description": "Provides a way to patch Composer packages.",
             "time": "2019-08-29T20:11:49+00:00"
+        },
+        {
+            "name": "d3v4/d3",
+            "version": "4.9.1",
+            "dist": {
+                "type": "file",
+                "url": "https://cdnjs.cloudflare.com/ajax/libs/d3/4.9.1/d3.js"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "drupal-library",
+            "extra": {
+                "installer-name": "d3v4"
+            }
         },
         {
             "name": "d8-contrib-modules/cloudflarephpsdk",
@@ -1287,6 +1314,67 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/captcha",
                 "issues": "https://www.drupal.org/project/issues/captcha"
+            }
+        },
+        {
+            "name": "drupal/charts",
+            "version": "dev-4.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/charts.git",
+                "reference": "d2f5f9c1e94fffcef44ded442c076eefeb6086c7"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-4.x": "4.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-4.x-dev",
+                    "datestamp": "1597811809",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Pierre.Vriens",
+                    "homepage": "https://www.drupal.org/user/1689304"
+                },
+                {
+                    "name": "andileco",
+                    "homepage": "https://www.drupal.org/user/2054544"
+                },
+                {
+                    "name": "brmassa",
+                    "homepage": "https://www.drupal.org/user/67164"
+                },
+                {
+                    "name": "kenorb",
+                    "homepage": "https://www.drupal.org/user/191974"
+                },
+                {
+                    "name": "quicksketch",
+                    "homepage": "https://www.drupal.org/user/35821"
+                },
+                {
+                    "name": "rashad612",
+                    "homepage": "https://www.drupal.org/user/319686"
+                }
+            ],
+            "description": "A charting API for Drupal that provides chart elements and integration with Views.",
+            "homepage": "https://www.drupal.org/project/charts",
+            "support": {
+                "source": "https://git.drupalcode.org/project/charts"
             }
         },
         {
