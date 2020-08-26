@@ -18,7 +18,8 @@
         "drupal/allow_iframed_site": "^3.0",
         "drupal/charts": "~4",
         "billboardjs/billboard": "1.6.2",
-        "d3v4/d3": "4.9.1"
+        "d3v4/d3": "4.9.1",
+        "drupal/role_delegation": "^1.1"
     },
     "require-dev": {
         "ymcatwincities/openy-cibox-build": "dev-master",
