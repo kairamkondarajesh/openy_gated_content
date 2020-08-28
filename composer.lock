@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e62c056c5d880cf2652f1d17b4a5406e",
+    "content-hash": "3c8f41682ea27effee295248afdd1b1a",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -5717,6 +5717,11 @@
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
                     }
+                },
+                "patches_applied": {
+                    "2847964 - Clear cache after simple_menu_icons_css_generate": "https://www.drupal.org/files/issues/clear-cache-after-simple_menu_icons_css_generate-2847964.patch",
+                    "2880544 - The theme implementations may not be rendered until all modules are loaded": "https://www.drupal.org/files/issues/theme-implementations-exception-2880544.patch",
+                    "2937058 - Clear cache performance improvement": "https://www.drupal.org/files/issues/clear-cache-after-simple_menu_icons_css_generate-2847964-2.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -10440,6 +10445,9 @@
                     "drupal/social_feed_fetcher": {
                         "Fix incorrect core key value in info file": "https://www.drupal.org/files/issues/2020-04-23/3130364-2.patch"
                     }
+                },
+                "patches_applied": {
+                    "Fix headers": "patches/personify-headers-fix.patch"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",

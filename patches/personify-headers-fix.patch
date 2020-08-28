@@ -1,0 +1,21 @@
+Index: modules/custom/personify/src/PersonifyClient.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- modules/custom/personify/src/PersonifyClient.php   (revision 58ab26c13b1ee7ea9a4c40aba16416fc969be994)
++++ modules/custom/personify/src/PersonifyClient.php   (date 1596183878093)
+@@ -70,11 +70,13 @@
+       $body_key => $body,
+       'headers' => [
+         'Content-Type' => 'application/' . $body_format . ';charset=utf-8',
++        'User-Agent' => '',
+       ],
+       'auth' => [
+         $this->username,
+         $this->password,
+       ],
++      'verify' => false,
+     ];
+
+     try {

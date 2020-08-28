@@ -87,6 +87,9 @@
             },
             "drupal/redis": {
                 "2882796 - Add support for persistent connections to redis host": "https://www.drupal.org/files/issues/2019-09-17/2882796-17-persist-connection.patch"
+            },
+            "ymcatwincities/openy": {
+                "Fix headers": "patches/personify-headers-fix.patch"
             }
         }
     },
