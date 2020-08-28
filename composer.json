@@ -38,7 +38,8 @@
     },
     "config": {
         "bin-dir": "vendor/bin/",
-        "secure-http": false
+        "secure-http": false,
+        "sort-packages": true
     },
     "extra": {
         "drupal-scaffold": {

@@ -1203,6 +1203,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "Add option for native browser lazy load": "https://www.drupal.org/files/issues/2020-06-18/3142503-native-option-2.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -1372,8 +1375,7 @@
             "homepage": "https://www.drupal.org/project/charts",
             "support": {
                 "source": "https://git.drupalcode.org/project/charts"
-            },
-            "time": "2020-08-25T22:41:47+00:00"
+            }
         },
         {
             "name": "drupal/ckeditor_bootstrap_buttons",
@@ -1947,6 +1949,13 @@
                         "[web-root]/profiles/README.txt": "assets/scaffold/files/profiles.README.txt",
                         "[web-root]/themes/README.txt": "assets/scaffold/files/themes.README.txt"
                     }
+                },
+                "patches_applied": {
+                    "Views does not support computed bundle fields": "https://www.drupal.org/files/issues/2019-10-20/2981047-fix-only-44.patch",
+                    "1236098 - Notice: Undefined index in _color_rewrite_stylesheet()": "https://www.drupal.org/files/issues/undefined-index-in-_color_rewrite_stylesheet-1236098-37.patch",
+                    "2484693 - Telephone Link field formatter InvalidArgumentException with 5 digits or fewer in the number": "https://www.drupal.org/files/issues/2484693-54.patch",
+                    "2862702 - PrepareModulesEntityUninstallForm::formTitle does not exist": "https://www.drupal.org/files/issues/2862702-3.patch",
+                    "2996114 - JSON:API Argument error": "https://www.drupal.org/files/issues/2020-02-11/2996114-124.patch"
                 }
             },
             "autoload": {
@@ -2226,6 +2235,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "Option for CSV Encoder to skip preparing and outputting the header": "https://www.drupal.org/files/issues/2018-08-10/csv_serliazation-2854087-skip-headers.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -2439,8 +2451,7 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/datalayer",
                 "issues": "https://www.drupal.org/project/issues/datalayer"
-            },
-            "time": "2020-02-03T17:13:47+00:00"
+            }
         },
         {
             "name": "drupal/disable_messages",
@@ -3057,6 +3068,10 @@
                 },
                 "branch-alias": {
                     "dev-8.x-1.x": "8.1.x-dev"
+                },
+                "patches_applied": {
+                    "2845037 - Fixed the issue of Call to a member function getConfigDependencyKey() on null on [Widget view], and [SelectionDisplay view]": "https://www.drupal.org/files/issues/2845037_15.patch",
+                    "2927347 - Having Entity Browser 2.x on the codebase breaks upgrade path": "https://www.drupal.org/files/issues/2019-01-10/Having-Entity-Browser-breaks-upgrade-path-2927347-14.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -3186,6 +3201,9 @@
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
                     }
+                },
+                "patches_applied": {
+                    "2511404 - Image entities/fields embedded using Entity Embed cannot be linked in CKEditor": "https://www.drupal.org/files/issues/entity_embed_links-2511404-31.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -3408,6 +3426,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "3059615 - Undefined property: stdClass::$region in field_group_form_process()": "https://www.drupal.org/files/issues/2020-06-15/3059614-37.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -3703,6 +3724,9 @@
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
                     }
+                },
+                "patches_applied": {
+                    "Adds a feature for reload a page after success paragraph add or edit": "https://raw.githubusercontent.com/ymcatwincities/openy/8.x-2.x/patches/geysir/add-reload-page.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -4209,8 +4233,7 @@
                 "source": "http://cgit.drupalcode.org/libraries",
                 "issues": "http://drupal.org/project/issues/libraries",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
-            },
-            "time": "2019-06-25T07:35:46+00:00"
+            }
         },
         {
             "name": "drupal/link_attributes",
@@ -4337,6 +4360,10 @@
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
                     }
+                },
+                "patches_applied": {
+                    "2918172 - Media Entity upgrade -> add revision fields": "https://www.drupal.org/files/issues/2918172-5.patch",
+                    "2918172 - Media Entity upgrade -> core fails on absent column revision_uid": "https://www.drupal.org/files/issues/2918172-6-8.4.4.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -4451,8 +4478,7 @@
             "support": {
                 "source": "https://www.drupal.org/project/media_entity_document",
                 "issues": "https://www.drupal.org/project/issues/media_entity_document"
-            },
-            "time": "2017-10-24T14:14:45+00:00"
+            }
         },
         {
             "name": "drupal/media_entity_image",
@@ -4519,8 +4545,7 @@
             "support": {
                 "source": "https://www.drupal.org/project/media_entity_image",
                 "issues": "https://www.drupal.org/project/issues/media_entity_image"
-            },
-            "time": "2017-10-24T13:23:24+00:00"
+            }
         },
         {
             "name": "drupal/media_entity_video",
@@ -4795,6 +4820,9 @@
                     "services": {
                         "drush.services.yml": "^9 || ^10"
                     }
+                },
+                "patches_applied": {
+                    "3099611 - Class 'Drush\\Commands\\DrushCommands' not found": "https://www.drupal.org/files/issues/2019-12-11/3099611-15.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -5052,6 +5080,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "2647312 - Use SubFormState in plugin selectors": "https://www.drupal.org/files/issues/plugin_2647312_20.patch"
                 }
             },
             "autoload": {
@@ -5361,6 +5392,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "2882796 - Add support for persistent connections to redis host": "https://www.drupal.org/files/issues/2019-09-17/2882796-17-persist-connection.patch"
                 }
             },
             "autoload": {
@@ -5719,8 +5753,7 @@
             "homepage": "https://www.drupal.org/project/simple_menu_icons",
             "support": {
                 "source": "https://git.drupalcode.org/project/simple_menu_icons"
-            },
-            "time": "2016-10-03T15:25:52+00:00"
+            }
         },
         {
             "name": "drupal/simple_sitemap",
@@ -5920,6 +5953,9 @@
                     "services": {
                         "drush.services.yml": "^9"
                     }
+                },
+                "patches_applied": {
+                    "Fix incorrect core key value in info file": "https://www.drupal.org/files/issues/2020-04-23/3130364-2.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -6175,8 +6211,7 @@
             "homepage": "https://www.drupal.org/project/tzfield",
             "support": {
                 "source": "https://git.drupalcode.org/project/tzfield"
-            },
-            "time": "2020-07-28T13:33:01+00:00"
+            }
         },
         {
             "name": "drupal/verf",
@@ -6402,8 +6437,7 @@
             "homepage": "https://www.drupal.org/project/views_block_filter_block",
             "support": {
                 "source": "https://git.drupalcode.org/project/views_block_filter_block"
-            },
-            "time": "2020-01-13T11:58:18+00:00"
+            }
         },
         {
             "name": "drupal/views_data_export",
