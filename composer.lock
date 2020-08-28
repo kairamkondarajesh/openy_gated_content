@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dc221d6828c261366fcd54f94b169d52",
+    "content-hash": "e2cd99ec132da7540c2a97b8e7725c69",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -10456,16 +10456,16 @@
         },
         {
             "name": "ymcatwincities/openy_gated_content",
-            "version": "0.11",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ymcatwincities/openy_gated_content.git",
-                "reference": "88e1937d7f36556bf7220d93e090240f87c341f2"
+                "reference": "a0b4e28d576f4c7486713c8e3968d024f25ecc46"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ymcatwincities/openy_gated_content/zipball/88e1937d7f36556bf7220d93e090240f87c341f2",
-                "reference": "88e1937d7f36556bf7220d93e090240f87c341f2",
+                "url": "https://api.github.com/repos/ymcatwincities/openy_gated_content/zipball/a0b4e28d576f4c7486713c8e3968d024f25ecc46",
+                "reference": "a0b4e28d576f4c7486713c8e3968d024f25ecc46",
                 "shasum": ""
             },
             "require": {
@@ -10489,7 +10489,7 @@
                 "GPL-2.0+"
             ],
             "description": "Open Y Virtual Y Content",
-            "time": "2020-08-13T14:16:31+00:00"
+            "time": "2020-08-28T13:41:22+00:00"
         },
         {
             "name": "zaporylie/composer-drupal-optimizations",
@@ -12688,6 +12688,7 @@
     "stability-flags": {
         "ymcatwincities/openy": 20,
         "drupal/field_group": 20,
+        "ymcatwincities/openy_gated_content": 20,
         "drupal/cloudflare": 10,
         "ymcatwincities/openy-cibox-build": 20,
         "ymcatwincities/openy-cibox-vm": 20,
