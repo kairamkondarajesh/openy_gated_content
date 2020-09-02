@@ -106,6 +106,7 @@
 /docroot/themes/README.txt
 
 # Open Y stuff
+.docksal/docksal-local.*
 /provisioning
 /cibox
 /html
