@@ -18,7 +18,7 @@
         "drupal/redis": "^1.4",
         "drupal/role_delegation": "^1.1",
         "ymcatwincities/openy": "dev-8.x-2.x",
-        "ymcatwincities/openy_gated_content": "dev-master",
+        "ymcatwincities/openy_gated_content": "^0.15",
         "zaporylie/composer-drupal-optimizations": "^1.0"
     },
     "require-dev": {

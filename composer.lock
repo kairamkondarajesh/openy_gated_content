@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3c8f41682ea27effee295248afdd1b1a",
+    "content-hash": "05c210be4dc7d95687780014975bf3a7",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -134,9 +134,9 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://openy.cibox.tools:4680/dist/commerceguys/addressing/commerceguys-addressing-cf202c913c10d85085ab5ed9ec88607e312839ce-zip-fdb5a6.zip",
+                "url": "https://api.github.com/repos/commerceguys/addressing/zipball/cf202c913c10d85085ab5ed9ec88607e312839ce",
                 "reference": "cf202c913c10d85085ab5ed9ec88607e312839ce",
-                "shasum": "5371a7a406dbb3327898d9b1ba1a1109f702dab1"
+                "shasum": ""
             },
             "require": {
                 "doctrine/collections": "~1.0",
@@ -1991,9 +1991,9 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://openy.cibox.tools:4680/dist/drupal/core-composer-scaffold/drupal-core-composer-scaffold-07cdfe2799789fc0c2d0e3e1ba64cb5e2a973ece-zip-d9b20a.zip",
+                "url": "https://api.github.com/repos/drupal/core-composer-scaffold/zipball/07cdfe2799789fc0c2d0e3e1ba64cb5e2a973ece",
                 "reference": "07cdfe2799789fc0c2d0e3e1ba64cb5e2a973ece",
-                "shasum": "a357bffdc31e0439450dfbf015e065608fa42383"
+                "shasum": ""
             },
             "require": {
                 "composer-plugin-api": "^1 || ^2",
@@ -2031,6 +2031,17 @@
         {
             "name": "drupal/core-recommended",
             "version": "8.9.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/drupal/core-recommended.git",
+                "reference": "db5c2fdd4bf3e72aee8c862eca72dd445e704d71"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/db5c2fdd4bf3e72aee8c862eca72dd445e704d71",
+                "reference": "db5c2fdd4bf3e72aee8c862eca72dd445e704d71",
+                "shasum": ""
+            },
             "require": {
                 "asm89/stack-cors": "1.3.0",
                 "composer/semver": "1.5.1",
@@ -9045,9 +9056,9 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://openy.cibox.tools:4680/dist/symfony/http-kernel/symfony-http-kernel-e4e4ed6c008c983645b4eee6b67d8f258cde54df-zip-1258a9.zip",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/e4e4ed6c008c983645b4eee6b67d8f258cde54df",
                 "reference": "e4e4ed6c008c983645b4eee6b67d8f258cde54df",
-                "shasum": "e7dbcdb9765f54b143209169c596db11dd274b69"
+                "shasum": ""
             },
             "require": {
                 "php": "^5.5.9|>=7.0.8",
@@ -10459,16 +10470,16 @@
         },
         {
             "name": "ymcatwincities/openy_gated_content",
-            "version": "dev-master",
+            "version": "0.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ymcatwincities/openy_gated_content.git",
-                "reference": "a0b4e28d576f4c7486713c8e3968d024f25ecc46"
+                "reference": "b125ff55511ba7da354f7164bfb1768796767fb8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ymcatwincities/openy_gated_content/zipball/a0b4e28d576f4c7486713c8e3968d024f25ecc46",
-                "reference": "a0b4e28d576f4c7486713c8e3968d024f25ecc46",
+                "url": "https://api.github.com/repos/ymcatwincities/openy_gated_content/zipball/b125ff55511ba7da354f7164bfb1768796767fb8",
+                "reference": "b125ff55511ba7da354f7164bfb1768796767fb8",
                 "shasum": ""
             },
             "require": {
@@ -10492,7 +10503,7 @@
                 "GPL-2.0+"
             ],
             "description": "Open Y Virtual Y Content",
-            "time": "2020-08-28T13:41:22+00:00"
+            "time": "2020-09-14T14:43:27+00:00"
         },
         {
             "name": "zaporylie/composer-drupal-optimizations",
@@ -13049,7 +13060,6 @@
         "drupal/cloudflare": 10,
         "drupal/field_group": 20,
         "ymcatwincities/openy": 20,
-        "ymcatwincities/openy_gated_content": 20,
         "drupal/tqextension": 20,
         "ymcatwincities/openy-cibox-build": 20,
         "ymcatwincities/openy-cibox-vm": 20,
