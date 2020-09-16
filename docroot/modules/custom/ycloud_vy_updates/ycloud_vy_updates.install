@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Installation file for Y Cloud - Virtual Y Updates.
+ */
+
+/**
+ * Enable and configure disable_messages, role_delegation, and openy_gc_log modules.
+ */
+function ycloud_vy_updates_install() {
+  $module_list = [
+    'disable_messages',
+    'role_delegation',
+    'openy_gc_log'
+  ];
+  \Drupal::service('module_installer')->install($module_list);
+
+  $config = [
+    'disable_messages.settings',
+    'user.role.site_owner'
+  ];
+  _import_full_config($config, 'optional');
+  //_import_full_config('role.site_owner', 'optional');
+}
+
+function _import_full_config(array $config, string $directory = 'install') {
+  $config_dir = drupal_get_path('module', 'ycloud_vy_updates');
+  $config_dir .= '/config/'. $directory .'/';
+  // Import new configuration.
+  $config_importer = \Drupal::service('openy_upgrade_tool.importer');
+  $config_importer->setDirectory($config_dir);
+  $config_importer->importConfigs($config);
+}
+

@@ -1,0 +1,10 @@
+name: Y Cloud - Virtual Y Updates
+type: module
+description: Helper module for Virtual Y sites on Y Cloud
+package: Open Y Virtual YMCA
+core_version_requirement: ^8 || ^9
+dependencies:
+  - drupal:openy_gated_content
+  - drupal:disable_messages
+  - drupal:role_delegation
+

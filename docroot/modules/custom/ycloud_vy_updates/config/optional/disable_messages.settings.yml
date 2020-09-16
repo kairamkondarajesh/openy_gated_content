@@ -1,0 +1,14 @@
+disable_messages_enable: '1'
+disable_messages_filter_by_page: 0
+disable_messages_page_filter_paths: ''
+disable_messages_enable_debug: '0'
+disable_messages_debug_visible_div: '0'
+disable_messages_ignore_patterns: "There are updates available for your version of Drupal.*\r\nWebsite contains unresolved configuration conflicts.*\r\nThe installed version of at least one of your modules or themes is no longer supported.*\r\nOne or more problems were detected with your Drupal installation.*\r\nNo update information available.*"
+disable_messages_exclude_users: ''
+disable_messages_ignore_case: '1'
+disable_messages_ignore_regex:
+  - '/^There are updates available for your version of Drupal.*$/i'
+  - '/^Website contains unresolved configuration conflicts.*$/i'
+  - '/^The installed version of at least one of your modules or themes is no longer supported.*$/i'
+  - '/^One or more problems were detected with your Drupal installation.*$/i'
+  - '/^No update information available.*$/i'
