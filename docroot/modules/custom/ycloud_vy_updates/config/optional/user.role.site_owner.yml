@@ -15,6 +15,7 @@ permissions:
   - 'access gated content menu'
   - 'access images_library entity browser pages'
   - 'access images_library_embed entity browser pages'
+  - 'access media directories ui browser'
   - 'access media overview'
   - 'access site in maintenance mode'
   - 'access structure page'

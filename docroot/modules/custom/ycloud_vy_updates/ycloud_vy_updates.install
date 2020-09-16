@@ -18,10 +18,10 @@ function ycloud_vy_updates_install() {
 
   $config = [
     'disable_messages.settings',
-    'user.role.site_owner'
+    'user.role.site_owner',
+    'editor.editor.full_html'
   ];
   _import_full_config($config, 'optional');
-  //_import_full_config('role.site_owner', 'optional');
 }
 
 function _import_full_config(array $config, string $directory = 'install') {
