@@ -24,6 +24,9 @@ function ycloud_vy_updates_install() {
   _import_full_config($config, 'optional');
 }
 
+/**
+ * Disable security update message, update site owner, and remove font buttons.
+ */
 function ycloud_vy_updates_update_8001() {
   $config = [
     'disable_messages.settings',
@@ -37,7 +40,34 @@ function ycloud_vy_updates_update_8001() {
   // Import new configuration.
   $config_importer = \Drupal::service('openy_upgrade_tool.importer');
   $config_importer->setDirectory($config_dir);
-  $config_importer->importConfigs(['user.role.virtual_ymca_editor.yml']);
+  $config_importer->importConfigs([
+    'system.action.user_add_role_action.virtual_ymca_editor',
+    'system.action.user_remove_role_action.virtual_ymca_editor',
+    'user.role.virtual_ymca_editor',
+  ]);
+}
+
+/**
+ * Normalize roles.
+ */
+function ycloud_vy_updates_update_8002() {
+  // Revert anonymous and authenticated user.
+  $config_dir = drupal_get_path('module', 'openy_user');
+  $config_dir .= '/config/install/';
+  // Import new configuration.
+  $config_importer = \Drupal::service('openy_upgrade_tool.importer');
+  $config_importer->setDirectory($config_dir);
+  $config_importer->importConfigs([
+    'user.role.anonymous.yml',
+    'user.role.authenticated.yml'
+  ]);
+
+  $config = [
+    'user.role.site_owner',
+    'user.role.editor',
+    'user.role.contributor'
+  ];
+  _import_full_config($config, 'optional');
 }
 
 function _import_full_config(array $config, string $directory = 'install') {
