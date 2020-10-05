@@ -1,0 +1,25 @@
+uuid: 54c9cf5e-098f-4400-9237-32c1626c7332
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic_block:5cc64892-b84f-4a13-8285-df2ef3e6aae7'
+  module:
+    - block_content
+  theme:
+    - seven
+id: ycloudsupportmessage
+theme: seven
+region: content
+weight: 0
+provider: null
+plugin: 'block_content:5cc64892-b84f-4a13-8285-df2ef3e6aae7'
+settings:
+  id: 'block_content:5cc64892-b84f-4a13-8285-df2ef3e6aae7'
+  label: 'Y Cloud Support Message'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

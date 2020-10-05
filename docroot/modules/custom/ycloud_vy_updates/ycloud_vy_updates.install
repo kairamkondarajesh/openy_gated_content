@@ -70,6 +70,60 @@ function ycloud_vy_updates_update_8002() {
   _import_full_config($config, 'optional');
 }
 
+/**
+ * Creates the Y Cloud Support Message block.
+ */
+function ycloud_vy_updates_update_8003() {
+  $default_content = [
+    // Keyed by entity type.
+    'block_content' => [
+      // Then by UUID.
+      '5cc64892-b84f-4a13-8285-df2ef3e6aae7' => [
+        'info' => 'Y Cloud Support Message',
+        'type' => 'basic_block',
+        'field_block_content_format' => 'full_html',
+        'field_block_content' => [
+          'format' => 'full_html',
+          'value' => '<div class="panel">
+<h3 class="panel__title">Y Cloud Support</h3>
+
+<div class="panel__content">
+<p>If you are experiencing issues with your Virtual Y site that require escalation to the Y Cloud team, please contact us. Be as specific as possible so we may quickly diagnose and assist with resolution.</p>
+
+<ul>
+	<li>During Onboarding: Email <a href="mailto:ycloud@ymca.net">ycloud@ymca.net</a></li>
+	<li>After going live: <a href="https://services.ymca.net/supportrequest/?application=virtualy">Submit a support ticket</a></li>
+</ul>
+</div>
+</div>'
+        ],
+      ],
+    ],
+  ];
+  ycloud_vy_updates_create_content($default_content);
+
+  $config = [
+    'block.block.ycloudsupportmessage'
+  ];
+  _import_full_config($config, 'optional');
+}
+
+/**
+ * Creates install content.
+ *
+ * @param array $content
+ *   Content keyed by entity-type and UUID.
+ */
+function ycloud_vy_updates_create_content(array $content) {
+  foreach ($content as $entity_type_id => $items) {
+    $storage = \Drupal::entityTypeManager()->getStorage($entity_type_id);
+    foreach ($items as $uuid => $item) {
+      $entity = $storage->create($item + ['uuid' => $uuid]);
+      $entity->save();
+    }
+  }
+}
+
 function _import_full_config(array $config, string $directory = 'install') {
   $config_dir = drupal_get_path('module', 'ycloud_vy_updates');
   $config_dir .= '/config/'. $directory .'/';
@@ -78,4 +132,3 @@ function _import_full_config(array $config, string $directory = 'install') {
   $config_importer->setDirectory($config_dir);
   $config_importer->importConfigs($config);
 }
-
