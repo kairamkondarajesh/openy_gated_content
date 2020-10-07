@@ -18,7 +18,7 @@
         "drupal/redis": "^1.4",
         "drupal/role_delegation": "^1.1",
         "ymcatwincities/openy": "dev-8.x-2.x",
-        "ymcatwincities/openy_gated_content": "^0.15",
+        "ymcatwincities/openy_gated_content": "dev-0.15-bug-fix",
         "zaporylie/composer-drupal-optimizations": "^1.0"
     },
     "require-dev": {
@@ -261,6 +261,10 @@
                     "url": "https://cdnjs.cloudflare.com/ajax/libs/d3/4.9.1/d3.js"
                 }
             }
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/froboy/openy_gated_content"
         }
     ],
     "minimum-stability": "dev",

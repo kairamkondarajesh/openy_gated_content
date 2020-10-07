@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "05c210be4dc7d95687780014975bf3a7",
+    "content-hash": "13aabc05d66fd295be479f6dd46f6d91",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -381,9 +381,9 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://openy.cibox.tools:4680/dist/cweagans/composer-patches/cweagans-composer-patches-2e6f72a2ad8d59cd7e2b729f218bf42adb14f590-zip-642339.zip",
+                "url": "https://api.github.com/repos/cweagans/composer-patches/zipball/2e6f72a2ad8d59cd7e2b729f218bf42adb14f590",
                 "reference": "2e6f72a2ad8d59cd7e2b729f218bf42adb14f590",
-                "shasum": "d4ac0d503a4985332f734b36a250616c8f73791c"
+                "shasum": ""
             },
             "require": {
                 "composer-plugin-api": "^1.0",
@@ -7850,7 +7850,7 @@
             "version": "1.4.2",
             "source": {
                 "type": "git",
-                "url": "git@github.com:gdsmith/jquery.easing.git",
+                "url": "https://github.com/gdsmith/jquery.easing.git",
                 "reference": "df09da4048d2607c5d513681dff532dbe6680d95"
             },
             "dist": {
@@ -10470,16 +10470,16 @@
         },
         {
             "name": "ymcatwincities/openy_gated_content",
-            "version": "0.15",
+            "version": "dev-0.15-bug-fix",
             "source": {
                 "type": "git",
-                "url": "https://github.com/ymcatwincities/openy_gated_content.git",
-                "reference": "b125ff55511ba7da354f7164bfb1768796767fb8"
+                "url": "https://github.com/froboy/openy_gated_content.git",
+                "reference": "fb85854607865e7dd0d29ce9915f1176933c1071"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ymcatwincities/openy_gated_content/zipball/b125ff55511ba7da354f7164bfb1768796767fb8",
-                "reference": "b125ff55511ba7da354f7164bfb1768796767fb8",
+                "url": "https://api.github.com/repos/froboy/openy_gated_content/zipball/fb85854607865e7dd0d29ce9915f1176933c1071",
+                "reference": "fb85854607865e7dd0d29ce9915f1176933c1071",
                 "shasum": ""
             },
             "require": {
@@ -10498,26 +10498,28 @@
                     }
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0+"
             ],
             "description": "Open Y Virtual Y Content",
-            "time": "2020-09-14T14:43:27+00:00"
+            "support": {
+                "source": "https://github.com/froboy/openy_gated_content/tree/0.15-bug-fix"
+            },
+            "time": "2020-10-07T13:47:30+00:00"
         },
         {
             "name": "zaporylie/composer-drupal-optimizations",
-            "version": "1.1.1",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zaporylie/composer-drupal-optimizations.git",
-                "reference": "fb231d92adc862a2c9276bccbc90f684816dc75d"
+                "reference": "0d6ebd8bc03679d312f99a1e4e950685dbf0ff18"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://openy.cibox.tools:4680/dist/zaporylie/composer-drupal-optimizations/zaporylie-composer-drupal-optimizations-fb231d92adc862a2c9276bccbc90f684816dc75d-zip-912ca9.zip",
-                "reference": "fb231d92adc862a2c9276bccbc90f684816dc75d",
-                "shasum": "b47270008c4fa63141bcdd73344f4fb9ba665a12"
+                "url": "http://openy.cibox.tools:4680/dist/zaporylie/composer-drupal-optimizations/zaporylie-composer-drupal-optimizations-0d6ebd8bc03679d312f99a1e4e950685dbf0ff18-zip-c82713.zip",
+                "reference": "0d6ebd8bc03679d312f99a1e4e950685dbf0ff18",
+                "shasum": "cb35f4d8ef432c8dbc25257537e5be241be98df3"
             },
             "require": {
                 "composer-plugin-api": "^1.1"
@@ -10546,7 +10548,7 @@
                 }
             ],
             "description": "Composer plugin to improve composer performance for Drupal projects",
-            "time": "2019-10-02T17:01:11+00:00"
+            "time": "2020-10-06T10:41:00+00:00"
         }
     ],
     "packages-dev": [
@@ -13060,6 +13062,7 @@
         "drupal/cloudflare": 10,
         "drupal/field_group": 20,
         "ymcatwincities/openy": 20,
+        "ymcatwincities/openy_gated_content": 20,
         "drupal/tqextension": 20,
         "ymcatwincities/openy-cibox-build": 20,
         "ymcatwincities/openy-cibox-vm": 20,
