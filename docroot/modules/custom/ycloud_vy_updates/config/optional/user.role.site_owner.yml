@@ -34,6 +34,7 @@ permissions:
   - 'administer menu'
   - 'administer nodes'
   - 'administer openy modules'
+  - 'administer redirects'
   - 'administer site configuration'
   - 'administer taxonomy'
   - 'administer themes'
