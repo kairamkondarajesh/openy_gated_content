@@ -6,7 +6,7 @@
     "require": {
         "billboardjs/billboard": "1.6.2",
         "composer/installers": "^1.2",
-        "cweagans/composer-patches": "~1.0",
+        "cweagans/composer-patches": "^1.5.0",
         "d3v4/d3": "4.9.1",
         "drupal/allow_iframed_site": "^3.0",
         "drupal/charts": "~4",
@@ -17,7 +17,7 @@
         "drupal/field_group": "~3.0@dev",
         "drupal/redis": "^1.4",
         "drupal/role_delegation": "^1.1",
-        "ymcatwincities/openy": "dev-8.x-2.x",
+        "ymcatwincities/openy": "8.2.6.4",
         "ymcatwincities/openy_gated_content": "dev-0.15-bug-fix",
         "zaporylie/composer-drupal-optimizations": "^1.0"
     },
@@ -89,7 +89,8 @@
                 "2882796 - Add support for persistent connections to redis host": "https://www.drupal.org/files/issues/2019-09-17/2882796-17-persist-connection.patch"
             },
             "ymcatwincities/openy": {
-                "Fix headers": "patches/personify-headers-fix.patch"
+                "Fix headers": "patches/personify-headers-fix.patch",
+                "Added check for empty blocks": "https://patch-diff.githubusercontent.com/raw/ymcatwincities/openy/pull/2216.patch"
             }
         }
     },
