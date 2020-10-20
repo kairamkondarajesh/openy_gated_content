@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1a8bf13c4006d5e920ae6a302dac750c",
+    "content-hash": "a817e7490df97d0122af8fdad0b4b7d1",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -10921,21 +10921,21 @@
         },
         {
             "name": "ymcatwincities/openy_gated_content",
-            "version": "dev-0.15-bug-fix",
+            "version": "1.01",
             "source": {
                 "type": "git",
-                "url": "https://github.com/froboy/openy_gated_content.git",
-                "reference": "c104ecfa33fc0390627ec9dc24ab6e9657d7b992"
+                "url": "https://github.com/ymcatwincities/openy_gated_content.git",
+                "reference": "ddd13ddf5c824099b811245caf53e095e17714ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/froboy/openy_gated_content/zipball/c104ecfa33fc0390627ec9dc24ab6e9657d7b992",
-                "reference": "c104ecfa33fc0390627ec9dc24ab6e9657d7b992",
+                "url": "https://api.github.com/repos/ymcatwincities/openy_gated_content/zipball/ddd13ddf5c824099b811245caf53e095e17714ac",
+                "reference": "ddd13ddf5c824099b811245caf53e095e17714ac",
                 "shasum": ""
             },
             "require": {
-                "drupal/csv_serialization": "^1",
-                "drupal/jsonapi_image_styles": "^1.0@beta",
+                "drupal/csv_serialization": "^1 || ^2",
+                "drupal/jsonapi_image_styles": "~1.0@beta || ^1",
                 "drupal/recurring_events": "*",
                 "ext-json": "*",
                 "ext-zlib": "*",
@@ -10949,14 +10949,12 @@
                     }
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0+"
             ],
             "description": "Open Y Virtual Y Content",
-            "support": {
-                "source": "https://github.com/froboy/openy_gated_content/tree/0.15-bug-fix"
-            },
-            "time": "2020-10-17T01:54:26+00:00"
+            "time": "2020-10-09T12:22:02+00:00"
         },
         {
             "name": "zaporylie/composer-drupal-optimizations",
@@ -13512,7 +13510,6 @@
     "stability-flags": {
         "drupal/cloudflare": 10,
         "drupal/field_group": 20,
-        "ymcatwincities/openy_gated_content": 20,
         "drupal/tqextension": 20,
         "ymcatwincities/openy-cibox-build": 20,
         "ymcatwincities/openy-cibox-vm": 20,
