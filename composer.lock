@@ -10925,12 +10925,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/froboy/openy_gated_content.git",
-                "reference": "c104ecfa33fc0390627ec9dc24ab6e9657d7b992"
+                "reference": "6611dc033a0018e1e9903227071a8f565ba118f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/froboy/openy_gated_content/zipball/c104ecfa33fc0390627ec9dc24ab6e9657d7b992",
-                "reference": "c104ecfa33fc0390627ec9dc24ab6e9657d7b992",
+                "url": "https://api.github.com/repos/froboy/openy_gated_content/zipball/6611dc033a0018e1e9903227071a8f565ba118f0",
+                "reference": "6611dc033a0018e1e9903227071a8f565ba118f0",
                 "shasum": ""
             },
             "require": {
@@ -10956,7 +10956,7 @@
             "support": {
                 "source": "https://github.com/froboy/openy_gated_content/tree/0.15-bug-fix"
             },
-            "time": "2020-10-17T01:54:26+00:00"
+            "time": "2020-10-20T15:50:49+00:00"
         },
         {
             "name": "zaporylie/composer-drupal-optimizations",
