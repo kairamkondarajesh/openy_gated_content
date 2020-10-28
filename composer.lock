@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a817e7490df97d0122af8fdad0b4b7d1",
+    "content-hash": "79ab01e789998d230c37eb96983e147a",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -7281,9 +7281,9 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://openy.cibox.tools:4680/dist/espresso-dev/instagram-basic-display-php/espresso-dev-instagram-basic-display-php-2dfe33e4182bd290033d129f821b591197110d81-zip-188123.zip",
+                "url": "https://api.github.com/repos/espresso-dev/instagram-basic-display-php/zipball/2dfe33e4182bd290033d129f821b591197110d81",
                 "reference": "2dfe33e4182bd290033d129f821b591197110d81",
-                "shasum": "724dad06f6701b77ccb6db3353246a82c85e9df4"
+                "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
@@ -10713,9 +10713,9 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://openy.cibox.tools:4680/dist/ymcatwincities/openy/ymcatwincities-openy-079a12f69cc8e557a1f44d49675b00d913604abc-zip-72b9f4.zip",
+                "url": "https://api.github.com/repos/ymcatwincities/openy/zipball/079a12f69cc8e557a1f44d49675b00d913604abc",
                 "reference": "079a12f69cc8e557a1f44d49675b00d913604abc",
-                "shasum": "14be9a7352672180417748a49619cb7cd5c820df"
+                "shasum": ""
             },
             "require": {
                 "composer/installers": "^1.0",
@@ -10921,16 +10921,16 @@
         },
         {
             "name": "ymcatwincities/openy_gated_content",
-            "version": "1.01",
+            "version": "dev-1.0.1-bug-fix",
             "source": {
                 "type": "git",
-                "url": "https://github.com/ymcatwincities/openy_gated_content.git",
-                "reference": "ddd13ddf5c824099b811245caf53e095e17714ac"
+                "url": "https://github.com/froboy/openy_gated_content.git",
+                "reference": "3a403bb6de58996f65cc136c00e6184c602655d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ymcatwincities/openy_gated_content/zipball/ddd13ddf5c824099b811245caf53e095e17714ac",
-                "reference": "ddd13ddf5c824099b811245caf53e095e17714ac",
+                "url": "https://api.github.com/repos/froboy/openy_gated_content/zipball/3a403bb6de58996f65cc136c00e6184c602655d3",
+                "reference": "3a403bb6de58996f65cc136c00e6184c602655d3",
                 "shasum": ""
             },
             "require": {
@@ -10949,12 +10949,14 @@
                     }
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0+"
             ],
             "description": "Open Y Virtual Y Content",
-            "time": "2020-10-09T12:22:02+00:00"
+            "support": {
+                "source": "https://github.com/froboy/openy_gated_content/tree/1.0.1-bug-fix"
+            },
+            "time": "2020-10-28T21:09:23+00:00"
         },
         {
             "name": "zaporylie/composer-drupal-optimizations",
@@ -10966,9 +10968,9 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://openy.cibox.tools:4680/dist/zaporylie/composer-drupal-optimizations/zaporylie-composer-drupal-optimizations-0d6ebd8bc03679d312f99a1e4e950685dbf0ff18-zip-c82713.zip",
+                "url": "https://api.github.com/repos/zaporylie/composer-drupal-optimizations/zipball/0d6ebd8bc03679d312f99a1e4e950685dbf0ff18",
                 "reference": "0d6ebd8bc03679d312f99a1e4e950685dbf0ff18",
-                "shasum": "cb35f4d8ef432c8dbc25257537e5be241be98df3"
+                "shasum": ""
             },
             "require": {
                 "composer-plugin-api": "^1.1"
@@ -13510,6 +13512,7 @@
     "stability-flags": {
         "drupal/cloudflare": 10,
         "drupal/field_group": 20,
+        "ymcatwincities/openy_gated_content": 20,
         "drupal/tqextension": 20,
         "ymcatwincities/openy-cibox-build": 20,
         "ymcatwincities/openy-cibox-vm": 20,
