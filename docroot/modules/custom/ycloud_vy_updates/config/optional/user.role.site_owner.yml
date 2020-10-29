@@ -33,6 +33,7 @@ permissions:
   - 'administer gated content configuration'
   - 'administer google analytics'
   - 'administer menu'
+  - 'administer migrations'
   - 'administer nodes'
   - 'administer openy modules'
   - 'administer redirects'
