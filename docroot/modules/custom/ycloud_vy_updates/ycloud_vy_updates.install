@@ -121,6 +121,42 @@ function ycloud_vy_updates_update_8004() {
 }
 
 /**
+ * Enable and configure openy_gc_shared_content_server.
+ */
+function ycloud_vy_updates_update_8005() {
+  $module_list = [
+    'openy_gc_shared_content_server'
+  ];
+  \Drupal::service('module_installer')->install($module_list);
+
+  $config = [
+    'user.role.site_owner',
+    'user.role.editor',
+    'user.role.contributor'
+  ];
+  _import_full_config($config, 'optional');
+}
+
+/**
+ * Give user 1 administrator role.
+ */
+function ycloud_vy_updates_update_8006() {
+  $user = \Drupal\user\Entity\User::load(1);
+  $user->addRole('administrator');
+  $user->save();
+}
+
+/**
+ * Update VY Logs View.
+ */
+function ycloud_vy_updates_update_8007() {
+  $config_dir = drupal_get_path('module', 'ycloud_vy_updates') . '/config/optional';
+  $config_importer = \Drupal::service('openy_upgrade_tool.importer');
+  $config_importer->setDirectory($config_dir);
+  $config_importer->importConfigSimple('views.view.virtual_y_logs');
+}
+
+/**
  * Creates install content.
  *
  * @param array $content
