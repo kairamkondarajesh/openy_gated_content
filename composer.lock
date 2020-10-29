@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "79ab01e789998d230c37eb96983e147a",
+    "content-hash": "000f433bb2b4ae0c277a76e974e5af50",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -5209,8 +5209,7 @@
                     "services": {
                         "drush.services.yml": "^9 || ^10"
                     }
-                },
-                "patches_applied": []
+                }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
@@ -6355,8 +6354,7 @@
                     "services": {
                         "drush.services.yml": "^9"
                     }
-                },
-                "patches_applied": []
+                }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
@@ -10705,17 +10703,17 @@
         },
         {
             "name": "ymcatwincities/openy",
-            "version": "8.2.6.4",
+            "version": "8.2.6.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ymcatwincities/openy.git",
-                "reference": "079a12f69cc8e557a1f44d49675b00d913604abc"
+                "reference": "375ad15eb46bd983b4c1e72de4d725fe44263b1d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ymcatwincities/openy/zipball/079a12f69cc8e557a1f44d49675b00d913604abc",
-                "reference": "079a12f69cc8e557a1f44d49675b00d913604abc",
-                "shasum": ""
+                "url": "http://openy.cibox.tools:4680/dist/ymcatwincities/openy/ymcatwincities-openy-375ad15eb46bd983b4c1e72de4d725fe44263b1d-zip-66aa16.zip",
+                "reference": "375ad15eb46bd983b4c1e72de4d725fe44263b1d",
+                "shasum": "671b748615afb5296f4f0caba6be18307c97c5d9"
             },
             "require": {
                 "composer/installers": "^1.0",
@@ -10801,7 +10799,7 @@
                 "drupal/views_data_export": "1.0-rc1",
                 "drupal/views_field_formatter": "~1.9",
                 "drupal/views_infinite_scroll": "1.7",
-                "drupal/webform": "~6.0",
+                "drupal/webform": "~5 || ~6.0",
                 "grt107/grt-youtube-popup": "^1.0",
                 "library-ckeditor/colorbutton": "4.10.1",
                 "library-ckeditor/font": "4.12.1",
@@ -10885,19 +10883,12 @@
                         "Add option for native browser lazy load": "https://www.drupal.org/files/issues/2020-06-18/3142503-native-option-2.patch",
                         "SVG placeholder html validation error space is not allowed": "https://www.drupal.org/files/issues/2020-06-23/blazy_fix_svg_placeholder-3154185-2.patch"
                     },
-                    "drupal/migrate_tools": {
-                        "3099611 - Class 'Drush\\Commands\\DrushCommands' not found": "https://www.drupal.org/files/issues/2019-12-11/3099611-15.patch"
-                    },
                     "drupal/geysir": {
                         "Adds a feature for reload a page after success paragraph add or edit": "https://raw.githubusercontent.com/ymcatwincities/openy/8.x-2.x/patches/geysir/add-reload-page.patch"
-                    },
-                    "drupal/social_feed_fetcher": {
-                        "Fix incorrect core key value in info file": "https://www.drupal.org/files/issues/2020-04-23/3130364-2.patch"
                     }
                 },
                 "patches_applied": {
-                    "Fix headers": "patches/personify-headers-fix.patch",
-                    "Added check for empty blocks": "https://patch-diff.githubusercontent.com/raw/ymcatwincities/openy/pull/2216.patch"
+                    "Fix headers": "patches/personify-headers-fix.patch"
                 }
             },
             "scripts": {
@@ -10914,10 +10905,10 @@
             ],
             "description": "Open Y distribution",
             "support": {
-                "source": "https://github.com/ymcatwincities/openy/tree/8.2.6.4",
+                "source": "https://github.com/ymcatwincities/openy/tree/8.2.6.5",
                 "issues": "https://github.com/ymcatwincities/openy/issues"
             },
-            "time": "2020-09-22T13:36:32+00:00"
+            "time": "2020-10-20T15:11:31+00:00"
         },
         {
             "name": "ymcatwincities/openy_gated_content",
