@@ -13,8 +13,12 @@
         "drupal/cloudflare": "^1.0@beta",
         "drupal/core-composer-scaffold": "^8.8",
         "drupal/core-recommended": "^8.8",
+        "drupal/csv_serialization": "^2.0",
         "drupal/disable_messages": "^2.0",
         "drupal/field_group": "~3.0@dev",
+        "drupal/migrate_plus": "^5.1",
+        "drupal/migrate_source_csv": "^3.4",
+        "drupal/migrate_tools": "^5.0",
         "drupal/redis": "^1.4",
         "drupal/role_delegation": "^1.1",
         "ymcatwincities/openy": "8.2.6.5",
@@ -91,6 +95,9 @@
             "ymcatwincities/openy": {
                 "Fix headers": "patches/personify-headers-fix.patch",
                 "Added check for empty blocks": "https://patch-diff.githubusercontent.com/raw/ymcatwincities/openy/pull/2216.patch"
+            },
+            "ymcatwincities/openy_gated_content": {
+                "Migrate csv fix": "https://patch-diff.githubusercontent.com/raw/fivejars/openy_gated_content/pull/140.patch"
             }
         }
     },
