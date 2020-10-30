@@ -157,6 +157,14 @@ function ycloud_vy_updates_update_8007() {
 }
 
 /**
+ * Re-run openy_gc_storage_update_8004 to fix event categories.
+ */
+function ycloud_vy_updates_update_8008() {
+  module_load_include('install', 'openy_gc_storage');
+  openy_gc_storage_update_8004();
+}
+
+/**
  * Creates install content.
  *
  * @param array $content
