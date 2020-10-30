@@ -95,9 +95,6 @@
             "ymcatwincities/openy": {
                 "Fix headers": "patches/personify-headers-fix.patch",
                 "Added check for empty blocks": "https://patch-diff.githubusercontent.com/raw/ymcatwincities/openy/pull/2216.patch"
-            },
-            "ymcatwincities/openy_gated_content": {
-                "Migrate csv fix": "https://patch-diff.githubusercontent.com/raw/fivejars/openy_gated_content/pull/140.patch"
             }
         }
     },

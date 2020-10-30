@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "359116f81bd4d5ccada24af38b04e564",
+    "content-hash": "1fb8c6e933f25c768c349f48962cdbf7",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -1961,11 +1961,11 @@
                     }
                 },
                 "patches_applied": {
-                    "Views does not support computed bundle fields": "https://www.drupal.org/files/issues/2019-10-20/2981047-fix-only-44.patch",
                     "1236098 - Notice: Undefined index in _color_rewrite_stylesheet()": "https://www.drupal.org/files/issues/undefined-index-in-_color_rewrite_stylesheet-1236098-37.patch",
                     "2484693 - Telephone Link field formatter InvalidArgumentException with 5 digits or fewer in the number": "https://www.drupal.org/files/issues/2484693-54.patch",
                     "2862702 - PrepareModulesEntityUninstallForm::formTitle does not exist": "https://www.drupal.org/files/issues/2862702-3.patch",
-                    "2996114 - JSON:API Argument error": "https://www.drupal.org/files/issues/2020-02-11/2996114-124.patch"
+                    "2996114 - JSON:API Argument error": "https://www.drupal.org/files/issues/2020-02-11/2996114-124.patch",
+                    "Views does not support computed bundle fields": "https://www.drupal.org/files/issues/2019-10-20/2981047-fix-only-44.patch"
                 }
             },
             "autoload": {
@@ -2264,8 +2264,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/csv_serialization",
                 "issues": "https://www.drupal.org/project/issues/csv_serialization"
-            },
-            "time": "2020-07-27T19:03:39+00:00"
+            }
         },
         {
             "name": "drupal/ctools",
@@ -10920,12 +10919,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/froboy/openy_gated_content.git",
-                "reference": "3a403bb6de58996f65cc136c00e6184c602655d3"
+                "reference": "35820f0de5a03330a695c422921ad0d853f818c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/froboy/openy_gated_content/zipball/3a403bb6de58996f65cc136c00e6184c602655d3",
-                "reference": "3a403bb6de58996f65cc136c00e6184c602655d3",
+                "url": "https://api.github.com/repos/froboy/openy_gated_content/zipball/35820f0de5a03330a695c422921ad0d853f818c0",
+                "reference": "35820f0de5a03330a695c422921ad0d853f818c0",
                 "shasum": ""
             },
             "require": {
@@ -10942,8 +10941,7 @@
                     "drupal/csv_serialization": {
                         "Option for CSV Encoder to skip preparing and outputting the header": "https://www.drupal.org/files/issues/2018-08-10/csv_serliazation-2854087-skip-headers.patch"
                     }
-                },
-                "patches_applied": []
+                }
             },
             "license": [
                 "GPL-2.0+"
@@ -10952,7 +10950,7 @@
             "support": {
                 "source": "https://github.com/froboy/openy_gated_content/tree/1.0.1-bug-fix"
             },
-            "time": "2020-10-28T21:09:23+00:00"
+            "time": "2020-10-30T20:20:21+00:00"
         },
         {
             "name": "zaporylie/composer-drupal-optimizations",
