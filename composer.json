@@ -21,6 +21,7 @@
         "drupal/migrate_tools": "^5.0",
         "drupal/redis": "^1.4",
         "drupal/role_delegation": "^1.1",
+        "furf/jquery-ui-touch-punch": "dev-master",
         "ymcatwincities/openy": "8.2.6.5",
         "ymcatwincities/openy_gated_content": "dev-1.0.1-bug-fix",
         "zaporylie/composer-drupal-optimizations": "^1.0"
@@ -265,6 +266,18 @@
                     "type": "file",
                     "url": "https://cdnjs.cloudflare.com/ajax/libs/d3/4.9.1/d3.js"
                 }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+              "name": "furf/jquery-ui-touch-punch",
+              "version": "dev-master",
+              "type": "drupal-library",
+              "dist": {
+                "url": "https://github.com/furf/jquery-ui-touch-punch/archive/master.zip",
+                "type": "zip"
+              }
             }
         },
         {

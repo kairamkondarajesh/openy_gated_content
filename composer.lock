@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1fb8c6e933f25c768c349f48962cdbf7",
+    "content-hash": "068f4917f55849aafbb13377172efe75",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -7362,6 +7362,15 @@
             "time": "2018-12-11T22:56:31+00:00"
         },
         {
+            "name": "furf/jquery-ui-touch-punch",
+            "version": "dev-master",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/furf/jquery-ui-touch-punch/archive/master.zip"
+            },
+            "type": "drupal-library"
+        },
+        {
             "name": "gasparesganga/php-shapefile",
             "version": "v3.3.3",
             "source": {
@@ -13514,6 +13523,7 @@
     "stability-flags": {
         "drupal/cloudflare": 10,
         "drupal/field_group": 20,
+        "furf/jquery-ui-touch-punch": 20,
         "ymcatwincities/openy_gated_content": 20,
         "drupal/tqextension": 20,
         "ymcatwincities/openy-cibox-build": 20,
