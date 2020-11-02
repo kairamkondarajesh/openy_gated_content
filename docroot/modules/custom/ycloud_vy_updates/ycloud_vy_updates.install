@@ -5,6 +5,8 @@
  * Installation file for Y Cloud - Virtual Y Updates.
  */
 
+use Drupal\user\Entity\User;
+
 /**
  * Enable and configure disable_messages, role_delegation, and openy_gc_log modules.
  */
@@ -12,16 +14,21 @@ function ycloud_vy_updates_install() {
   $module_list = [
     'disable_messages',
     'role_delegation',
-    'openy_gc_log'
+    'openy_gc_log',
+    'openy_gc_shared_content_server'
   ];
   \Drupal::service('module_installer')->install($module_list);
 
   $config = [
     'disable_messages.settings',
     'user.role.site_owner',
+    'user.role.editor',
+    'user.role.contributor',
     'editor.editor.full_html'
   ];
   _import_full_config($config, 'optional');
+
+  _add_vy_editor_role();
 }
 
 /**
@@ -165,6 +172,13 @@ function ycloud_vy_updates_update_8008() {
 }
 
 /**
+ * Give Site Owners the Virtual YMCA Editor role.
+ */
+function ycloud_vy_updates_update_8009() {
+  _add_vy_editor_role();
+}
+
+/**
  * Creates install content.
  *
  * @param array $content
@@ -187,4 +201,16 @@ function _import_full_config(array $config, string $directory = 'install') {
   $config_importer = \Drupal::service('openy_upgrade_tool.importer');
   $config_importer->setDirectory($config_dir);
   $config_importer->importConfigs($config);
+}
+
+function _add_vy_editor_role() {
+  $ids = \Drupal::entityQuery('user')
+    ->condition('roles', 'site_owner')
+    ->execute();
+  $users = User::loadMultiple($ids);
+
+  foreach ($users as $user) {
+    $user->addRole('virtual_ymca_editor');
+    $user->save();
+  }
 }
