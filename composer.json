@@ -9,6 +9,7 @@
         "cweagans/composer-patches": "^1.5.0",
         "d3v4/d3": "4.9.1",
         "drupal/allow_iframed_site": "^3.0",
+        "drupal/cache_control_override": "^1.0@alpha",
         "drupal/charts": "~4",
         "drupal/cloudflare": "^1.0@beta",
         "drupal/core-composer-scaffold": "^8.8",

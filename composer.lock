@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "068f4917f55849aafbb13377172efe75",
+    "content-hash": "2265e70f7beef98a0a33db9872e4d113",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -1255,6 +1255,50 @@
             }
         },
         {
+            "name": "drupal/cache_control_override",
+            "version": "1.0.0-alpha2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/cache_control_override.git",
+                "reference": "8.x-1.0-alpha2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/cache_control_override-8.x-1.0-alpha2.zip",
+                "reference": "8.x-1.0-alpha2",
+                "shasum": "24f97b80eb3d335256eabd2e5e71886526a2385a"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0-alpha2",
+                    "datestamp": "1597733165",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "asgorobets",
+                    "homepage": "https://www.drupal.org/user/1399950"
+                }
+            ],
+            "description": "Override page Cache-Control header based on bubbled cacheability metadata.",
+            "homepage": "https://www.drupal.org/project/cache_control_override",
+            "support": {
+                "source": "https://git.drupalcode.org/project/cache_control_override"
+            }
+        },
+        {
             "name": "drupal/captcha",
             "version": "1.1.0",
             "source": {
@@ -2041,6 +2085,17 @@
         {
             "name": "drupal/core-recommended",
             "version": "8.9.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/drupal/core-recommended.git",
+                "reference": "7895ddd703101bdec91fb6ae58381036a9768e1f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/7895ddd703101bdec91fb6ae58381036a9768e1f",
+                "reference": "7895ddd703101bdec91fb6ae58381036a9768e1f",
+                "shasum": ""
+            },
             "require": {
                 "asm89/stack-cors": "1.3.0",
                 "composer/semver": "1.5.1",
@@ -13521,6 +13576,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "drupal/cache_control_override": 15,
         "drupal/cloudflare": 10,
         "drupal/field_group": 20,
         "furf/jquery-ui-touch-punch": 20,
