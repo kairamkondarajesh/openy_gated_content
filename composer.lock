@@ -2319,8 +2319,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/csv_serialization",
                 "issues": "https://www.drupal.org/project/issues/csv_serialization"
-            },
-            "time": "2020-07-27T19:03:39+00:00"
+            }
         },
         {
             "name": "drupal/ctools",
@@ -10987,12 +10986,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/froboy/openy_gated_content.git",
-                "reference": "fa976f64659e2ed14ecaf16efdbcd2793d511de6"
+                "reference": "f04635df6581d027b7a3c791754ddd37685b6c4a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/froboy/openy_gated_content/zipball/fa976f64659e2ed14ecaf16efdbcd2793d511de6",
-                "reference": "fa976f64659e2ed14ecaf16efdbcd2793d511de6",
+                "url": "https://api.github.com/repos/froboy/openy_gated_content/zipball/f04635df6581d027b7a3c791754ddd37685b6c4a",
+                "reference": "f04635df6581d027b7a3c791754ddd37685b6c4a",
                 "shasum": ""
             },
             "require": {
@@ -11022,7 +11021,7 @@
             "support": {
                 "source": "https://github.com/froboy/openy_gated_content/tree/1.0.1-bug-fix"
             },
-            "time": "2020-11-02T15:28:47+00:00"
+            "time": "2020-11-06T18:29:06+00:00"
         },
         {
             "name": "zaporylie/composer-drupal-optimizations",
