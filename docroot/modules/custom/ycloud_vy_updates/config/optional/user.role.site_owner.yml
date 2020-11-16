@@ -8,6 +8,7 @@ is_admin: null
 permissions:
   - 'access administration pages'
   - 'access content overview'
+  - 'access contextual links'
   - 'access documents_library entity browser pages'
   - 'access documents_library_embed entity browser pages'
   - 'access eventinstance overview'
@@ -44,6 +45,10 @@ permissions:
   - 'assign contributor role'
   - 'assign editor role'
   - 'assign site_owner role'
+  - 'assign virtual_y role'
+  - 'assign virtual_y_premium role'
+  - 'assign virtual_y_trial role'
+  - 'assign virtual_ymca_editor role'
   - 'clone eventinstance entity'
   - 'clone eventseries entity'
   - 'create alert content'

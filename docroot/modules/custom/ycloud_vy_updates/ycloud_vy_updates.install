@@ -179,6 +179,18 @@ function ycloud_vy_updates_update_8009() {
 }
 
 /**
+ * Give Site Owners the Virtual YMCA Editor role (again) and add privs.
+ */
+function ycloud_vy_updates_update_8010() {
+  _add_vy_editor_role();
+
+  $config_dir = drupal_get_path('module', 'ycloud_vy_updates') . '/config/optional';
+  $config_importer = \Drupal::service('openy_upgrade_tool.importer');
+  $config_importer->setDirectory($config_dir);
+  $config_importer->importConfigSimple('user.role.site_owner');
+}
+
+/**
  * Creates install content.
  *
  * @param array $content
