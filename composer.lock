@@ -2005,11 +2005,11 @@
                     }
                 },
                 "patches_applied": {
+                    "Views does not support computed bundle fields": "https://www.drupal.org/files/issues/2019-10-20/2981047-fix-only-44.patch",
                     "1236098 - Notice: Undefined index in _color_rewrite_stylesheet()": "https://www.drupal.org/files/issues/undefined-index-in-_color_rewrite_stylesheet-1236098-37.patch",
                     "2484693 - Telephone Link field formatter InvalidArgumentException with 5 digits or fewer in the number": "https://www.drupal.org/files/issues/2484693-54.patch",
                     "2862702 - PrepareModulesEntityUninstallForm::formTitle does not exist": "https://www.drupal.org/files/issues/2862702-3.patch",
-                    "2996114 - JSON:API Argument error": "https://www.drupal.org/files/issues/2020-02-11/2996114-124.patch",
-                    "Views does not support computed bundle fields": "https://www.drupal.org/files/issues/2019-10-20/2981047-fix-only-44.patch"
+                    "2996114 - JSON:API Argument error": "https://www.drupal.org/files/issues/2020-02-11/2996114-124.patch"
                 }
             },
             "autoload": {
@@ -2301,8 +2301,7 @@
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
                     }
-                },
-                "patches_applied": []
+                }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
@@ -8291,9 +8290,9 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://openy.cibox.tools:4680/dist/myclabs/deep-copy/myclabs-deep-copy-969b211f9a51aa1f6c01d1d2aef56d3bd91598e5-zip-1bc29d.zip",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/969b211f9a51aa1f6c01d1d2aef56d3bd91598e5",
                 "reference": "969b211f9a51aa1f6c01d1d2aef56d3bd91598e5",
-                "shasum": "4f81e431b607481a9b82156a6f387044fd3fcda5"
+                "shasum": ""
             },
             "require": {
                 "php": "^7.1 || ^8.0"
@@ -10751,16 +10750,16 @@
         },
         {
             "name": "ymcatwincities/daxko_sso",
-            "version": "0.1",
+            "version": "0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ymcatwincities/daxko_sso.git",
-                "reference": "e0bb9d45ab3a283f10d4cd923b5e9c8bdd6cbd0f"
+                "reference": "5bc1a3174dc3353559c959607cabb3fc84d478b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ymcatwincities/daxko_sso/zipball/e0bb9d45ab3a283f10d4cd923b5e9c8bdd6cbd0f",
-                "reference": "e0bb9d45ab3a283f10d4cd923b5e9c8bdd6cbd0f",
+                "url": "https://api.github.com/repos/ymcatwincities/daxko_sso/zipball/5bc1a3174dc3353559c959607cabb3fc84d478b3",
+                "reference": "5bc1a3174dc3353559c959607cabb3fc84d478b3",
                 "shasum": ""
             },
             "type": "drupal-module",
@@ -10769,7 +10768,7 @@
                 "GPL-2.0+"
             ],
             "description": "Open Y Daxko SSO integration",
-            "time": "2020-06-19T12:32:09+00:00"
+            "time": "2020-11-17T23:49:44+00:00"
         },
         {
             "name": "ymcatwincities/openy",
@@ -10781,9 +10780,9 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://openy.cibox.tools:4680/dist/ymcatwincities/openy/ymcatwincities-openy-375ad15eb46bd983b4c1e72de4d725fe44263b1d-zip-66aa16.zip",
+                "url": "https://api.github.com/repos/ymcatwincities/openy/zipball/375ad15eb46bd983b4c1e72de4d725fe44263b1d",
                 "reference": "375ad15eb46bd983b4c1e72de4d725fe44263b1d",
-                "shasum": "671b748615afb5296f4f0caba6be18307c97c5d9"
+                "shasum": ""
             },
             "require": {
                 "composer/installers": "^1.0",
@@ -10961,23 +10960,11 @@
                     "Fix headers": "patches/personify-headers-fix.patch"
                 }
             },
-            "scripts": {
-                "post-install-cmd": [
-                    "@composer drupal-scaffold",
-                    "bash scripts/remove_openy_docroot_folder.sh || :"
-                ],
-                "post-update-cmd": [
-                    "bash scripts/remove_openy_docroot_folder.sh || :"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0-or-later"
             ],
             "description": "Open Y distribution",
-            "support": {
-                "source": "https://github.com/ymcatwincities/openy/tree/8.2.6.5",
-                "issues": "https://github.com/ymcatwincities/openy/issues"
-            },
             "time": "2020-10-20T15:11:31+00:00"
         },
         {
