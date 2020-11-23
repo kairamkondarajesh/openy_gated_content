@@ -2301,7 +2301,8 @@
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
                     }
-                }
+                },
+                "patches_applied": []
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
@@ -10973,12 +10974,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/froboy/openy_gated_content.git",
-                "reference": "26c7dfb7ba26d12edf994fe6f36f143cc2a622d9"
+                "reference": "72946b0b14414cc489aad9710ac2545c18d0935b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/froboy/openy_gated_content/zipball/26c7dfb7ba26d12edf994fe6f36f143cc2a622d9",
-                "reference": "26c7dfb7ba26d12edf994fe6f36f143cc2a622d9",
+                "url": "https://api.github.com/repos/froboy/openy_gated_content/zipball/72946b0b14414cc489aad9710ac2545c18d0935b",
+                "reference": "72946b0b14414cc489aad9710ac2545c18d0935b",
                 "shasum": ""
             },
             "require": {
@@ -11008,7 +11009,7 @@
             "support": {
                 "source": "https://github.com/froboy/openy_gated_content/tree/1.0.1-bug-fix"
             },
-            "time": "2020-11-09T16:12:43+00:00"
+            "time": "2020-11-23T14:11:44+00:00"
         },
         {
             "name": "zaporylie/composer-drupal-optimizations",
