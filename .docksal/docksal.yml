@@ -12,3 +12,9 @@
 version: "2.1"
 
 # Note: Using default Docksal stack. Only put overrides and extra services here.
+services:
+  mail:
+    extends:
+      file: ${HOME}/.docksal/stacks/services.yml
+      service: mail
+    user: root
