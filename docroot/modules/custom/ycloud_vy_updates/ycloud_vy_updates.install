@@ -15,7 +15,8 @@ function ycloud_vy_updates_install() {
     'disable_messages',
     'role_delegation',
     'openy_gc_log',
-    'openy_gc_shared_content_server'
+    'openy_gc_shared_content_server',
+    'flood_unblock'
   ];
   \Drupal::service('module_installer')->install($module_list);
 
@@ -188,6 +189,16 @@ function ycloud_vy_updates_update_8010() {
   $config_importer = \Drupal::service('openy_upgrade_tool.importer');
   $config_importer->setDirectory($config_dir);
   $config_importer->importConfigSimple('user.role.site_owner');
+}
+
+/**
+ * Enable flood unblock module.
+ */
+function ycloud_vy_updates_update_8011() {
+  $module_list = [
+    'flood_unblock'
+  ];
+  \Drupal::service('module_installer')->install($module_list);
 }
 
 /**
