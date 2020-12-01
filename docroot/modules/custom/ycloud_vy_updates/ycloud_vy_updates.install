@@ -192,13 +192,15 @@ function ycloud_vy_updates_update_8010() {
 }
 
 /**
- * Enable flood unblock module.
+ * Enable flood unblock module & disable openy_gc_shared_content_server.
  */
 function ycloud_vy_updates_update_8011() {
   $module_list = [
     'flood_unblock'
   ];
   \Drupal::service('module_installer')->install($module_list);
+
+  \Drupal::service('module_installer')->uninstall(['openy_gc_shared_content_server']);
 }
 
 /**
