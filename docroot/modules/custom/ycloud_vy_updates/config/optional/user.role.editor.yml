@@ -17,6 +17,7 @@ permissions:
   - 'access in-place editing'
   - 'access media directories ui browser'
   - 'access media overview'
+  - 'access media_directories_overview entity browser pages'
   - 'access media_embed entity browser pages'
   - 'access media_library entity browser pages'
   - 'access site in maintenance mode'

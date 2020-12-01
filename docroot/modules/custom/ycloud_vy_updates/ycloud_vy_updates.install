@@ -185,10 +185,12 @@ function ycloud_vy_updates_update_8009() {
 function ycloud_vy_updates_update_8010() {
   _add_vy_editor_role();
 
-  $config_dir = drupal_get_path('module', 'ycloud_vy_updates') . '/config/optional';
-  $config_importer = \Drupal::service('openy_upgrade_tool.importer');
-  $config_importer->setDirectory($config_dir);
-  $config_importer->importConfigSimple('user.role.site_owner');
+  $config = [
+    'user.role.site_owner',
+    'user.role.editor',
+    'user.role.contributor'
+  ];
+  _import_full_config($config, 'optional');
 }
 
 /**
