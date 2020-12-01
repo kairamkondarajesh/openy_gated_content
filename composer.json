@@ -24,7 +24,7 @@
         "drupal/redis": "^1.4",
         "drupal/role_delegation": "^1.1",
         "furf/jquery-ui-touch-punch": "dev-master",
-        "ymcatwincities/openy": "8.2.6.5",
+        "ymcatwincities/openy": "8.2.7",
         "ymcatwincities/openy_gated_content": "^1.1",
         "zaporylie/composer-drupal-optimizations": "^1.0"
     },
