@@ -25,7 +25,7 @@
         "drupal/role_delegation": "^1.1",
         "furf/jquery-ui-touch-punch": "dev-master",
         "ymcatwincities/openy": "8.2.7",
-        "ymcatwincities/openy_gated_content": "^1.1",
+        "ymcatwincities/openy_gated_content": "dev-1.1.2-bug-fix",
         "zaporylie/composer-drupal-optimizations": "^1.0"
     },
     "require-dev": {
@@ -98,9 +98,6 @@
             "ymcatwincities/openy": {
                 "Fix headers": "patches/personify-headers-fix.patch",
                 "Enable colorapi in proper order for upgrade path": "https://patch-diff.githubusercontent.com/raw/ymcatwincities/openy/pull/2320.diff"
-            },
-            "drupal/openy_gated_content": {
-                "Daxko SSO Active status check": "https://github.com/froboy/openy_gated_content/commit/72946b0b14414cc489aad9710ac2545c18d0935b.patch"
             }
         }
     },

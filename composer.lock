@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "87ee04944d33dc309a66dfefaf59eacf",
+    "content-hash": "961ba8254f14ee1b16f0590d83f9db4a",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -11881,16 +11881,16 @@
         },
         {
             "name": "ymcatwincities/openy_gated_content",
-            "version": "1.1.2",
+            "version": "dev-1.1.2-bug-fix",
             "source": {
                 "type": "git",
-                "url": "https://github.com/ymcatwincities/openy_gated_content.git",
-                "reference": "224f4032dcc6950226b8533117516ffb3d76577c"
+                "url": "https://github.com/froboy/openy_gated_content.git",
+                "reference": "e5a7cd53d4a2b98708a65a67cb08e112d73d885e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ymcatwincities/openy_gated_content/zipball/224f4032dcc6950226b8533117516ffb3d76577c",
-                "reference": "224f4032dcc6950226b8533117516ffb3d76577c",
+                "url": "https://api.github.com/repos/froboy/openy_gated_content/zipball/e5a7cd53d4a2b98708a65a67cb08e112d73d885e",
+                "reference": "e5a7cd53d4a2b98708a65a67cb08e112d73d885e",
                 "shasum": ""
             },
             "require": {
@@ -11910,12 +11910,14 @@
                     }
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0+"
             ],
             "description": "Open Y Virtual Y Content",
-            "time": "2020-11-06T17:38:01+00:00"
+            "support": {
+                "source": "https://github.com/froboy/openy_gated_content/tree/1.1.2-bug-fix"
+            },
+            "time": "2020-12-02T16:24:21+00:00"
         },
         {
             "name": "zaporylie/composer-drupal-optimizations",
@@ -14154,6 +14156,7 @@
         "drupal/cloudflare": 10,
         "drupal/field_group": 20,
         "furf/jquery-ui-touch-punch": 20,
+        "ymcatwincities/openy_gated_content": 20,
         "drupal/tqextension": 20,
         "ymcatwincities/openy-cibox-build": 20,
         "ymcatwincities/openy-cibox-vm": 20,
