@@ -96,10 +96,11 @@
                 "2882796 - Add support for persistent connections to redis host": "https://www.drupal.org/files/issues/2019-09-17/2882796-17-persist-connection.patch"
             },
             "ymcatwincities/openy": {
-                "Fix headers": "patches/personify-headers-fix.patch"
+                "Fix headers": "patches/personify-headers-fix.patch",
+                "Enable colorapi in proper order for upgrade path": "https://patch-diff.githubusercontent.com/raw/ymcatwincities/openy/pull/2320.diff"
             },
-            "drupal/jquery_colorpicker": {
-                "3185930 - On 1.x->2.x upgrade colorapi module may not be installed": "https://git.drupalcode.org/project/jquery_colorpicker/-/merge_requests/1.patch"
+            "drupal/openy_gated_content": {
+                "Daxko SSO Active status check": "https://github.com/froboy/openy_gated_content/commit/72946b0b14414cc489aad9710ac2545c18d0935b.patch"
             }
         }
     },
