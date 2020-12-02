@@ -24,6 +24,7 @@
         "drupal/migrate_tools": "^5.0",
         "drupal/redis": "^1.4",
         "drupal/role_delegation": "^1.1",
+        "drupal/webform": "^6.0@beta",
         "furf/jquery-ui-touch-punch": "dev-master",
         "ymcatwincities/openy": "8.2.7",
         "ymcatwincities/openy_gated_content": "dev-1.1.2-bug-fix",
