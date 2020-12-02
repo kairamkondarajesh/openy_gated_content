@@ -1,0 +1,16 @@
+diff --git a/plugin.install b/plugin.install
+index 7f96b51..c275dfa 100644
+--- a/plugin.install
++++ b/plugin.install
+@@ -6,8 +6,8 @@
+  */
+ 
+ /**
+- * Implements hook_update_last_removed().
++ * Implements hook_update_N().
+  */
+-function plugin_update_last_removed() {
+-  return 8001;
++function plugin_update_8001() {
++  // Nothing to see here.
+ }

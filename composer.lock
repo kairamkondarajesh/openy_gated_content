@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "77ce7e40a7e986ff3494a4806f0eb299",
+    "content-hash": "e6489a116a7a55a35a27724eb12d4012",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -5913,7 +5913,9 @@
                         "message": "Covered by Drupal's security advisory policy"
                     }
                 },
-                "patches_applied": []
+                "patches_applied": {
+                    "Replace empty update hook": "patches/plugin_update_8001.patch"
+                }
             },
             "autoload": {
                 "psr-4": {
