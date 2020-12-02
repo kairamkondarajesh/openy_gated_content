@@ -16,6 +16,7 @@
         "drupal/core-recommended": "^8.8",
         "drupal/csv_serialization": "^2.0",
         "drupal/disable_messages": "^2.0",
+        "drupal/dropzonejs": "2.3 as 2.1",
         "drupal/field_group": "~3.0@dev",
         "drupal/flood_unblock": "^3.1",
         "drupal/migrate_plus": "^5.1",
