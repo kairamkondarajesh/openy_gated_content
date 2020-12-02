@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "83ca2f58a739ee787ac07f9378e49402",
+    "content-hash": "840da20032d3d66138cbfa35902a75d0",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -4558,6 +4558,7 @@
                     }
                 },
                 "patches_applied": {
+                    "3185930 - On 1.x->2.x upgrade colorapi module may not be installed": "https://git.drupalcode.org/project/jquery_colorpicker/-/merge_requests/1.patch",
                     "Use library directory instead vendor": "https://gist.githubusercontent.com/manachynskyi/3b059456ce97dd4380ff0c0e85f41696/raw/4cf7103c75849b2b474424fe9d8ad969192dd779/library_path_update.patch"
                 }
             },

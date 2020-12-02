@@ -97,6 +97,9 @@
             },
             "ymcatwincities/openy": {
                 "Fix headers": "patches/personify-headers-fix.patch"
+            },
+            "drupal/jquery_colorpicker": {
+                "3185930 - On 1.x->2.x upgrade colorapi module may not be installed": "https://git.drupalcode.org/project/jquery_colorpicker/-/merge_requests/1.patch"
             }
         }
     },
