@@ -206,6 +206,20 @@ function ycloud_vy_updates_update_8011() {
 }
 
 /**
+ * Give Site Owners the Virtual YMCA Editor role (again) and add privs.
+ */
+function ycloud_vy_updates_update_8012() {
+  _add_vy_editor_role();
+
+  $config = [
+    'user.role.site_owner',
+    'user.role.editor',
+    'user.role.contributor'
+  ];
+  _import_full_config($config, 'optional');
+}
+
+/**
  * Creates install content.
  *
  * @param array $content
