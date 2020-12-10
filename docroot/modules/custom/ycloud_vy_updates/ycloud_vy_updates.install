@@ -180,20 +180,6 @@ function ycloud_vy_updates_update_8009() {
 }
 
 /**
- * Give Site Owners the Virtual YMCA Editor role (again) and add privs.
- */
-function ycloud_vy_updates_update_8010() {
-  _add_vy_editor_role();
-
-  $config = [
-    'user.role.site_owner',
-    'user.role.editor',
-    'user.role.contributor'
-  ];
-  _import_full_config($config, 'optional');
-}
-
-/**
  * Enable flood unblock module & disable openy_gc_shared_content_server.
  */
 function ycloud_vy_updates_update_8011() {
