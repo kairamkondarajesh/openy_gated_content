@@ -48,7 +48,6 @@
     "config": {
         "bin-dir": "vendor/bin/",
         "secure-http": false,
-        "process-timeout":0,
         "sort-packages": true
     },
     "extra": {
