@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "af44eadbeaaf7408bc95f9fb8c10de31",
+    "content-hash": "b8a90cc0bf8a0bc58c4d3a6c5e71c2db",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -1381,6 +1381,51 @@
             "homepage": "https://www.drupal.org/project/allow_iframed_site",
             "support": {
                 "source": "https://git.drupalcode.org/project/allow_iframed_site"
+            }
+        },
+        {
+            "name": "drupal/azure_search",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/azure_search.git",
+                "reference": "8.x-1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/azure_search-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "e6449c64ad40e0c18add03660fa6b33a6899869c"
+            },
+            "require": {
+                "drupal/core": "^8",
+                "drupal/search_api": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.1",
+                    "datestamp": "1586191970",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "vrs11",
+                    "homepage": "https://www.drupal.org/user/3605100"
+                }
+            ],
+            "description": "Offers an implementation of the Search API that uses an MS Azure server for indexing content.",
+            "homepage": "https://www.drupal.org/project/azure_search",
+            "support": {
+                "source": "https://git.drupalcode.org/project/azure_search"
             }
         },
         {
@@ -5054,8 +5099,7 @@
                 "source": "http://cgit.drupalcode.org/libraries",
                 "issues": "http://drupal.org/project/issues/libraries",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
-            },
-            "time": "2021-01-04T15:06:40+00:00"
+            }
         },
         {
             "name": "drupal/link_attributes",
