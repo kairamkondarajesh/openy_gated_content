@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "17c46052b7db5e4a17fc8c0e675eb6cb",
+    "content-hash": "af44eadbeaaf7408bc95f9fb8c10de31",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -469,23 +469,23 @@
         },
         {
             "name": "consolidation/output-formatters",
-            "version": "3.5.0",
+            "version": "3.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/output-formatters.git",
-                "reference": "99ec998ffb697e0eada5aacf81feebfb13023605"
+                "reference": "0d38f13051ef05c223a2bb8e962d668e24785196"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/output-formatters/zipball/99ec998ffb697e0eada5aacf81feebfb13023605",
-                "reference": "99ec998ffb697e0eada5aacf81feebfb13023605",
-                "shasum": ""
+                "url": "http://openy.cibox.tools:4680/dist/consolidation/output-formatters/consolidation-output-formatters-0d38f13051ef05c223a2bb8e962d668e24785196-zip-0ef60f.zip",
+                "reference": "0d38f13051ef05c223a2bb8e962d668e24785196",
+                "shasum": "d4224eb833d438321b8a595f69cc5bc97982d246"
             },
             "require": {
                 "dflydev/dot-access-data": "^1.1.0",
                 "php": ">=5.4.0",
                 "symfony/console": "^2.8|^3|^4",
-                "symfony/finder": "^2.5|^3|^4"
+                "symfony/finder": "^2.5|^3|^4|^5"
             },
             "require-dev": {
                 "g1a/composer-test-scenarios": "^3",
@@ -501,6 +501,16 @@
             "type": "library",
             "extra": {
                 "scenarios": {
+                    "finder5": {
+                        "require": {
+                            "symfony/finder": "^5"
+                        },
+                        "config": {
+                            "platform": {
+                                "php": "7.2.5"
+                            }
+                        }
+                    },
                     "symfony4": {
                         "require": {
                             "symfony/console": "^4.0"
@@ -566,7 +576,7 @@
                 }
             ],
             "description": "Format text by applying transformations provided by plug-in formatters.",
-            "time": "2019-05-30T23:16:01+00:00"
+            "time": "2020-10-11T04:15:32+00:00"
         },
         {
             "name": "cweagans/composer-patches",
@@ -1689,26 +1699,26 @@
         },
         {
             "name": "drupal/ckeditor_bootstrap_buttons",
-            "version": "1.2.0",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/ckeditor_bootstrap_buttons.git",
-                "reference": "8.x-1.2"
+                "reference": "2.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://openy.cibox.tools:4680/dist/drupal/ckeditor_bootstrap_buttons/drupal-ckeditor_bootstrap_buttons-1.2.0-8.x-1.2-85724a.zip",
-                "reference": "8.x-1.2",
-                "shasum": "1c3bf0994a4d18f49cdfc4ade4c2eabfc34f8214"
+                "url": "http://openy.cibox.tools:4680/dist/drupal/ckeditor_bootstrap_buttons/drupal-ckeditor_bootstrap_buttons-2.0.0-2.0.0-f7ca6a.zip",
+                "reference": "2.0.0",
+                "shasum": "eb09ca9fd0acb1c6c8ddeff4d5a081dfa529177c"
             },
             "require": {
-                "drupal/core": "^8"
+                "drupal/core": "^8 || ^9"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.2",
-                    "datestamp": "1556463181",
+                    "version": "2.0.0",
+                    "datestamp": "1602964008",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2114,16 +2124,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "8.9.11",
+            "version": "8.9.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "8fc1d510b8fcff90e2f3a7c96a893ba16bbdc62d"
+                "reference": "ec7ac2bd2b7fa7f06df654c637b7f29f019d356f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/8fc1d510b8fcff90e2f3a7c96a893ba16bbdc62d",
-                "reference": "8fc1d510b8fcff90e2f3a7c96a893ba16bbdc62d",
+                "url": "https://api.github.com/repos/drupal/core/zipball/ec7ac2bd2b7fa7f06df654c637b7f29f019d356f",
+                "reference": "ec7ac2bd2b7fa7f06df654c637b7f29f019d356f",
                 "shasum": ""
             },
             "require": {
@@ -2320,11 +2330,11 @@
                     }
                 },
                 "patches_applied": {
-                    "Views does not support computed bundle fields": "https://www.drupal.org/files/issues/2019-10-20/2981047-fix-only-44.patch",
                     "1236098 - Notice: Undefined index in _color_rewrite_stylesheet()": "https://www.drupal.org/files/issues/undefined-index-in-_color_rewrite_stylesheet-1236098-37.patch",
                     "2484693 - Telephone Link field formatter InvalidArgumentException with 5 digits or fewer in the number": "https://www.drupal.org/files/issues/2484693-54.patch",
                     "2862702 - PrepareModulesEntityUninstallForm::formTitle does not exist": "https://www.drupal.org/files/issues/2862702-3.patch",
-                    "2996114 - JSON:API Argument error": "https://www.drupal.org/files/issues/2020-02-11/2996114-124.patch"
+                    "2996114 - JSON:API Argument error": "https://www.drupal.org/files/issues/2020-02-11/2996114-124.patch",
+                    "Views does not support computed bundle fields": "https://www.drupal.org/files/issues/2019-10-20/2981047-fix-only-44.patch"
                 }
             },
             "autoload": {
@@ -2348,11 +2358,11 @@
                 "GPL-2.0-or-later"
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
-            "time": "2020-12-03T20:57:10+00:00"
+            "time": "2021-01-06T23:44:11+00:00"
         },
         {
             "name": "drupal/core-composer-scaffold",
-            "version": "8.9.10",
+            "version": "8.9.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-composer-scaffold.git",
@@ -2360,9 +2370,9 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core-composer-scaffold/zipball/c902d07cb49ef73777e2b33a39e54c2861a8c81d",
+                "url": "http://openy.cibox.tools:4680/dist/drupal/core-composer-scaffold/drupal-core-composer-scaffold-c902d07cb49ef73777e2b33a39e54c2861a8c81d-zip-229a7a.zip",
                 "reference": "c902d07cb49ef73777e2b33a39e54c2861a8c81d",
-                "shasum": ""
+                "shasum": "4c67c983e4a539ba9f5a3de14de2f66d2ce254aa"
             },
             "require": {
                 "composer-plugin-api": "^1 || ^2",
@@ -2399,7 +2409,7 @@
         },
         {
             "name": "drupal/core-recommended",
-            "version": "8.9.11",
+            "version": "8.9.12",
             "require": {
                 "asm89/stack-cors": "1.3.0",
                 "composer/semver": "1.5.1",
@@ -2409,7 +2419,7 @@
                 "doctrine/common": "v2.7.3",
                 "doctrine/inflector": "v1.2.0",
                 "doctrine/lexer": "1.0.2",
-                "drupal/core": "8.9.11",
+                "drupal/core": "8.9.12",
                 "easyrdf/easyrdf": "0.9.1",
                 "egulias/email-validator": "2.1.17",
                 "guzzlehttp/guzzle": "6.5.4",
@@ -2466,7 +2476,7 @@
                 "GPL-2.0-or-later"
             ],
             "description": "Locked core dependencies; require this project INSTEAD OF drupal/core.",
-            "time": "2020-12-03T20:57:10+00:00"
+            "time": "2021-01-06T23:44:11+00:00"
         },
         {
             "name": "drupal/crop",
@@ -3294,26 +3304,26 @@
         },
         {
             "name": "drupal/embed",
-            "version": "1.0.0",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/embed.git",
-                "reference": "8.x-1.0"
+                "reference": "8.x-1.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://openy.cibox.tools:4680/dist/drupal/embed/drupal-embed-1.0.0-8.x-1.0-ab95c7.zip",
-                "reference": "8.x-1.0",
-                "shasum": "cc746ad807260e01c7788dd82110dcebbb4d678a"
+                "url": "http://openy.cibox.tools:4680/dist/drupal/embed/drupal-embed-1.3.0-8.x-1.3-118088.zip",
+                "reference": "8.x-1.3",
+                "shasum": "141be860f2d2e1df67904995fa43774fee355328"
             },
             "require": {
-                "drupal/core": "~8.0"
+                "drupal/core": "^8 || ^9"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.0",
-                    "datestamp": "1575666184",
+                    "version": "8.x-1.3",
+                    "datestamp": "1576704484",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4143,17 +4153,17 @@
         },
         {
             "name": "drupal/geysir",
-            "version": "1.2.0",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/geysir.git",
-                "reference": "8.x-1.2"
+                "reference": "8.x-1.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://openy.cibox.tools:4680/dist/drupal/geysir/drupal-geysir-1.2.0-8.x-1.2-85724a.zip",
-                "reference": "8.x-1.2",
-                "shasum": "bdc5f57893b7a075c629bff6826284649a020af0"
+                "url": "http://openy.cibox.tools:4680/dist/drupal/geysir/drupal-geysir-1.3.0-8.x-1.3-118088.zip",
+                "reference": "8.x-1.3",
+                "shasum": "ddada3a099dbbf056665e97d367a7636f5b4c330"
             },
             "require": {
                 "drupal/core": "^8 || ^9",
@@ -4162,8 +4172,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.2",
-                    "datestamp": "1592308118",
+                    "version": "8.x-1.3",
+                    "datestamp": "1608730748",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -4282,17 +4292,17 @@
         },
         {
             "name": "drupal/google_optimize",
-            "version": "1.5.0",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/google_optimize.git",
-                "reference": "8.x-1.5"
+                "reference": "8.x-1.7"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://openy.cibox.tools:4680/dist/drupal/google_optimize/drupal-google_optimize-1.5.0-8.x-1.5-0482b8.zip",
-                "reference": "8.x-1.5",
-                "shasum": "ad352e63e14273c489e07033570c9d3e279b30a2"
+                "url": "http://openy.cibox.tools:4680/dist/drupal/google_optimize/drupal-google_optimize-1.7.0-8.x-1.7-ce4c1b.zip",
+                "reference": "8.x-1.7",
+                "shasum": "40105a80c5c081d85d945231b2fb0e7d31b1b13b"
             },
             "require": {
                 "drupal/core": "^8 || ^9",
@@ -4301,8 +4311,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.5",
-                    "datestamp": "1592158926",
+                    "version": "8.x-1.7",
+                    "datestamp": "1609535956",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4989,10 +4999,10 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/libraries.git",
-                "reference": "3b7ae61a8e68ce37638b313eaccf4febaa48e3fa"
+                "reference": "9d0454c73c7c28c53b17c058dee2bd7b885400c1"
             },
             "require": {
-                "drupal/core": "~8.0"
+                "drupal/core": "^8 || ^9"
             },
             "type": "drupal-module",
             "extra": {
@@ -5000,8 +5010,8 @@
                     "dev-3.x": "3.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-3.0-alpha1+1-dev",
-                    "datestamp": "1561448285",
+                    "version": "8.x-3.0-alpha6+7-dev",
+                    "datestamp": "1609757888",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -5010,7 +5020,7 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -5020,6 +5030,10 @@
                 {
                     "name": "joseph.olstad",
                     "homepage": "https://www.drupal.org/user/1321830"
+                },
+                {
+                    "name": "podarok",
+                    "homepage": "https://www.drupal.org/user/116002"
                 },
                 {
                     "name": "rjacobs",
@@ -5040,7 +5054,8 @@
                 "source": "http://cgit.drupalcode.org/libraries",
                 "issues": "http://drupal.org/project/issues/libraries",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
-            }
+            },
+            "time": "2021-01-04T15:06:40+00:00"
         },
         {
             "name": "drupal/link_attributes",
@@ -5088,20 +5103,23 @@
         },
         {
             "name": "drupal/media_directories",
-            "version": "1.0.0-rc3",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/media_directories.git",
-                "reference": "8.x-1.0-rc3"
+                "reference": "2.0.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://openy.cibox.tools:4680/dist/drupal/media_directories/drupal-media_directories-1.0.0-rc3-8.x-1.0-rc3-3a2137.zip",
-                "reference": "8.x-1.0-rc3",
-                "shasum": "45228a806f5042226aa54bf53686976eb2b0cf36"
+                "url": "http://openy.cibox.tools:4680/dist/drupal/media_directories/drupal-media_directories-2.0.1-2.0.1-9ff412.zip",
+                "reference": "2.0.1",
+                "shasum": "efbc609e6634762e6e9394572de2402917e91bc3"
             },
             "require": {
-                "drupal/core": ">=8.7.0"
+                "drupal/core": ">=8.8.3",
+                "drupal/embed": ">=1.3",
+                "drupal/entity_browser": ">=2",
+                "drupal/entity_embed": ">=1"
             },
             "require-dev": {
                 "drupal/embed": "^1.3",
@@ -5112,11 +5130,11 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.0-rc3",
-                    "datestamp": "1596062382",
+                    "version": "2.0.1",
+                    "datestamp": "1606123391",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "RC releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },
@@ -5134,7 +5152,7 @@
                     "homepage": "https://www.drupal.org/user/1153644"
                 }
             ],
-            "description": "Add directory structure to Media entities.",
+            "description": "Adds a directory structure to Media entities, provides a nice UI and editor integration.",
             "homepage": "https://www.drupal.org/project/media_directories",
             "support": {
                 "source": "https://git.drupalcode.org/project/media_directories"
@@ -5431,34 +5449,34 @@
         },
         {
             "name": "drupal/metatag",
-            "version": "1.14.0",
+            "version": "1.15.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/metatag.git",
-                "reference": "8.x-1.14"
+                "reference": "8.x-1.15"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://openy.cibox.tools:4680/dist/drupal/metatag/drupal-metatag-1.14.0-8.x-1.14-96cbdd.zip",
-                "reference": "8.x-1.14",
-                "shasum": "9bf9f1517ad015d0c93ca1460e284c557624aa90"
+                "url": "http://openy.cibox.tools:4680/dist/drupal/metatag/drupal-metatag-1.15.0-8.x-1.15-68ec25.zip",
+                "reference": "8.x-1.15",
+                "shasum": "7658d7286fdc075ea72a6ec36aea737b1182b5d8"
             },
             "require": {
-                "drupal/core": "^8.7.7 || ^9",
+                "drupal/core": "^8 || ^9",
                 "drupal/token": "^1.0"
             },
             "require-dev": {
                 "drupal/metatag_dc": "*",
                 "drupal/metatag_open_graph": "*",
-                "drupal/page_manager": "*",
+                "drupal/page_manager": "4.x-dev",
                 "drupal/panelizer": "4.x-dev",
                 "drupal/redirect": "1.x-dev"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.14",
-                    "datestamp": "1597183852",
+                    "version": "8.x-1.15",
+                    "datestamp": "1607188979",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5953,17 +5971,17 @@
         },
         {
             "name": "drupal/rabbit_hole",
-            "version": "1.0.0-beta8",
+            "version": "1.0.0-beta9",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/rabbit_hole.git",
-                "reference": "8.x-1.0-beta8"
+                "reference": "8.x-1.0-beta9"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://openy.cibox.tools:4680/dist/drupal/rabbit_hole/drupal-rabbit_hole-1.0.0-beta8-8.x-1.0-beta8-eadf27.zip",
-                "reference": "8.x-1.0-beta8",
-                "shasum": "cd78377802a4913d719a70ba9858146c15361c97"
+                "url": "http://openy.cibox.tools:4680/dist/drupal/rabbit_hole/drupal-rabbit_hole-1.0.0-beta9-8.x-1.0-beta9-bd9422.zip",
+                "reference": "8.x-1.0-beta9",
+                "shasum": "d9c4b91a990d7be1d363c924bfdf55130dd0a485"
             },
             "require": {
                 "drupal/core": "^8 || ^9"
@@ -5976,8 +5994,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.0-beta8",
-                    "datestamp": "1606119907",
+                    "version": "8.x-1.0-beta9",
+                    "datestamp": "1607021826",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
@@ -6852,26 +6870,26 @@
         },
         {
             "name": "drupal/token",
-            "version": "1.7.0",
+            "version": "1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/token.git",
-                "reference": "8.x-1.7"
+                "reference": "8.x-1.9"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://openy.cibox.tools:4680/dist/drupal/token/drupal-token-1.7.0-8.x-1.7-ce4c1b.zip",
-                "reference": "8.x-1.7",
-                "shasum": "c7e3a3757282e4c94e3c1fff08d01e22155cb853"
+                "url": "http://openy.cibox.tools:4680/dist/drupal/token/drupal-token-1.9.0-8.x-1.9-e171b9.zip",
+                "reference": "8.x-1.9",
+                "shasum": "a5d234382a1a0e4ba61d4c7a2fa10671ca656be4"
             },
             "require": {
-                "drupal/core": "^8.7.7 || ^9"
+                "drupal/core": "^8.8 || ^9"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.7",
-                    "datestamp": "1589314266",
+                    "version": "8.x-1.9",
+                    "datestamp": "1608284866",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -6885,7 +6903,7 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -6990,17 +7008,17 @@
         },
         {
             "name": "drupal/twig_tweak",
-            "version": "2.8.0",
+            "version": "2.9.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/twig_tweak.git",
-                "reference": "8.x-2.8"
+                "reference": "8.x-2.9"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://openy.cibox.tools:4680/dist/drupal/twig_tweak/drupal-twig_tweak-2.8.0-8.x-2.8-cfdef7.zip",
-                "reference": "8.x-2.8",
-                "shasum": "11ae232159fc1139e00980736dff39bf2bfcfa6d"
+                "url": "http://openy.cibox.tools:4680/dist/drupal/twig_tweak/drupal-twig_tweak-2.9.0-8.x-2.9-c9cd7f.zip",
+                "reference": "8.x-2.9",
+                "shasum": "c45ba1a41e323a432d1ff36d0a72344b88595a39"
             },
             "require": {
                 "drupal/core": "^8.7 || ^9.0",
@@ -7012,8 +7030,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-2.8",
-                    "datestamp": "1602156806",
+                    "version": "8.x-2.9",
+                    "datestamp": "1608093728",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -7444,17 +7462,17 @@
         },
         {
             "name": "drupal/views_field_formatter",
-            "version": "1.11.0",
+            "version": "1.13.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/views_field_formatter.git",
-                "reference": "8.x-1.11"
+                "reference": "8.x-1.13"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://openy.cibox.tools:4680/dist/drupal/views_field_formatter/drupal-views_field_formatter-1.11.0-8.x-1.11-4deadb.zip",
-                "reference": "8.x-1.11",
-                "shasum": "fc8cb0d9e3cb2bf0b6c8410c4c23ef114ae0519c"
+                "url": "http://openy.cibox.tools:4680/dist/drupal/views_field_formatter/drupal-views_field_formatter-1.13.0-8.x-1.13-713b1d.zip",
+                "reference": "8.x-1.13",
+                "shasum": "2b20faea384582785082c3c48e34c8f05b28abb4"
             },
             "require": {
                 "drupal/core": "^8 || ^9"
@@ -7465,8 +7483,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.11",
-                    "datestamp": "1602600548",
+                    "version": "8.x-1.13",
+                    "datestamp": "1610390049",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -7556,17 +7574,17 @@
         },
         {
             "name": "drupal/webform",
-            "version": "6.0.0-beta2",
+            "version": "6.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/webform.git",
-                "reference": "6.0.0-beta2"
+                "reference": "6.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/webform-6.0.0-beta2.zip",
-                "reference": "6.0.0-beta2",
-                "shasum": "a887d5fb0330901a5fc9ec80145110d6fc2ebd3b"
+                "url": "http://openy.cibox.tools:4680/dist/drupal/webform/drupal-webform-6.0.0-6.0.0-ac3599.zip",
+                "reference": "6.0.0",
+                "shasum": "2528636c9e90fe1623544eee433f102faa0f1b57"
             },
             "require": {
                 "drupal/core": "^8.8 || ^9"
@@ -7614,11 +7632,11 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "6.0.0-beta2",
-                    "datestamp": "1606687841",
+                    "version": "6.0.0",
+                    "datestamp": "1608855845",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 },
                 "drush": {
@@ -8529,22 +8547,22 @@
         },
         {
             "name": "league/csv",
-            "version": "9.6.1",
+            "version": "9.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/csv.git",
-                "reference": "634322df4aed210fdfbb7c94e434dc860da733d9"
+                "reference": "f28da6e483bf979bac10e2add384c90ae9983e4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/csv/zipball/634322df4aed210fdfbb7c94e434dc860da733d9",
-                "reference": "634322df4aed210fdfbb7c94e434dc860da733d9",
-                "shasum": ""
+                "url": "http://openy.cibox.tools:4680/dist/league/csv/league-csv-f28da6e483bf979bac10e2add384c90ae9983e4e-zip-b4614b.zip",
+                "reference": "f28da6e483bf979bac10e2add384c90ae9983e4e",
+                "shasum": "696fdc5a5e8e8374fd748e37c88a598ab52c3591"
             },
             "require": {
                 "ext-json": "*",
                 "ext-mbstring": "*",
-                "php": "^7.2.5"
+                "php": ">=7.2.5"
             },
             "require-dev": {
                 "ext-curl": "*",
@@ -8597,7 +8615,7 @@
                 "transform",
                 "write"
             ],
-            "time": "2020-09-05T08:40:12+00:00"
+            "time": "2020-12-10T19:40:30+00:00"
         },
         {
             "name": "library-ckeditor/colorbutton",
@@ -8981,7 +8999,7 @@
             "version": "1.4.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/gdsmith/jquery.easing.git",
+                "url": "git@github.com:gdsmith/jquery.easing.git",
                 "reference": "df09da4048d2607c5d513681dff532dbe6680d95"
             },
             "dist": {
@@ -9008,21 +9026,27 @@
         },
         {
             "name": "oomphinc/composer-installers-extender",
-            "version": "v1.1.2",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/oomphinc/composer-installers-extender.git",
-                "reference": "ca1c4b16b0905c81d1e77e608f36a2eff1a56f56"
+                "reference": "8d3fe38a1723e0e91076920c8bb946b1696e28ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oomphinc/composer-installers-extender/zipball/ca1c4b16b0905c81d1e77e608f36a2eff1a56f56",
-                "reference": "ca1c4b16b0905c81d1e77e608f36a2eff1a56f56",
-                "shasum": ""
+                "url": "http://openy.cibox.tools:4680/dist/oomphinc/composer-installers-extender/oomphinc-composer-installers-extender-8d3fe38a1723e0e91076920c8bb946b1696e28ca-zip-aaaf7e.zip",
+                "reference": "8d3fe38a1723e0e91076920c8bb946b1696e28ca",
+                "shasum": "d8dd1b4bea4abc2219a579ef563e540c1026bedc"
             },
             "require": {
-                "composer-plugin-api": "^1.0",
-                "composer/installers": "^1.0"
+                "composer-plugin-api": "^1.1 || ^2.0",
+                "composer/installers": "^1.0",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "composer/composer": "^2.0",
+                "phpunit/phpunit": "^7.2",
+                "squizlabs/php_codesniffer": "^3.3"
             },
             "type": "composer-plugin",
             "extra": {
@@ -9042,11 +9066,16 @@
                     "name": "Stephen Beemsterboer",
                     "email": "stephen@oomphinc.com",
                     "homepage": "https://github.com/balbuf"
+                },
+                {
+                    "name": "Nathan Dentzau",
+                    "email": "nate@oomphinc.com",
+                    "homepage": "http://oomph.is/ndentzau"
                 }
             ],
             "description": "Extend the composer/installers plugin to accept any arbitrary package type.",
             "homepage": "http://www.oomphinc.com/",
-            "time": "2017-03-31T16:57:39+00:00"
+            "time": "2020-08-11T21:06:11+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -9689,17 +9718,17 @@
         },
         {
             "name": "sibyx/phpgpx",
-            "version": "1.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sibyx/phpGPX.git",
-                "reference": "1c1b407604414a36459d9edb90425a00956c0cc5"
+                "reference": "9568c3679e4937b18d91a9e41923daa56c694b9a"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://openy.cibox.tools:4680/dist/sibyx/phpgpx/sibyx-phpgpx-1c1b407604414a36459d9edb90425a00956c0cc5-zip-e947f1.zip",
-                "reference": "1c1b407604414a36459d9edb90425a00956c0cc5",
-                "shasum": "3a974dfda7082c57b936a38ea009a84465de2cdb"
+                "url": "http://openy.cibox.tools:4680/dist/sibyx/phpgpx/sibyx-phpgpx-9568c3679e4937b18d91a9e41923daa56c694b9a-zip-14f2d8.zip",
+                "reference": "9568c3679e4937b18d91a9e41923daa56c694b9a",
+                "shasum": "42ded7297d2914f8054e4a1ab5328ec64bdb2439"
             },
             "require": {
                 "ext-dom": "*",
@@ -9729,7 +9758,7 @@
                 }
             ],
             "description": "A simple PHP library for GPX import/export",
-            "time": "2020-11-24T00:05:57+00:00"
+            "time": "2020-12-03T18:35:03+00:00"
         },
         {
             "name": "solarium/solarium",
@@ -11671,37 +11700,38 @@
         },
         {
             "name": "ymcatwincities/openy",
-            "version": "8.2.7",
+            "version": "8.2.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ymcatwincities/openy.git",
-                "reference": "88eff906448d4804c841e1b856a88127859ed00e"
+                "reference": "9223a1985516a8c8d2ca71b2c08045168014f5cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ymcatwincities/openy/zipball/88eff906448d4804c841e1b856a88127859ed00e",
-                "reference": "88eff906448d4804c841e1b856a88127859ed00e",
-                "shasum": ""
+                "url": "http://openy.cibox.tools:4680/dist/ymcatwincities/openy/ymcatwincities-openy-9223a1985516a8c8d2ca71b2c08045168014f5cc-zip-6c8521.zip",
+                "reference": "9223a1985516a8c8d2ca71b2c08045168014f5cc",
+                "shasum": "b7f3a2205f9c27aca115ba0735a312f566e63870"
             },
             "require": {
                 "composer/installers": "^1.2 || ^1.9",
                 "cweagans/composer-patches": "^1.5.0",
                 "doctrine/inflector": "1.2.*",
                 "drupal/address": "1.8",
-                "drupal/admin_toolbar": "~2.2",
+                "drupal/admin_toolbar": "^2.2",
                 "drupal/better_exposed_filters": "^5",
                 "drupal/blazy": "2.1",
                 "drupal/captcha": "^1.0",
-                "drupal/ckeditor_bootstrap_buttons": "^1.2",
+                "drupal/ckeditor_bootstrap_buttons": "^1.2 || ^2.0",
                 "drupal/ckeditor_font": "^1.1",
+                "drupal/colorapi": "^1.1",
                 "drupal/colorbutton": "1.1",
-                "drupal/confi": "~1.4 || ~2.0",
+                "drupal/confi": "^1.4 || ^2.0",
                 "drupal/config_update": "^1.6",
                 "drupal/core-composer-scaffold": "^8.8",
                 "drupal/core-recommended": "^8.8",
                 "drupal/crop": "^2.0",
-                "drupal/css_editor": "^1.3@RC || ~1.3",
-                "drupal/ctools": "3.0 || ~3.4",
+                "drupal/css_editor": "^1.3@RC || ^1.3",
+                "drupal/ctools": "3.0 || ^3.4",
                 "drupal/custom_formatters": "^3.0 || ^3.0@beta",
                 "drupal/datalayer": "^1.0@beta || ^1.0",
                 "drupal/domain": "^1.0@beta || ^1.0",
@@ -11710,14 +11740,14 @@
                 "drupal/dropzonejs": "2.1",
                 "drupal/easy_breadcrumb": "^1.8",
                 "drupal/editor_advanced_link": "^1.6",
-                "drupal/embed": "1.0",
+                "drupal/embed": "1.0 || 1.3",
                 "drupal/entity": "1.0.0-rc2",
                 "drupal/entity_browser": "^2.5",
                 "drupal/entity_clone": "^1.0",
                 "drupal/entity_embed": "1.0-beta2",
-                "drupal/entity_reference_revisions": "~1.6",
-                "drupal/features": "3.8 || ~3.11",
-                "drupal/field_group": "~3.0",
+                "drupal/entity_reference_revisions": "^1.6",
+                "drupal/features": "3.8 || ^3.11",
+                "drupal/field_group": "^3.0",
                 "drupal/focal_point": "1.5",
                 "drupal/fontyourface": "^3.2",
                 "drupal/geolocation": "^3.0",
@@ -11726,48 +11756,48 @@
                 "drupal/google_optimize": "^1.4",
                 "drupal/google_tag": "~1.1",
                 "drupal/image_widget_crop": "^2.2",
-                "drupal/inline_entity_form": "1.0-rc1 || ~1.0",
+                "drupal/inline_entity_form": "1.0-rc1 || ^1.0",
                 "drupal/jquery_colorpicker": "^2",
                 "drupal/jquery_ui_tabs": "^1.1",
                 "drupal/jquery_ui_tooltip": "^1.1",
                 "drupal/libraries": "3.x-dev",
                 "drupal/link_attributes": "^1.10",
-                "drupal/media_directories": "^1.0",
-                "drupal/media_entity": "2.0.0-beta3 || ~2.0",
+                "drupal/media_directories": "^2.0",
+                "drupal/media_entity": "2.0.0-beta3 || ^2.0",
                 "drupal/media_entity_document": "^1.1",
                 "drupal/media_entity_image": "^1.4@RC || ^1.4",
                 "drupal/media_entity_video": "^2.0",
-                "drupal/metatag": "~1.8",
+                "drupal/metatag": "^1.8",
                 "drupal/migrate_plus": "^5",
                 "drupal/migrate_source_csv": "^3",
                 "drupal/migrate_tools": "^5",
                 "drupal/panelbutton": "1.1",
                 "drupal/paragraphs": "~1.12",
-                "drupal/pathauto": "~1.6",
-                "drupal/plugin": "2.5 || ~2.8",
-                "drupal/rabbit_hole": "~1.0-beta4",
-                "drupal/recaptcha": "~3.0",
-                "drupal/redirect": "~1.3",
+                "drupal/pathauto": "^1.6",
+                "drupal/plugin": "2.5 || ^2.8",
+                "drupal/rabbit_hole": "^1.0-beta4",
+                "drupal/recaptcha": "^3.0",
+                "drupal/redirect": "^1.3",
                 "drupal/scheduler": "1.3",
                 "drupal/search_api": "1.17",
                 "drupal/search_api_solr": "^4.1",
                 "drupal/simple_menu_icons": "^2.2",
-                "drupal/simple_sitemap": "3.0.0 || ~3.7",
-                "drupal/slick": "~2.2",
-                "drupal/slick_views": "~2.3",
+                "drupal/simple_sitemap": "3.0.0 || ^3.7",
+                "drupal/slick": "^2.2",
+                "drupal/slick_views": "^2.3",
                 "drupal/social_feed_fetcher": "^2.0",
                 "drupal/token": "^1.5",
-                "drupal/token_filter": "~1.1",
+                "drupal/token_filter": "^1.1",
                 "drupal/twig_tweak": "^2.4",
-                "drupal/tzfield": "~1.3",
-                "drupal/verf": "1.0-beta7 || ~1.0",
+                "drupal/tzfield": "^1.3",
+                "drupal/verf": "1.0-beta7 || ^1.0",
                 "drupal/video": "^1.4",
                 "drupal/video_embed_field": "^2.0",
-                "drupal/views_block_filter_block": "~1.0",
-                "drupal/views_data_export": "1.0-rc1 || ~1.0",
-                "drupal/views_field_formatter": "~1.9",
+                "drupal/views_block_filter_block": "^1.0",
+                "drupal/views_data_export": "1.0-rc1 || ^1.0",
+                "drupal/views_field_formatter": "^1.9",
                 "drupal/views_infinite_scroll": "1.7",
-                "drupal/webform": "~5 || ~6.0",
+                "drupal/webform": "^5 || ^6.0",
                 "grt107/grt-youtube-popup": "^1.0",
                 "library-ckeditor/colorbutton": "4.10.1",
                 "library-ckeditor/font": "4.12.1",
@@ -11781,20 +11811,13 @@
                 "npm-asset/dropzone": "^5.5",
                 "npm-asset/jquery.easing": "^1.4",
                 "npm-asset/slick-carousel": "^1.8",
-                "oomphinc/composer-installers-extender": "^1.1 || ~2.0.0",
+                "oomphinc/composer-installers-extender": "^1.1 || ^2.0.0",
                 "php": ">=7.3",
-                "symfony/dom-crawler": "~2.8 || ~3.0 || ~4.2"
+                "symfony/dom-crawler": "~2.8 || ~3.0 || ~4.2",
+                "ymcatwincities/openy_activity_finder": "^3.1 || ^4.0"
             },
             "require-dev": {
-                "behat/behat": "^3.0",
-                "behat/mink": "~1.7",
-                "behat/mink-goutte-driver": "~1.2",
-                "consolidation/robo": "^1.1.5",
-                "drupal/drupal-driver": "~1.0",
-                "drupal/drupal-extension": "^3.2",
-                "drupal/tqextension": "dev-drupal-8",
-                "emuse/behat-html-formatter": "^0.1.0",
-                "integratedexperts/behat-screenshot": "^0.6.2"
+                "consolidation/robo": "^1.1.5"
             },
             "type": "drupal-profile",
             "extra": {
@@ -11827,8 +11850,7 @@
                 },
                 "patches": {
                     "drupal/entity_browser": {
-                        "2845037 - Fixed the issue of Call to a member function getConfigDependencyKey() on null on [Widget view], and [SelectionDisplay view]": "https://www.drupal.org/files/issues/2845037_15.patch",
-                        "2927347 - Having Entity Browser 2.x on the codebase breaks upgrade path": "https://www.drupal.org/files/issues/2019-01-10/Having-Entity-Browser-breaks-upgrade-path-2927347-14.patch"
+                        "2845037 - Fixed the issue of Call to a member function getConfigDependencyKey() on null on [Widget view], and [SelectionDisplay view]": "https://www.drupal.org/files/issues/2845037_15.patch"
                     },
                     "drupal/entity_embed": {
                         "2511404 - Image entities/fields embedded using Entity Embed cannot be linked in CKEditor": "https://www.drupal.org/files/issues/entity_embed_links-2511404-31.patch"
@@ -11860,14 +11882,16 @@
                     "drupal/jquery_colorpicker": {
                         "Use library directory instead vendor": "https://gist.githubusercontent.com/manachynskyi/3b059456ce97dd4380ff0c0e85f41696/raw/4cf7103c75849b2b474424fe9d8ad969192dd779/library_path_update.patch"
                     },
+                    "drupal/field_group": {
+                        "3059614 - Fixed Undefined property: stdClass::$region in field_group_form_process()": "https://www.drupal.org/files/issues/2020-06-15/3059614-37.patch"
+                    },
                     "drupal/colorapi": {
                         "3171235 - Add Value property": "https://www.drupal.org/files/issues/2020-09-16/3171235-2.patch",
                         "Update colorapi configs": "https://gist.githubusercontent.com/manachynskyi/a24c7898a0ed051bc077fc94cc2dc2e8/raw/9524fa2d630d2ee0e0e39316156612b33c854182/colorapi_config_patch.patch"
                     }
                 },
                 "patches_applied": {
-                    "Fix headers": "patches/personify-headers-fix.patch",
-                    "Enable colorapi in proper order for upgrade path": "https://patch-diff.githubusercontent.com/raw/ymcatwincities/openy/pull/2320.diff"
+                    "Fix headers": "patches/personify-headers-fix.patch"
                 }
             },
             "scripts": {
@@ -11884,10 +11908,32 @@
             ],
             "description": "Open Y distribution",
             "support": {
-                "source": "https://github.com/ymcatwincities/openy/tree/8.2.7",
+                "source": "https://github.com/ymcatwincities/openy/tree/8.2.7.1",
                 "issues": "https://github.com/ymcatwincities/openy/issues"
             },
-            "time": "2020-11-10T12:06:04+00:00"
+            "time": "2020-12-22T08:40:39+00:00"
+        },
+        {
+            "name": "ymcatwincities/openy_activity_finder",
+            "version": "3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ymcatwincities/openy_activity_finder.git",
+                "reference": "087fe54fd62d548f3663135187d8fe7ef7e6aae4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "http://openy.cibox.tools:4680/dist/ymcatwincities/openy_activity_finder/ymcatwincities-openy_activity_finder-087fe54fd62d548f3663135187d8fe7ef7e6aae4-zip-d0890f.zip",
+                "reference": "087fe54fd62d548f3663135187d8fe7ef7e6aae4",
+                "shasum": "8cb066e1b6ec3df35c8cf86acaa0aa0a6f2e6210"
+            },
+            "type": "drupal-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "Open Y Activity Finder",
+            "time": "2020-11-12T09:06:49+00:00"
         },
         {
             "name": "ymcatwincities/openy_gated_content",
@@ -14087,16 +14133,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ymcatwincities/openy-cibox-build.git",
-                "reference": "8ed38f00009254c3457641837115d555a2899ae2"
+                "reference": "c2f705f6922e9b42863c80804762050da45b1b3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ymcatwincities/openy-cibox-build/zipball/8ed38f00009254c3457641837115d555a2899ae2",
-                "reference": "8ed38f00009254c3457641837115d555a2899ae2",
+                "url": "https://api.github.com/repos/ymcatwincities/openy-cibox-build/zipball/c2f705f6922e9b42863c80804762050da45b1b3e",
+                "reference": "c2f705f6922e9b42863c80804762050da45b1b3e",
                 "shasum": ""
             },
             "require": {
-                "oomphinc/composer-installers-extender": "^1.1"
+                "oomphinc/composer-installers-extender": "^1.1 || ~2.0.0"
             },
             "type": "cibox-build",
             "notification-url": "https://packagist.org/downloads/",
@@ -14104,7 +14150,7 @@
                 "GPL-2.0+"
             ],
             "description": "Build scripts based on open source project http://cibox.tools",
-            "time": "2020-07-09T14:23:51+00:00"
+            "time": "2020-10-29T07:27:04+00:00"
         },
         {
             "name": "ymcatwincities/openy-cibox-vm",
@@ -14112,16 +14158,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ymcatwincities/openy-cibox-vm.git",
-                "reference": "da0271f7918229804368f26d56ce433711972780"
+                "reference": "7e6709e300d1357d67f6f92bec48a5fe48a376e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ymcatwincities/openy-cibox-vm/zipball/da0271f7918229804368f26d56ce433711972780",
-                "reference": "da0271f7918229804368f26d56ce433711972780",
+                "url": "https://api.github.com/repos/ymcatwincities/openy-cibox-vm/zipball/7e6709e300d1357d67f6f92bec48a5fe48a376e7",
+                "reference": "7e6709e300d1357d67f6f92bec48a5fe48a376e7",
                 "shasum": ""
             },
             "require": {
-                "oomphinc/composer-installers-extender": "^1.1"
+                "oomphinc/composer-installers-extender": "^1.1 || ~2.0.0"
             },
             "type": "cibox-vm",
             "notification-url": "https://packagist.org/downloads/",
@@ -14129,7 +14175,7 @@
                 "GPL-2.0+"
             ],
             "description": "OpenY VM based on open source project http://cibox.tools",
-            "time": "2019-08-23T12:30:27+00:00"
+            "time": "2020-12-24T08:13:03+00:00"
         },
         {
             "name": "ymcatwincities/openy-docksal",
@@ -14137,16 +14183,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ymcatwincities/openy-docksal.git",
-                "reference": "7924ca161af50f32c67955346a791cf903dda826"
+                "reference": "1e5c0a8bc4c60a038fe78b25cae678c4107fbbdd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ymcatwincities/openy-docksal/zipball/7924ca161af50f32c67955346a791cf903dda826",
-                "reference": "7924ca161af50f32c67955346a791cf903dda826",
+                "url": "https://api.github.com/repos/ymcatwincities/openy-docksal/zipball/1e5c0a8bc4c60a038fe78b25cae678c4107fbbdd",
+                "reference": "1e5c0a8bc4c60a038fe78b25cae678c4107fbbdd",
                 "shasum": ""
             },
             "require": {
-                "oomphinc/composer-installers-extender": "^1.1"
+                "oomphinc/composer-installers-extender": "^1.1 || ~2.0.0"
             },
             "type": "docksal-vm",
             "notification-url": "https://packagist.org/downloads/",
@@ -14154,7 +14200,7 @@
                 "GPL-2.0+"
             ],
             "description": "Development Environment for Open Y based on open source tool http://docksal.io",
-            "time": "2020-06-17T14:19:15+00:00"
+            "time": "2020-10-29T07:28:38+00:00"
         }
     ],
     "aliases": [
