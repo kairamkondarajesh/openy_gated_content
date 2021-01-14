@@ -28,7 +28,7 @@
         "drupal/webform": "^6.0@beta",
         "furf/jquery-ui-touch-punch": "dev-master",
         "ymcatwincities/openy": "8.2.7.1",
-        "ymcatwincities/openy_gated_content": "1.1.3",
+        "ymcatwincities/openy_gated_content": "dev-1.1.3-bug-fix",
         "zaporylie/composer-drupal-optimizations": "^1.0"
     },
     "require-dev": {
