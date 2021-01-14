@@ -193,9 +193,9 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://openy.cibox.tools:4680/dist/composer/installers/composer-installers-b93bcf0fa1fccb0b7d176b0967d969691cd74cca-zip-52424b.zip",
+                "url": "https://api.github.com/repos/composer/installers/zipball/b93bcf0fa1fccb0b7d176b0967d969691cd74cca",
                 "reference": "b93bcf0fa1fccb0b7d176b0967d969691cd74cca",
-                "shasum": "c9cfa5198079e3302ccc5eed9f383de5acf003c3"
+                "shasum": ""
             },
             "require": {
                 "composer-plugin-api": "^1.0 || ^2.0"
