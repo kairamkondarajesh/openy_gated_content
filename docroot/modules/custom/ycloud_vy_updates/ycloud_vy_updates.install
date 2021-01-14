@@ -206,6 +206,25 @@ function ycloud_vy_updates_update_8012() {
 }
 
 /**
+ * Enable autologout, set default, and add permission.
+ */
+function ycloud_vy_updates_update_8013()
+{
+  $module_list = [
+    'openy_gc_autologout'
+  ];
+  \Drupal::service('module_installer')->install($module_list);
+
+  $config = [
+    'user.role.site_owner',
+  ];
+  _import_full_config($config, 'optional');
+
+  $config = drupal_get_path('module', 'ycloud_vy_updates') . '/config/optional/openy_gc_autologout.settings.yml';
+  $config_importer = \Drupal::service('openy_upgrade_tool.param_updater');
+  $config_importer->update($config, 'openy_gc_autologout.settings', 'autologout_timeout');
+}
+/**
  * Creates install content.
  *
  * @param array $content
