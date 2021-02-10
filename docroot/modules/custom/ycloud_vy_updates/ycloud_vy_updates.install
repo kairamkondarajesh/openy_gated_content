@@ -8,7 +8,7 @@
 use Drupal\user\Entity\User;
 
 /**
- * Enable and configure disable_messages, role_delegation, and openy_gc_log modules.
+ * Enable & configure disable_messages, role_delegation, openy_gc_log modules.
  */
 function ycloud_vy_updates_install() {
   $module_list = [
@@ -16,7 +16,7 @@ function ycloud_vy_updates_install() {
     'role_delegation',
     'openy_gc_log',
     'openy_gc_shared_content_server',
-    'flood_unblock'
+    'flood_unblock',
   ];
   \Drupal::service('module_installer')->install($module_list);
 
@@ -25,7 +25,7 @@ function ycloud_vy_updates_install() {
     'user.role.site_owner',
     'user.role.editor',
     'user.role.contributor',
-    'editor.editor.full_html'
+    'editor.editor.full_html',
   ];
   _import_full_config($config, 'optional');
 
@@ -39,7 +39,7 @@ function ycloud_vy_updates_update_8001() {
   $config = [
     'disable_messages.settings',
     'user.role.site_owner',
-    'editor.editor.full_html'
+    'editor.editor.full_html',
   ];
   _import_full_config($config, 'optional');
 
@@ -67,13 +67,13 @@ function ycloud_vy_updates_update_8002() {
   $config_importer->setDirectory($config_dir);
   $config_importer->importConfigs([
     'user.role.anonymous.yml',
-    'user.role.authenticated.yml'
+    'user.role.authenticated.yml',
   ]);
 
   $config = [
     'user.role.site_owner',
     'user.role.editor',
-    'user.role.contributor'
+    'user.role.contributor',
   ];
   _import_full_config($config, 'optional');
 }
@@ -103,7 +103,7 @@ function ycloud_vy_updates_update_8003() {
 	<li>After going live: <a href="https://services.ymca.net/supportrequest/?application=virtualy">Submit a support ticket</a></li>
 </ul>
 </div>
-</div>'
+</div>',
         ],
       ],
     ],
@@ -111,7 +111,7 @@ function ycloud_vy_updates_update_8003() {
   ycloud_vy_updates_create_content($default_content);
 
   $config = [
-    'block.block.ycloudsupportmessage'
+    'block.block.ycloudsupportmessage',
   ];
   _import_full_config($config, 'optional');
 }
@@ -133,14 +133,14 @@ function ycloud_vy_updates_update_8004() {
  */
 function ycloud_vy_updates_update_8005() {
   $module_list = [
-    'openy_gc_shared_content_server'
+    'openy_gc_shared_content_server',
   ];
   \Drupal::service('module_installer')->install($module_list);
 
   $config = [
     'user.role.site_owner',
     'user.role.editor',
-    'user.role.contributor'
+    'user.role.contributor',
   ];
   _import_full_config($config, 'optional');
 }
@@ -149,7 +149,7 @@ function ycloud_vy_updates_update_8005() {
  * Give user 1 administrator role.
  */
 function ycloud_vy_updates_update_8006() {
-  $user = \Drupal\user\Entity\User::load(1);
+  $user = User::load(1);
   $user->addRole('administrator');
   $user->save();
 }
@@ -184,7 +184,7 @@ function ycloud_vy_updates_update_8009() {
  */
 function ycloud_vy_updates_update_8011() {
   $module_list = [
-    'flood_unblock'
+    'flood_unblock',
   ];
   \Drupal::service('module_installer')->install($module_list);
 
@@ -200,7 +200,7 @@ function ycloud_vy_updates_update_8012() {
   $config = [
     'user.role.site_owner',
     'user.role.editor',
-    'user.role.contributor'
+    'user.role.contributor',
   ];
   _import_full_config($config, 'optional');
 }
@@ -208,10 +208,9 @@ function ycloud_vy_updates_update_8012() {
 /**
  * Enable autologout, set default, and add permission.
  */
-function ycloud_vy_updates_update_8013()
-{
+function ycloud_vy_updates_update_8013() {
   $module_list = [
-    'openy_gc_autologout'
+    'openy_gc_autologout',
   ];
   \Drupal::service('module_installer')->install($module_list);
 
@@ -224,6 +223,20 @@ function ycloud_vy_updates_update_8013()
   $config_importer = \Drupal::service('openy_upgrade_tool.param_updater');
   $config_importer->update($config, 'openy_gc_autologout.settings', 'autologout_timeout');
 }
+
+/**
+ * Enabled Create and edit URL aliases,.
+ *
+ * Meida Field widget pages, Standalone pages.
+ */
+function ycloud_vy_updates_update_8014() {
+
+  $config = [
+    'user.role.site_owner',
+  ];
+  _import_full_config($config, 'optional');
+}
+
 /**
  * Creates install content.
  *
@@ -240,15 +253,21 @@ function ycloud_vy_updates_create_content(array $content) {
   }
 }
 
+/**
+ * Custom function to import configurations.
+ */
 function _import_full_config(array $config, string $directory = 'install') {
   $config_dir = drupal_get_path('module', 'ycloud_vy_updates');
-  $config_dir .= '/config/'. $directory .'/';
+  $config_dir .= '/config/' . $directory . '/';
   // Import new configuration.
   $config_importer = \Drupal::service('openy_upgrade_tool.importer');
   $config_importer->setDirectory($config_dir);
   $config_importer->importConfigs($config);
 }
 
+/**
+ * Custom function to map virtual_ymca_editor role to user.
+ */
 function _add_vy_editor_role() {
   $ids = \Drupal::entityQuery('user')
     ->condition('roles', 'site_owner')
